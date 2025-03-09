@@ -26,9 +26,12 @@
     "vite-plugin-solid": "^2.11.6"
   },
   "dependencies": {
+    "@date-fns/tz": "^1.2.0",
     "@suid/icons-material": "^0.8.1",
     "@suid/material": "^0.18.0",
     "@suid/vite-plugin": "^0.3.1",
-    "solid-js": "^1.9.5"
+    "date-fns": "^4.1.0",
+    "solid-js": "^1.9.5",
+    "solidjs-use": "^2.3.0"
   }
 }

@@ -1,7 +1,7 @@
 /* @refresh reload */
 import { render } from 'solid-js/web';
 
-import App from './App';
+import App from './pages/Home';
 
 const root = document.getElementById('root');
 

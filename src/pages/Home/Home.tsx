@@ -1,5 +1,8 @@
-import { createTheme, ThemeProvider, CssBaseline, Paper, Typography, Button, createPalette, Table, TableHead, TableBody, TableRow, TableCell } from '@suid/material';
-import { createSignal, For, type Component } from 'solid-js';
+import { TZDate, TZDateMini } from '@date-fns/tz';
+import { createTheme, ThemeProvider, CssBaseline, Paper, Typography, Button, createPalette, Table, TableHead, TableBody, TableRow, TableCell, Grid } from '@suid/material';
+import { formatISO9075, formatRFC3339, formatRFC7231, getUnixTime } from 'date-fns';
+import { createSignal, For, JSX } from 'solid-js';
+import CopyToClipboardButton from '../../components/CopyToClipboardButton';
 
 type ThemeOption = "light" | "dark";
 
@@ -8,23 +11,11 @@ type DateTimeDisplay = {
   function: () => string;
 };
 
-function formatDateToISO9075(date: Date): string {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-based
-  const day = String(date.getDate()).padStart(2, '0');
-  const hours = String(date.getHours()).padStart(2, '0');
-  const minutes = String(date.getMinutes()).padStart(2, '0');
-  const seconds = String(date.getSeconds()).padStart(2, '0');
-
-  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+function formatDateToUnixSeconds(date: TZDate): string {
+  return getUnixTime(date).toString();
 }
 
-function formatDateToUnixSeconds(date: Date): string {
-  const ms = date.getTime();
-  return String(Math.floor(ms / 1000));
-}
-
-function formatDateToUnixMilliseconds(date: Date): string {
+function formatDateToUnixMilliseconds(date: TZDate): string {
   const ms = date.getTime();
   return String(ms);
 }
@@ -33,12 +24,12 @@ const SECONDS_IN_DAY = 24 * 60 * 60;
 const MISSING_LEAP_YEAR_DAY = SECONDS_IN_DAY * 1000;
 const MAGIC_NUMBER_OF_DAYS = (25567 + 2);
 
-function toExcelDate(date: Date): string {
+function toExcelDate(date: TZDate): string {
   const result = (date.getTime() / MISSING_LEAP_YEAR_DAY) + MAGIC_NUMBER_OF_DAYS;
   return result.toFixed(6);
 }
 
-const App: Component = () => {
+export default function Home(): JSX.Element {
   const [mode, setMode] = createSignal<ThemeOption>("dark");
   const palette = () => {
     return createPalette({
@@ -52,29 +43,38 @@ const App: Component = () => {
     return mode() === "light" ? "dark" : "light";
   }
 
-  // date-time
-  const [now, setNow] = createSignal<Date>(new Date());
-  setInterval(() => setNow(new Date()), 1);
+  const [now, setNow] = createSignal<TZDate>(new TZDateMini());
+  setInterval(() => setNow(new TZDateMini()), 1);
 
   const displays: DateTimeDisplay[] = [
     {
       format: "Indonesian Locale",
-      function: () => now().toLocaleString("id-ID", { timeZone: "Asia/Jakarta" }),
+      function: () => now().toLocaleString("id-ID"),
     },
     {
       format: "RFC 3339",
-      function: () => now().toISOString(),
+      function: () => formatRFC3339(now()),
+    },
+    {
+      format: "RFC 3339 with Fractions",
+      function: () => formatRFC3339(now(), {
+        fractionDigits: 3,
+      }),
     },
     {
       format: "ISO 9075",
-      function: () => formatDateToISO9075(now()),
+      function: () => formatISO9075(now()),
+    },
+    {
+      format: "RFC 7231",
+      function: () => formatRFC7231(now()),
     },
     {
       format: "Unix Timestamp (seconds)",
       function: () => formatDateToUnixSeconds(now()),
     },
     {
-      format: "Unix Timestamp (milliseconds)",
+      format: "Timestamp (milliseconds)",
       function: () => formatDateToUnixMilliseconds(now()),
     },
     {
@@ -115,7 +115,19 @@ const App: Component = () => {
                     <TableCell>{display.format}</TableCell>
                     <TableCell sx={{
                       width: "80%",
-                    }}>{display.function()}</TableCell>
+                    }}>
+                      <Grid container flexGrow={1} alignItems='center'>
+                        <Grid item>
+                          {display.function()}
+                        </Grid>
+                        <Grid item sx={{
+                          marginLeft: "auto",
+                          marginRight: "0",
+                        }}>
+                          <CopyToClipboardButton function={display.function} />
+                        </Grid>
+                      </Grid>
+                    </TableCell>
                   </TableRow>
                 )}
               </For>
@@ -126,5 +138,3 @@ const App: Component = () => {
     </>
   );
 };
-
-export default App;
