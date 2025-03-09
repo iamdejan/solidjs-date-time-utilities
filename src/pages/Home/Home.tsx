@@ -1,91 +1,13 @@
-import { TZDate, TZDateMini } from '@date-fns/tz';
-import { createTheme, ThemeProvider, CssBaseline, Paper, Typography, Button, createPalette, Table, TableHead, TableBody, TableRow, TableCell, Grid } from '@suid/material';
-import { formatISO9075, formatRFC3339, formatRFC7231, getTime, getUnixTime } from 'date-fns';
-import { createSignal, For, JSX } from 'solid-js';
+import { ThemeProvider, CssBaseline, Paper, Typography, Button, Table, TableHead, TableBody, TableRow, TableCell, Grid } from '@suid/material';
+import { For, JSX } from 'solid-js';
 import CopyToClipboardButton from '../../components/CopyToClipboardButton';
+import { useThemeOption } from './hooks/useThemeOption';
+import { useDisplayTimeFormats } from './hooks/useDisplayTimeFormat';
 
-type ThemeOption = "light" | "dark";
-
-type DateTimeDisplay = {
-  format: string;
-  function: () => string;
-};
-
-function formatDateToUnixSeconds(date: TZDate): string {
-  return getUnixTime(date).toString();
-}
-
-function formatDateToUnixMilliseconds(date: TZDate): string {
-  const ms = getTime(date);
-  return String(ms);
-}
-
-const SECONDS_IN_DAY = 24 * 60 * 60;
-const MISSING_LEAP_YEAR_DAY = SECONDS_IN_DAY * 1000;
-const MAGIC_NUMBER_OF_DAYS = (25567 + 2);
-
-function toExcelDate(date: TZDate): string {
-  const result = (date.getTime() / MISSING_LEAP_YEAR_DAY) + MAGIC_NUMBER_OF_DAYS;
-  return result.toFixed(6);
-}
 
 export default function Home(): JSX.Element {
-  const [mode, setMode] = createSignal<ThemeOption>("dark");
-  const palette = () => {
-    return createPalette({
-      mode: mode(),
-    });
-  };
-  const theme = () => createTheme({
-    palette: palette,
-  });
-  function nextTheme(): ThemeOption {
-    return mode() === "light" ? "dark" : "light";
-  }
-
-  const [now, setNow] = createSignal<TZDate>(new TZDateMini());
-  setInterval(() => setNow(new TZDateMini()), 1);
-
-  const displays: DateTimeDisplay[] = [
-    {
-      format: "Locale",
-      function: () => now().toString(),
-    },
-    {
-      format: "UTC Format",
-      function: () => now().toUTCString(),
-    },
-    {
-      format: "RFC 3339",
-      function: () => formatRFC3339(now()),
-    },
-    {
-      format: "RFC 3339 with Fractions",
-      function: () => formatRFC3339(now(), {
-        fractionDigits: 3,
-      }),
-    },
-    {
-      format: "ISO 9075",
-      function: () => formatISO9075(now()),
-    },
-    {
-      format: "RFC 7231",
-      function: () => formatRFC7231(now()),
-    },
-    {
-      format: "Unix Timestamp (seconds)",
-      function: () => formatDateToUnixSeconds(now()),
-    },
-    {
-      format: "Timestamp (milliseconds)",
-      function: () => formatDateToUnixMilliseconds(now()),
-    },
-    {
-      format: "Excel Date (1900)",
-      function: () => toExcelDate(now()),
-    },
-  ];
+  const { mode, setMode, theme, nextTheme } = useThemeOption();
+  const { displays } = useDisplayTimeFormats();
 
   return (
     <>
