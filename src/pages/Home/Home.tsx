@@ -1,6 +1,6 @@
 import { TZDate, TZDateMini } from '@date-fns/tz';
 import { createTheme, ThemeProvider, CssBaseline, Paper, Typography, Button, createPalette, Table, TableHead, TableBody, TableRow, TableCell, Grid } from '@suid/material';
-import { formatISO9075, formatRFC3339, formatRFC7231, getUnixTime } from 'date-fns';
+import { formatISO9075, formatRFC3339, formatRFC7231, getTime, getUnixTime } from 'date-fns';
 import { createSignal, For, JSX } from 'solid-js';
 import CopyToClipboardButton from '../../components/CopyToClipboardButton';
 
@@ -16,7 +16,7 @@ function formatDateToUnixSeconds(date: TZDate): string {
 }
 
 function formatDateToUnixMilliseconds(date: TZDate): string {
-  const ms = date.getTime();
+  const ms = getTime(date);
   return String(ms);
 }
 
@@ -48,8 +48,12 @@ export default function Home(): JSX.Element {
 
   const displays: DateTimeDisplay[] = [
     {
-      format: "Indonesian Locale",
-      function: () => now().toLocaleString("id-ID"),
+      format: "Locale",
+      function: () => now().toString(),
+    },
+    {
+      format: "UTC Format",
+      function: () => now().toUTCString(),
     },
     {
       format: "RFC 3339",
