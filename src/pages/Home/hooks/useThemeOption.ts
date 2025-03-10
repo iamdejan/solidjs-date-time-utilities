@@ -7,8 +7,8 @@ type HookOutput = {
   mode: Accessor<ThemeOption>;
   setMode: Setter<ThemeOption>;
 
-  theme: () => ReturnType<typeof createTheme>;
-  nextTheme: () => ThemeOption;
+  theme: Accessor<ReturnType<typeof createTheme>>;
+  nextTheme: Accessor<ThemeOption>;
 };
 
 export function useThemeOption(): HookOutput {
