@@ -1,7 +1,23 @@
 /* @refresh reload */
 import { render } from 'solid-js/web';
 
-import App from './pages/Home';
+import { createRouter, RouterProvider } from '@tanstack/solid-router';
+
+// Import the generated route tree
+import { routeTree } from './routeTree.gen'
+
+const router = createRouter({
+  routeTree,
+  defaultPreload: "intent",
+})
+
+// Register the router instance for type safety
+declare module '@tanstack/solid-router' {
+  // eslint-disable-next-line no-unused-vars
+  interface Register {
+    router: typeof router
+  }
+}
 
 const root = document.getElementById('root');
 
@@ -11,4 +27,4 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-render(() => <App />, root!);
+render(() => <RouterProvider router={router} />, root!);

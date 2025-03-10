@@ -91,13 +91,21 @@ export default function Home(): JSX.Element {
                 }}
               >Home</ListItem>
             </Link>
-            <ListItem
-              sx={{
-                "&:hover": {
-                  backgroundColor: hoverColor(),
-                },
-              }}
-            >Interval Calculator</ListItem>
+            <Link href="/interval-calculator" sx={{
+              textDecoration: "none",
+              color: "inherit",
+              boxShadow: "none",
+            }}>
+              <ListItem
+                sx={{
+                  "&:hover": {
+                    backgroundColor: hoverColor(),
+                  },
+                }}
+              >
+                Interval Calculator
+              </ListItem>
+            </Link>
           </List>
         </Drawer>
       </ThemeProvider>
