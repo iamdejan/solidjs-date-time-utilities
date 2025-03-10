@@ -1,3 +1,3 @@
-# My Solid Superweb
+# Solidjs Date Time Utilities
 
-My attempt at creating Solidjs-based websites.
+My attempt at creating date-time utilities.

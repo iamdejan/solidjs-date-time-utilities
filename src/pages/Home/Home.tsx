@@ -18,7 +18,7 @@ export default function Home(): JSX.Element {
           minWidth: "100%",
         }}>
           <Typography variant="h1" sx={{ textAlign: "center" }}>
-            My Solid Superweb
+            Solidjs Date Time Utilities
           </Typography>
 
           <Button onClick={() => setMode(mode() === "light" ? "dark" : "light")}>
