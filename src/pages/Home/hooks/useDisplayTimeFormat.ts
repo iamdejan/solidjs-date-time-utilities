@@ -1,5 +1,11 @@
 import { TZDate, TZDateMini } from "@date-fns/tz";
-import { formatISO9075, formatRFC3339, formatRFC7231, getTime, getUnixTime } from "date-fns";
+import {
+  formatISO9075,
+  formatRFC3339,
+  formatRFC7231,
+  getTime,
+  getUnixTime,
+} from "date-fns";
 import { createSignal } from "solid-js";
 
 type HookOutput = {
@@ -22,10 +28,10 @@ function formatDateToUnixMilliseconds(date: TZDate): string {
 
 const SECONDS_IN_DAY = 24 * 60 * 60;
 const MISSING_LEAP_YEAR_DAY = SECONDS_IN_DAY * 1000;
-const MAGIC_NUMBER_OF_DAYS = (25567 + 2);
+const MAGIC_NUMBER_OF_DAYS = 25567 + 2;
 
 function toExcelDate(date: TZDate): string {
-  const result = (date.getTime() / MISSING_LEAP_YEAR_DAY) + MAGIC_NUMBER_OF_DAYS;
+  const result = date.getTime() / MISSING_LEAP_YEAR_DAY + MAGIC_NUMBER_OF_DAYS;
   return result.toFixed(6);
 }
 
@@ -52,9 +58,10 @@ export function useDisplayTimeFormats(): HookOutput {
     },
     {
       format: "RFC 3339 with Milliseconds",
-      function: () => formatRFC3339(now(), {
-        fractionDigits: 3,
-      }),
+      function: () =>
+        formatRFC3339(now(), {
+          fractionDigits: 3,
+        }),
     },
     {
       format: "ISO 9075",

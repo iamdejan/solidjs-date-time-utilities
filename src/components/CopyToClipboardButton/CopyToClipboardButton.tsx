@@ -5,7 +5,7 @@ import { useClipboard } from "solidjs-use";
 
 type Props = {
   function: () => string;
-}
+};
 
 export default function CopyToClipboardButton(props: Props): JSX.Element {
   const { copy } = useClipboard();
@@ -15,4 +15,4 @@ export default function CopyToClipboardButton(props: Props): JSX.Element {
       <ContentCopyIcon />
     </IconButton>
   );
-};
+}

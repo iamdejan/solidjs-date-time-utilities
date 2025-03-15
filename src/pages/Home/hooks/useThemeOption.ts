@@ -18,9 +18,10 @@ export function useThemeOption(): HookOutput {
       mode: mode(),
     });
   };
-  const theme = () => createTheme({
-    palette: palette,
-  });
+  const theme = () =>
+    createTheme({
+      palette: palette,
+    });
   function nextTheme(): ThemeOption {
     return mode() === "light" ? "dark" : "light";
   }
@@ -30,5 +31,5 @@ export function useThemeOption(): HookOutput {
     setMode,
     theme,
     nextTheme,
-  }
+  };
 }
