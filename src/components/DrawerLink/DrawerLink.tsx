@@ -2,7 +2,7 @@ import { ListItem } from "@suid/material";
 import { createLink } from "@tanstack/solid-router";
 import { JSX } from "solid-js";
 import { grey } from "@suid/material/colors";
-import useThemeModeSignal from "../../hooks/useThemeModeSignal";
+import useMode from "../../hooks/useThemeModeSignal";
 
 type Props = {
   to: string;
@@ -12,7 +12,7 @@ type Props = {
 type BasicLinkProps = JSX.IntrinsicElements["a"];
 
 export default function DrawerLink(props: Props): JSX.Element {
-  const mode = useThemeModeSignal((state) => state.mode);
+  const mode = useMode((state) => state.mode);
   function hoverColor(): string {
     return mode() === "light" ? grey[200] : grey[800];
   }

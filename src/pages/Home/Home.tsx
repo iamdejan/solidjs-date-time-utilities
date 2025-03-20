@@ -13,12 +13,12 @@ import {
 import { For, JSX } from "solid-js";
 import CopyToClipboardButton from "../../components/CopyToClipboardButton";
 import { useDisplayTimeFormats } from "./hooks/useDisplayTimeFormat";
-import useThemeModeSignal, { nextTheme } from "../../hooks/useThemeModeSignal";
+import useMode, { nextMode } from "../../hooks/useThemeModeSignal";
 
 export default function Home(): JSX.Element {
   const { displays } = useDisplayTimeFormats();
-  const mode = useThemeModeSignal((state) => state.mode);
-  const switchMode = useThemeModeSignal((state) => state.switch);
+  const mode = useMode((state) => state.mode);
+  const switchMode = useMode((state) => state.switch);
   const theme = useTheme();
 
   return (
@@ -28,7 +28,7 @@ export default function Home(): JSX.Element {
       </Typography>
 
       <Button onClick={switchMode}>
-        Change theme from {theme.palette.mode} to {nextTheme(mode())}
+        Change theme from {theme.palette.mode} to {nextMode(mode())}
       </Button>
 
       <Table component={Paper}>

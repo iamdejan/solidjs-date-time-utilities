@@ -1,19 +1,19 @@
 import { createWithSignal } from "solid-zustand";
 
-export type ThemeOption = "light" | "dark";
+export type Mode = "light" | "dark";
 
-type ThemeState = {
-  mode: ThemeOption;
+type ModeState = {
+  mode: Mode;
   switch: () => void;
 };
 
-export function nextTheme(mode: ThemeOption): ThemeOption {
+export function nextMode(mode: Mode): Mode {
   return mode === "light" ? "dark" : "light";
 }
 
-const useThemeModeSignal = createWithSignal<ThemeState>((set) => ({
+const useMode = createWithSignal<ModeState>((set) => ({
   mode: "dark",
-  switch: () => set((state) => ({ mode: nextTheme(state.mode) })),
+  switch: () => set((state) => ({ mode: nextMode(state.mode) })),
 }));
 
-export default useThemeModeSignal;
+export default useMode;
