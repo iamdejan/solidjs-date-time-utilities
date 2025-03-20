@@ -1,18 +1,18 @@
 import { createPalette, createTheme } from "@suid/material";
-import { Accessor, createSignal, Setter } from "solid-js";
-
-export type ThemeOption = "light" | "dark";
+import { Accessor } from "solid-js";
+import useThemeModeSignal, {
+  ThemeOption,
+} from "../../../hooks/useThemeModeSignal";
 
 type HookOutput = {
   mode: Accessor<ThemeOption>;
-  setMode: Setter<ThemeOption>;
 
   theme: Accessor<ReturnType<typeof createTheme>>;
   nextTheme: Accessor<ThemeOption>;
 };
 
 export function useThemeOption(): HookOutput {
-  const [mode, setMode] = createSignal<ThemeOption>("dark");
+  const mode = useThemeModeSignal((state) => state.mode);
   const palette = () => {
     return createPalette({
       mode: mode(),
@@ -28,7 +28,6 @@ export function useThemeOption(): HookOutput {
 
   return {
     mode,
-    setMode,
     theme,
     nextTheme,
   };

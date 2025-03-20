@@ -1,7 +1,7 @@
 import { ListItem } from "@suid/material";
 import { createLink } from "@tanstack/solid-router";
 import { JSX } from "solid-js";
-import { useThemeOption } from "../../pages/Home/hooks/useThemeOption";
+import { useThemeOption } from "../RootMenu/hooks/useThemeOption";
 import { grey } from "@suid/material/colors";
 
 type Props = {
