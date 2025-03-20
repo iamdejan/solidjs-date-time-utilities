@@ -12,7 +12,7 @@ import { Outlet } from "@tanstack/solid-router";
 import { createSignal, JSX } from "solid-js";
 import MenuIcon from "@suid/icons-material/Menu";
 import DrawerLink from "../DrawerLink/DrawerLink";
-import { createThemeWithPredefinedMode } from "./hooks/useThemeOption";
+import { createThemeWithPredefinedMode } from "./hooks/createThemeWithPredefinedMode";
 
 export default function RootMenu(): JSX.Element {
   const { theme } = createThemeWithPredefinedMode();
