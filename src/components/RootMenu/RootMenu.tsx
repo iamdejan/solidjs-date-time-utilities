@@ -5,6 +5,7 @@ import {
   CssBaseline,
   Drawer,
   List,
+  Paper,
   ThemeProvider,
   Toolbar,
   Typography,
@@ -13,10 +14,10 @@ import { Outlet } from "@tanstack/solid-router";
 import { createSignal, JSX } from "solid-js";
 import MenuIcon from "@suid/icons-material/Menu";
 import DrawerLink from "../DrawerLink/DrawerLink";
-import { createThemeWithPredefinedMode } from "./hooks/createThemeWithPredefinedMode";
+import { useThemeWithMode } from "./hooks/useThemeWithMode";
 
 export default function RootMenu(): JSX.Element {
-  const { theme } = createThemeWithPredefinedMode();
+  const { theme } = useThemeWithMode();
   const [open, setOpen] = createSignal<boolean>(false);
 
   return (
@@ -42,7 +43,14 @@ export default function RootMenu(): JSX.Element {
             </Toolbar>
           </Container>
         </AppBar>
-        <Outlet />
+        <Paper
+          sx={{
+            minHeight: "100vh",
+            minWidth: "100%",
+          }}
+        >
+          <Outlet />
+        </Paper>
         <Drawer open={open()} onClose={() => setOpen(false)}>
           <List>
             <DrawerLink to="/" text="Home" />

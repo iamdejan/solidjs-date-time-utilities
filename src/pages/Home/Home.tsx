@@ -22,12 +22,7 @@ export default function Home(): JSX.Element {
   const theme = useTheme();
 
   return (
-    <Paper
-      sx={{
-        minHeight: "100vh",
-        minWidth: "100%",
-      }}
-    >
+    <>
       <Typography variant="h2" sx={{ textAlign: "center" }}>
         Home
       </Typography>
@@ -77,6 +72,6 @@ export default function Home(): JSX.Element {
           </For>
         </TableBody>
       </Table>
-    </Paper>
+    </>
   );
 }

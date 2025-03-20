@@ -6,7 +6,7 @@ type HookOutput = {
   theme: Accessor<ReturnType<typeof createTheme>>;
 };
 
-export function createThemeWithPredefinedMode(): HookOutput {
+export function useThemeWithMode(): HookOutput {
   const mode = useThemeModeSignal((state) => state.mode);
   const palette = () => {
     return createPalette({
