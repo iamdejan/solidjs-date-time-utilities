@@ -28,8 +28,8 @@ export default function Home(): JSX.Element {
         minWidth: "100%",
       }}
     >
-      <Typography variant="h1" sx={{ textAlign: "center" }}>
-        Solidjs Date Time Utilities
+      <Typography variant="h2" sx={{ textAlign: "center" }}>
+        Home
       </Typography>
 
       <Button onClick={switchMode}>

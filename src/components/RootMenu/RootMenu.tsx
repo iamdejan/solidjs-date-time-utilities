@@ -7,6 +7,7 @@ import {
   List,
   ThemeProvider,
   Toolbar,
+  Typography,
 } from "@suid/material";
 import { Outlet } from "@tanstack/solid-router";
 import { createSignal, JSX } from "solid-js";
@@ -22,12 +23,22 @@ export default function RootMenu(): JSX.Element {
     <>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <AppBar position="static">
+        <AppBar position="static" sx={{ margin: "0", padding: "0" }}>
           <Container maxWidth={false}>
             <Toolbar disableGutters>
               <Button color="inherit" onClick={() => setOpen(true)}>
                 <MenuIcon />
               </Button>
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{
+                  marginLeft: "auto",
+                  marginRight: "0",
+                }}
+              >
+                SolidJS Date Time Utilities
+              </Typography>
             </Toolbar>
           </Container>
         </AppBar>
