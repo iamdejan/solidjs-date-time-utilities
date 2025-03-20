@@ -2,7 +2,7 @@ import { ListItem } from "@suid/material";
 import { createLink } from "@tanstack/solid-router";
 import { JSX } from "solid-js";
 import { grey } from "@suid/material/colors";
-import useMode from "../../hooks/useThemeModeSignal";
+import useMode from "../../hooks/useMode";
 
 type Props = {
   to: string;

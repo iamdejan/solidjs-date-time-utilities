@@ -1,6 +1,6 @@
 import { createPalette, createTheme } from "@suid/material";
 import { Accessor } from "solid-js";
-import useMode from "../../../hooks/useThemeModeSignal";
+import useMode from "../../../hooks/useMode";
 
 type HookOutput = {
   theme: Accessor<ReturnType<typeof createTheme>>;

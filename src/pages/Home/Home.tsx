@@ -13,7 +13,7 @@ import {
 import { For, JSX } from "solid-js";
 import CopyToClipboardButton from "../../components/CopyToClipboardButton";
 import { useDisplayTimeFormats } from "./hooks/useDisplayTimeFormat";
-import useMode, { nextMode } from "../../hooks/useThemeModeSignal";
+import useMode, { nextMode } from "../../hooks/useMode";
 
 export default function Home(): JSX.Element {
   const { displays } = useDisplayTimeFormats();
