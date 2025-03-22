@@ -1,9 +1,6 @@
-import { createRootRoute, Outlet } from "@tanstack/solid-router";
+import { createRootRoute } from "@tanstack/solid-router";
+import RootMenu from "../components/RootMenu";
 
 export const Route = createRootRoute({
-  component: () => (
-    <>
-      <Outlet />
-    </>
-  ),
+  component: RootMenu,
 });

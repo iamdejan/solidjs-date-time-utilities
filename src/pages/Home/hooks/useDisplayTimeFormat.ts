@@ -1,5 +1,6 @@
 import { TZDate, TZDateMini } from "@date-fns/tz";
 import {
+  format,
   formatISO9075,
   formatRFC3339,
   formatRFC7231,
@@ -16,6 +17,10 @@ type DateTimeDisplay = {
   format: string;
   function: () => string;
 };
+
+function getDateString(date: Date): string {
+  return format(date, "yyyy-MM-dd");
+}
 
 function formatDateToUnixSeconds(date: TZDate): string {
   return getUnixTime(date).toString();
@@ -40,6 +45,10 @@ export function useDisplayTimeFormats(): HookOutput {
   setInterval(() => setNow(new TZDateMini()), 1);
 
   const displays: DateTimeDisplay[] = [
+    {
+      format: "Date",
+      function: () => getDateString(now()),
+    },
     {
       format: "Locale",
       function: () => now().toString(),
