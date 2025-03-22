@@ -12,7 +12,7 @@ function nextMode(mode: Mode): Mode {
 }
 
 const useMode = createWithSignal<ModeState>((set) => ({
-  mode: "light",
+  mode: "dark",
   switch: () => set((state) => ({ mode: nextMode(state.mode) })),
 }));
 
