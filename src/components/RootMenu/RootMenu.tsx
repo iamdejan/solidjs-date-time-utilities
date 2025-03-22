@@ -3,8 +3,10 @@ import {
   Button,
   Container,
   CssBaseline,
+  Divider,
   Drawer,
   List,
+  ListItem,
   Paper,
   ThemeProvider,
   Toolbar,
@@ -15,6 +17,7 @@ import { createSignal, JSX } from "solid-js";
 import MenuIcon from "@suid/icons-material/Menu";
 import DrawerLink from "../DrawerLink/DrawerLink";
 import { useThemeWithMode } from "./hooks/useThemeWithMode";
+import ThemeSwitch from "../ThemeSwitch";
 
 export default function RootMenu(): JSX.Element {
   const { theme } = useThemeWithMode();
@@ -55,6 +58,12 @@ export default function RootMenu(): JSX.Element {
           <List>
             <DrawerLink to="/" text="Home" />
             <DrawerLink to="/interval-calculator" text="Interval Calculator" />
+          </List>
+          <Divider />
+          <List>
+            <ListItem>
+              <ThemeSwitch />
+            </ListItem>
           </List>
         </Drawer>
       </ThemeProvider>

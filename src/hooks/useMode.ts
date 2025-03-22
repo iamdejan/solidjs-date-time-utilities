@@ -7,7 +7,7 @@ type ModeState = {
   switch: () => void;
 };
 
-export function nextMode(mode: Mode): Mode {
+function nextMode(mode: Mode): Mode {
   return mode === "light" ? "dark" : "light";
 }
 

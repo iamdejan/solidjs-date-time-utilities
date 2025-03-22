@@ -7,29 +7,19 @@ import {
   TableRow,
   TableCell,
   Grid,
-  Button,
-  useTheme,
 } from "@suid/material";
 import { For, JSX } from "solid-js";
 import CopyToClipboardButton from "../../components/CopyToClipboardButton";
 import { useDisplayTimeFormats } from "./hooks/useDisplayTimeFormat";
-import useMode, { nextMode } from "../../hooks/useMode";
 
 export default function Home(): JSX.Element {
   const { displays } = useDisplayTimeFormats();
-  const mode = useMode((state) => state.mode);
-  const switchMode = useMode((state) => state.switch);
-  const theme = useTheme();
 
   return (
     <>
       <Typography variant="h2" sx={{ textAlign: "center" }}>
         Home
       </Typography>
-
-      <Button onClick={switchMode}>
-        Change theme from {theme.palette.mode} to {nextMode(mode())}
-      </Button>
 
       <Table component={Paper}>
         <TableHead>
