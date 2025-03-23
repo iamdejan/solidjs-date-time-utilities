@@ -6,7 +6,7 @@ function getDateString(date: Date): string {
   return format(date, "yyyy-MM-dd");
 }
 
-export default function IntervalCalculator(): JSX.Element {
+export default function AgeCalculator(): JSX.Element {
   const [years, setYears] = createSignal<number>(0);
   const [months, setMonths] = createSignal<number>(0);
   const [days, setDays] = createSignal<number>(0);
@@ -36,7 +36,7 @@ export default function IntervalCalculator(): JSX.Element {
   return (
     <>
       <Typography variant="h2" sx={{ textAlign: "center", marginBottom: 2 }}>
-        Interval Calculator
+        Age Calculator
       </Typography>
 
       <Container

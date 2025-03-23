@@ -11,14 +11,14 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as IntervalCalculatorImport } from './routes/interval-calculator'
+import { Route as AgeCalculatorImport } from './routes/age-calculator'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
 
-const IntervalCalculatorRoute = IntervalCalculatorImport.update({
-  id: '/interval-calculator',
-  path: '/interval-calculator',
+const AgeCalculatorRoute = AgeCalculatorImport.update({
+  id: '/age-calculator',
+  path: '/age-calculator',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -39,11 +39,11 @@ declare module '@tanstack/solid-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/interval-calculator': {
-      id: '/interval-calculator'
-      path: '/interval-calculator'
-      fullPath: '/interval-calculator'
-      preLoaderRoute: typeof IntervalCalculatorImport
+    '/age-calculator': {
+      id: '/age-calculator'
+      path: '/age-calculator'
+      fullPath: '/age-calculator'
+      preLoaderRoute: typeof AgeCalculatorImport
       parentRoute: typeof rootRoute
     }
   }
@@ -53,37 +53,37 @@ declare module '@tanstack/solid-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/interval-calculator': typeof IntervalCalculatorRoute
+  '/age-calculator': typeof AgeCalculatorRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/interval-calculator': typeof IntervalCalculatorRoute
+  '/age-calculator': typeof AgeCalculatorRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/interval-calculator': typeof IntervalCalculatorRoute
+  '/age-calculator': typeof AgeCalculatorRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/interval-calculator'
+  fullPaths: '/' | '/age-calculator'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/interval-calculator'
-  id: '__root__' | '/' | '/interval-calculator'
+  to: '/' | '/age-calculator'
+  id: '__root__' | '/' | '/age-calculator'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  IntervalCalculatorRoute: typeof IntervalCalculatorRoute
+  AgeCalculatorRoute: typeof AgeCalculatorRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  IntervalCalculatorRoute: IntervalCalculatorRoute,
+  AgeCalculatorRoute: AgeCalculatorRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,14 +97,14 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/interval-calculator"
+        "/age-calculator"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/interval-calculator": {
-      "filePath": "interval-calculator.tsx"
+    "/age-calculator": {
+      "filePath": "age-calculator.tsx"
     }
   }
 }

@@ -57,7 +57,7 @@ export default function RootMenu(): JSX.Element {
         <Drawer open={open()} onClose={() => setOpen(false)}>
           <List>
             <DrawerLink to="/" text="Home" />
-            <DrawerLink to="/interval-calculator" text="Interval Calculator" />
+            <DrawerLink to="/age-calculator" text="Age Calculator" />
           </List>
           <Divider />
           <List>
