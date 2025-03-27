@@ -26,6 +26,7 @@ type HookOutput = {
 };
 
 export default function useCityDropDown(): HookOutput {
+  const [searchText, setSearchText] = createSignal("");
   const [selectedTZDropDown, setSelectedTZDropDown] = createSignal<string>("");
   const [chosenTimeZones, setChosenTimeZones] = createSignal<City[]>([
     {
@@ -58,6 +59,7 @@ export default function useCityDropDown(): HookOutput {
 
       setChosenTimeZones([...chosenTimeZones(), found]);
       setSelectedTZDropDown("");
+      setSearchText("");
     }
   }
 
@@ -74,7 +76,6 @@ export default function useCityDropDown(): HookOutput {
     setChosenTimeZones(chosenTimeZones().filter((city) => city.key !== key));
   }
 
-  const [searchText, setSearchText] = createSignal("");
   function displayedCityList(): City[] {
     return sortedCityList().filter((city) => {
       return (
