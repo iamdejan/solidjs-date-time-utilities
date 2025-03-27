@@ -4,6 +4,7 @@ import {
   Box,
   Fab,
   FormControl,
+  IconButton,
   InputLabel,
   MenuItem,
   Paper,
@@ -20,14 +21,15 @@ import AddIcon from "@suid/icons-material/Add";
 import sortedCityList from "./cityList";
 import useDateTimeRange, { max, min } from "./useDateTimeRange";
 import useExtraColumn from "./useExtraColumn";
-import useCityDropDown from "./useCityDropDown";
+import useCityDropDown, { zeroULID } from "./useCityDropDown";
+import DeleteIcon from "@suid/icons-material/Delete";
 
 const style = {
   display: "flex",
   flexGrow: "1",
 } as CSSStyleDeclaration;
 
-function convertToTimeZone(date: Date, timeZone: string): TZDate {
+function changeTimeZone(date: Date, timeZone: string): TZDate {
   return new TZDate(date, timeZone);
 }
 
@@ -47,6 +49,7 @@ export default function TimeConverter(): JSX.Element {
     handleTimeZoneSelectChange,
     chosenTimeZones,
     addChosenTimeZone,
+    removeChosenTimeZone,
   } = useCityDropDown();
 
   const { canShowExtraColumn } = useExtraColumn();
@@ -140,10 +143,19 @@ export default function TimeConverter(): JSX.Element {
                   <TableCell>{timeZoneData.timeZone}</TableCell>
                 </Show>
                 <TableCell>
-                  {convertToTimeZone(start(), timeZoneData.timeZone).toString()}
+                  {changeTimeZone(start(), timeZoneData.timeZone).toString()}
                 </TableCell>
                 <TableCell>
-                  {convertToTimeZone(end(), timeZoneData.timeZone).toString()}
+                  {changeTimeZone(end(), timeZoneData.timeZone).toString()}
+                </TableCell>
+                <TableCell>
+                  <Show when={timeZoneData.key !== zeroULID}>
+                    <IconButton
+                      onClick={() => removeChosenTimeZone(timeZoneData.key)}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  </Show>
                 </TableCell>
               </TableRow>
             )}

@@ -4,6 +4,8 @@ import sortedCityList from "./cityList";
 import { SelectChangeEvent } from "@suid/material/Select";
 import { Accessor } from "solid-js";
 
+export const zeroULID = "00000000000000000000000000";
+
 function getLocalTimeZone(): string {
   return Intl.DateTimeFormat().resolvedOptions().timeZone;
 }
@@ -15,13 +17,15 @@ type HookOutput = {
 
   chosenTimeZones: Accessor<City[]>;
   addChosenTimeZone: () => void;
+  // eslint-disable-next-line no-unused-vars
+  removeChosenTimeZone: (key: string) => void;
 };
 
 export default function useCityDropDown(): HookOutput {
   const [selectedTZDropDown, setSelectedTZDropDown] = createSignal<string>("");
   const [chosenTimeZones, setChosenTimeZones] = createSignal<City[]>([
     {
-      key: "00000000000000000000000000",
+      key: zeroULID,
       timeZone: getLocalTimeZone(),
       name: "(User's Location)",
       country: "",
@@ -41,9 +45,29 @@ export default function useCityDropDown(): HookOutput {
         return;
       }
 
+      const alreadyExists = chosenTimeZones().find(
+        (city) => city.key === selectedKey,
+      );
+      if (alreadyExists) {
+        return;
+      }
+
       setChosenTimeZones([...chosenTimeZones(), found]);
       setSelectedTZDropDown("");
     }
+  }
+
+  function removeChosenTimeZone(key: string) {
+    const found = chosenTimeZones().filter((city) => city.key === key);
+    if (!found) {
+      return;
+    }
+
+    if (found[0].key === zeroULID) {
+      return;
+    }
+
+    setChosenTimeZones(chosenTimeZones().filter((city) => city.key !== key));
   }
 
   return {
@@ -51,5 +75,6 @@ export default function useCityDropDown(): HookOutput {
     handleTimeZoneSelectChange,
     chosenTimeZones,
     addChosenTimeZone,
+    removeChosenTimeZone,
   };
 }
