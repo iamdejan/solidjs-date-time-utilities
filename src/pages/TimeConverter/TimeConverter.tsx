@@ -19,11 +19,12 @@ import { TZDate } from "@date-fns/tz";
 import { SelectChangeEvent } from "@suid/material/Select";
 import AddIcon from "@suid/icons-material/Add";
 
+const min = 0;
+const max = 96;
+
 const style = {
   display: "flex",
   flexGrow: "1",
-  marginLeft: "1rem",
-  marginRight: "1rem",
 } as CSSStyleDeclaration;
 
 type TimeZoneData = {
@@ -113,24 +114,26 @@ export default function TimeConverter(): JSX.Element {
   function addChosenTimeZone() {
     const selected = selectedTZDropDown();
     if (selected) {
-      const chosenList = chosenTimeZones();
-      chosenList.push(selected);
-      setChosenTimeZones(chosenList);
-
-      setSelectedTZDropDown(undefined);
+      setChosenTimeZones([...chosenTimeZones(), selected]);
     }
   }
 
   function handleSliderChange(ev: Event) {
     const target = ev.target as MdSlider;
-    if (target.valueStart) {
-      setStartValue(target.valueStart);
-    }
-    if (target.valueEnd) {
-      setEndValue(target.valueEnd);
+    if (!target) {
+      return;
     }
 
+    if (target.valueStart === undefined) {
+      target.valueStart = min;
+    }
+    setStartValue(target.valueStart);
     target.valueLabelStart = startValueLabel();
+
+    if (target.valueEnd === undefined) {
+      target.valueEnd = max;
+    }
+    setEndValue(target.valueEnd);
     target.valueLabelEnd = endValueLabel();
   }
 
@@ -160,14 +163,15 @@ export default function TimeConverter(): JSX.Element {
       <Box
         sx={{
           marginTop: "2rem",
+          marginX: "2rem",
           justifyContent: "center",
-          width: "clamp(50vw, 100vw, 100vw)",
+          width: "clamp(50vw, 90vw, 90vw)",
         }}
       >
         <md-slider
           range={true}
-          min={0}
-          max={96}
+          min={min}
+          max={max}
           labeled={true}
           ticks={true}
           valueLabelStart={startValueLabel()}
@@ -178,7 +182,7 @@ export default function TimeConverter(): JSX.Element {
           valueEnd={endValue()}
           style={style}
           onChange={handleSliderChange}
-          onPointerMove={handleSliderChange}
+          onMouseMove={handleSliderChange}
         />
       </Box>
 

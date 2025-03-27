@@ -7,7 +7,7 @@ type WithAnyChildrenAndClasses =
   | { children: any }
   | {}
   | { onChange: ((this: GlobalEventHandlers, ev: Event) => any) | null }
-  | { onPointerMove: ((this: GlobalEventHandlers, ev: Event) => any) | null }
+  | { onMouseMove: ((this: GlobalEventHandlers, ev: Event) => any) | null }
   | { class?: string; classList?: Record<string, boolean> };
 
 type SolidInterface = {
