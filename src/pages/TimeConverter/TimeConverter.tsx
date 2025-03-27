@@ -1,4 +1,4 @@
-import { createSignal, For, JSX } from "solid-js";
+import { createSignal, For, JSX, Show } from "solid-js";
 import "@material/web/slider/slider.js";
 import {
   Box,
@@ -15,13 +15,13 @@ import {
   TableRow,
   Typography,
 } from "@suid/material";
-import { MdSlider } from "@material/web/slider/slider.js";
-import { addMinutes, format, startOfToday } from "date-fns";
 import { TZDate } from "@date-fns/tz";
 import { SelectChangeEvent } from "@suid/material/Select";
 import AddIcon from "@suid/icons-material/Add";
 import City from "./City";
 import sortedCityList from "./cityList";
+import useDateTimeRange from "./useDateTimeRange";
+import useExtraColumn from "./useExtraColumn";
 
 const min = 0;
 const max = 96;
@@ -40,24 +40,15 @@ function convertToTimeZone(date: Date, timeZone: string): TZDate {
 }
 
 export default function TimeConverter(): JSX.Element {
-  const [startValue, setStartValue] = createSignal<number>(32);
-  const [endValue, setEndValue] = createSignal<number>(64);
-
-  function start(): Date {
-    return addMinutes(startOfToday(), startValue() * 15);
-  }
-
-  function startValueLabel(): string {
-    return format(start(), "HH:mm");
-  }
-
-  function end(): Date {
-    return addMinutes(startOfToday(), endValue() * 15);
-  }
-
-  function endValueLabel(): string {
-    return format(end(), "HH:mm");
-  }
+  const {
+    start,
+    end,
+    startValue,
+    endValue,
+    startValueLabel,
+    endValueLabel,
+    handleSliderChange,
+  } = useDateTimeRange();
 
   const [selectedTZDropDown, setSelectedTZDropDown] = createSignal<string>("");
   const [chosenTimeZones, setChosenTimeZones] = createSignal<City[]>([
@@ -87,24 +78,7 @@ export default function TimeConverter(): JSX.Element {
     }
   }
 
-  function handleSliderChange(ev: Event) {
-    const target = ev.target as MdSlider;
-    if (!target) {
-      return;
-    }
-
-    if (target.valueStart === undefined) {
-      target.valueStart = min;
-    }
-    setStartValue(target.valueStart);
-    target.valueLabelStart = startValueLabel();
-
-    if (target.valueEnd === undefined) {
-      target.valueEnd = max;
-    }
-    setEndValue(target.valueEnd);
-    target.valueLabelEnd = endValueLabel();
-  }
+  const { canShowExtraColumn } = useExtraColumn();
 
   return (
     <>
@@ -179,7 +153,9 @@ export default function TimeConverter(): JSX.Element {
         <TableHead>
           <TableRow>
             <TableCell>City</TableCell>
-            <TableCell>IANA Time Zone</TableCell>
+            <Show when={canShowExtraColumn()}>
+              <TableCell>IANA Time Zone</TableCell>
+            </Show>
             <TableCell>Start</TableCell>
             <TableCell>End</TableCell>
           </TableRow>
@@ -189,7 +165,9 @@ export default function TimeConverter(): JSX.Element {
             {(timeZoneData) => (
               <TableRow>
                 <TableCell>{timeZoneData.name}</TableCell>
-                <TableCell>{timeZoneData.timeZone}</TableCell>
+                <Show when={canShowExtraColumn()}>
+                  <TableCell>{timeZoneData.timeZone}</TableCell>
+                </Show>
                 <TableCell>
                   {convertToTimeZone(start(), timeZoneData.timeZone).toString()}
                 </TableCell>
