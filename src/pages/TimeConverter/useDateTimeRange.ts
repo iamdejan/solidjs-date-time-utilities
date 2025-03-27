@@ -2,8 +2,8 @@ import { MdSlider } from "@material/web/all";
 import { addMinutes, format, startOfToday } from "date-fns";
 import { Accessor, createSignal, Setter } from "solid-js";
 
-const min = 0;
-const max = 96;
+export const min = 0;
+export const max = 96;
 
 export type HookOutput = {
   start: Accessor<Date>;

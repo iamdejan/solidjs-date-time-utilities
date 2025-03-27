@@ -1,4 +1,4 @@
-import { createSignal, For, JSX, Show } from "solid-js";
+import { For, JSX, Show } from "solid-js";
 import "@material/web/slider/slider.js";
 import {
   Box,
@@ -16,24 +16,16 @@ import {
   Typography,
 } from "@suid/material";
 import { TZDate } from "@date-fns/tz";
-import { SelectChangeEvent } from "@suid/material/Select";
 import AddIcon from "@suid/icons-material/Add";
-import City from "./City";
 import sortedCityList from "./cityList";
-import useDateTimeRange from "./useDateTimeRange";
+import useDateTimeRange, { max, min } from "./useDateTimeRange";
 import useExtraColumn from "./useExtraColumn";
-
-const min = 0;
-const max = 96;
+import useCityDropDown from "./useCityDropDown";
 
 const style = {
   display: "flex",
   flexGrow: "1",
 } as CSSStyleDeclaration;
-
-function getLocalTimeZone(): string {
-  return Intl.DateTimeFormat().resolvedOptions().timeZone;
-}
 
 function convertToTimeZone(date: Date, timeZone: string): TZDate {
   return new TZDate(date, timeZone);
@@ -50,33 +42,12 @@ export default function TimeConverter(): JSX.Element {
     handleSliderChange,
   } = useDateTimeRange();
 
-  const [selectedTZDropDown, setSelectedTZDropDown] = createSignal<string>("");
-  const [chosenTimeZones, setChosenTimeZones] = createSignal<City[]>([
-    {
-      key: "00000000000000000000000000",
-      timeZone: getLocalTimeZone(),
-      name: "(User's Location)",
-      country: "",
-    },
-  ]);
-
-  function handleTimeZoneSelectChange(ev: SelectChangeEvent) {
-    const key = ev.target.value;
-    setSelectedTZDropDown(key);
-  }
-
-  function addChosenTimeZone() {
-    const selectedKey = selectedTZDropDown();
-    if (selectedKey) {
-      const found = sortedCityList().find((city) => city.key === selectedKey);
-      if (!found) {
-        return;
-      }
-
-      setChosenTimeZones([...chosenTimeZones(), found]);
-      setSelectedTZDropDown("");
-    }
-  }
+  const {
+    selectedTZDropDown,
+    handleTimeZoneSelectChange,
+    chosenTimeZones,
+    addChosenTimeZone,
+  } = useCityDropDown();
 
   const { canShowExtraColumn } = useExtraColumn();
 
