@@ -58,6 +58,7 @@ export default function RootMenu(): JSX.Element {
           <List>
             <DrawerLink to="/" text="Home" />
             <DrawerLink to="/age-calculator" text="Age Calculator" />
+            <DrawerLink to="/time-converter" text="Time Converter" />
           </List>
           <Divider />
           <List>

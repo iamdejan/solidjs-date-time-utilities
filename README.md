@@ -5,11 +5,9 @@ My attempt at creating date-time utilities. You can visit the website at [SolidJ
 ## Features
 
 List of implemented features:
-- Date-time formats.
-- Age Calculator.
-
-List of to-dos:
-- World Time Buddy clone.
+- Date-Time Formats
+- Age Calculator
+- Time Converter
 
 ## Screenshots
 
