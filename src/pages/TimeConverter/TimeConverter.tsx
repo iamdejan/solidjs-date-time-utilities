@@ -6,6 +6,7 @@ import {
   FormControl,
   IconButton,
   InputLabel,
+  ListSubheader,
   MenuItem,
   Paper,
   Select,
@@ -14,11 +15,11 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  TextField,
   Typography,
 } from "@suid/material";
 import { TZDate } from "@date-fns/tz";
 import AddIcon from "@suid/icons-material/Add";
-import sortedCityList from "./cityList";
 import useDateTimeRange, { max, min } from "./useDateTimeRange";
 import useExtraColumn from "./useExtraColumn";
 import useCityDropDown, { zeroULID } from "./useCityDropDown";
@@ -50,6 +51,9 @@ export default function TimeConverter(): JSX.Element {
     chosenTimeZones,
     addChosenTimeZone,
     removeChosenTimeZone,
+    searchText,
+    setSearchText,
+    displayedCityList,
   } = useCityDropDown();
 
   const { canShowExtraColumn } = useExtraColumn();
@@ -81,9 +85,25 @@ export default function TimeConverter(): JSX.Element {
             labelId="select-city"
             id="select-city"
             value={selectedTZDropDown()}
+            MenuProps={{ autoFocus: false }}
             onChange={handleTimeZoneSelectChange}
           >
-            <For each={sortedCityList()}>
+            {/* ref: https://stackoverflow.com/a/70918883 */}
+            <ListSubheader>
+              <TextField
+                label="Search"
+                value={searchText()}
+                autoFocus
+                onChange={(e) => setSearchText(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key !== "Escape") {
+                    // Prevents autoselecting item while typing (default Select behaviour)
+                    e.stopPropagation();
+                  }
+                }}
+              />
+            </ListSubheader>
+            <For each={displayedCityList()}>
               {(city) => (
                 <MenuItem value={city.key}>
                   {city.name}, {city.country}

@@ -1,4 +1,4 @@
-import { createSignal } from "solid-js";
+import { createSignal, Setter } from "solid-js";
 import City from "./City";
 import sortedCityList from "./cityList";
 import { SelectChangeEvent } from "@suid/material/Select";
@@ -19,6 +19,10 @@ type HookOutput = {
   addChosenTimeZone: () => void;
   // eslint-disable-next-line no-unused-vars
   removeChosenTimeZone: (key: string) => void;
+
+  searchText: Accessor<string>;
+  setSearchText: Setter<string>;
+  displayedCityList: () => City[];
 };
 
 export default function useCityDropDown(): HookOutput {
@@ -70,11 +74,25 @@ export default function useCityDropDown(): HookOutput {
     setChosenTimeZones(chosenTimeZones().filter((city) => city.key !== key));
   }
 
+  const [searchText, setSearchText] = createSignal("");
+  function displayedCityList(): City[] {
+    return sortedCityList().filter((city) => {
+      return (
+        city.timeZone.toLowerCase().includes(searchText().toLowerCase()) ||
+        city.name.toLowerCase().includes(searchText().toLowerCase()) ||
+        city.country.toLowerCase().includes(searchText().toLowerCase())
+      );
+    });
+  }
+
   return {
     selectedTZDropDown,
     handleTimeZoneSelectChange,
     chosenTimeZones,
     addChosenTimeZone,
     removeChosenTimeZone,
+    searchText,
+    setSearchText,
+    displayedCityList,
   };
 }
