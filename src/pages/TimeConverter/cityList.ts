@@ -1,9 +1,4 @@
-export type City = {
-  key: string;
-  timeZone: string;
-  name: string;
-  country: string;
-};
+import City from "./City";
 
 const cityList: City[] = [
   // Australia
@@ -43,6 +38,43 @@ const cityList: City[] = [
     timeZone: "Australia/Brisbane",
     country: "Australia",
   },
+  // China
+  {
+    key: "01JQBZHTMB9E07WRPX7TQVBE2K",
+    name: "Beijing",
+    timeZone: "Asia/Shanghai",
+    country: "China",
+  },
+  {
+    key: "01JQBZHTMB9E07WRPX7TQVBE2L",
+    name: "Shanghai",
+    timeZone: "Asia/Shanghai",
+    country: "China",
+  },
+  {
+    key: "01JQBZHTMB9E07WRPX7TQVBE2M",
+    name: "Guangzhou",
+    timeZone: "Asia/Shanghai",
+    country: "China",
+  },
+  {
+    key: "01JQBZHTMB9E07WRPX7TQVBE2N",
+    name: "Shenzhen",
+    timeZone: "Asia/Shanghai",
+    country: "China",
+  },
+  {
+    key: "01JQBZHTMB9E07WRPX7TQVBE2O",
+    name: "Urumqi",
+    timeZone: "Asia/Urumqi",
+    country: "China",
+  },
+  {
+    key: "01JQBZHTMB9E07WRPX7TQVBE2P",
+    name: "Kashgar",
+    timeZone: "Asia/Urumqi",
+    country: "China",
+  },
   // Indonesia
   {
     key: "01JQBVK368H82SWQMQ6GXJ7BGJ",
@@ -68,7 +100,6 @@ const cityList: City[] = [
     name: "Jayapura",
     country: "Indonesia",
   },
-  // Malaysia
   {
     key: "01JQBZC2RM5K9RF5JV253KA8VW",
     name: "Kuala Lumpur",
@@ -118,6 +149,81 @@ const cityList: City[] = [
     timeZone: "Pacific/Auckland",
     country: "New Zealand",
   },
+  // Singapore
+  {
+    key: "01JQBZQ023B2ZD09T8RJJMA4NK",
+    name: "Singapore",
+    timeZone: "Asia/Singapore",
+    country: "Singapore",
+  },
+  // South Korea
+  {
+    key: "01JQBZQJN9AJRPT52D566RX14K",
+    name: "Seoul",
+    timeZone: "Asia/Seoul",
+    country: "South Korea",
+  },
+  // Thailand
+  {
+    key: "01JQBZQJN9AJRPT52D566RX14N",
+    name: "Bangkok",
+    timeZone: "Asia/Bangkok",
+    country: "Thailand",
+  },
+  {
+    key: "01JQBZQJN9AJRPT52D566RX14O",
+    name: "Chiang Mai",
+    timeZone: "Asia/Bangkok",
+    country: "Thailand",
+  },
+  {
+    key: "01JQBZQJN9AJRPT52D566RX14P",
+    name: "Phuket",
+    timeZone: "Asia/Bangkok",
+    country: "Thailand",
+  },
+  // United Kingdom
+  {
+    key: "01JQC03NTHZJRY16QBMPJ39XRK",
+    name: "London",
+    timeZone: "Europe/London",
+    country: "United Kingdom",
+  },
+  {
+    key: "01JQC03NTHZJRY16QBMPJ39XRL",
+    name: "Edinburgh",
+    timeZone: "Europe/London",
+    country: "United Kingdom",
+  },
+  {
+    key: "01JQC03NTHZJRY16QBMPJ39XRM",
+    name: "Belfast",
+    timeZone: "Europe/London",
+    country: "United Kingdom",
+  },
+  {
+    key: "01JQC03NTHZJRY16QBMPJ39XRO",
+    name: "Manchester",
+    timeZone: "Europe/London",
+    country: "United Kingdom",
+  },
+  {
+    key: "01JQC03NTHZJRY16QBMPJ39XRP",
+    name: "Liverpool",
+    timeZone: "Europe/London",
+    country: "United Kingdom",
+  },
+  {
+    key: "01JQC03NTHZJRY16QBMPJ39XRQ",
+    name: "Birmingham",
+    timeZone: "Europe/London",
+    country: "United Kingdom",
+  },
 ];
 
-export default cityList;
+export default function sortedCityList() {
+  return cityList.sort(
+    (a, b) =>
+      a.country.localeCompare(b.country) || a.name.localeCompare(b.name),
+  );
+}

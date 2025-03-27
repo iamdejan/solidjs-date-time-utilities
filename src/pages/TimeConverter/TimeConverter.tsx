@@ -20,7 +20,8 @@ import { addMinutes, format, startOfToday } from "date-fns";
 import { TZDate } from "@date-fns/tz";
 import { SelectChangeEvent } from "@suid/material/Select";
 import AddIcon from "@suid/icons-material/Add";
-import cityList, { City } from "./cityList";
+import City from "./City";
+import sortedCityList from "./cityList";
 
 const min = 0;
 const max = 96;
@@ -76,7 +77,7 @@ export default function TimeConverter(): JSX.Element {
   function addChosenTimeZone() {
     const selectedKey = selectedTZDropDown();
     if (selectedKey) {
-      const found = cityList.find((city) => city.key === selectedKey);
+      const found = sortedCityList().find((city) => city.key === selectedKey);
       if (!found) {
         return;
       }
@@ -134,7 +135,7 @@ export default function TimeConverter(): JSX.Element {
             value={selectedTZDropDown()}
             onChange={handleTimeZoneSelectChange}
           >
-            <For each={cityList}>
+            <For each={sortedCityList()}>
               {(city) => (
                 <MenuItem value={city.key}>
                   {city.name}, {city.country}
