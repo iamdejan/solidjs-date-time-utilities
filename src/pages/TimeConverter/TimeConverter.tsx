@@ -3,6 +3,8 @@ import "@material/web/slider/slider.js";
 import {
   Box,
   Fab,
+  FormControl,
+  InputLabel,
   MenuItem,
   Paper,
   Select,
@@ -18,6 +20,7 @@ import { addMinutes, format, startOfToday } from "date-fns";
 import { TZDate } from "@date-fns/tz";
 import { SelectChangeEvent } from "@suid/material/Select";
 import AddIcon from "@suid/icons-material/Add";
+import cityList, { City } from "./cityList";
 
 const min = 0;
 const max = 96;
@@ -26,40 +29,6 @@ const style = {
   display: "flex",
   flexGrow: "1",
 } as CSSStyleDeclaration;
-
-type TimeZoneData = {
-  key: string;
-  ianaTimeZone: string;
-  city: string;
-  country: string;
-};
-
-const timeZoneList: TimeZoneData[] = [
-  {
-    key: "01JQBVK368H82SWQMQ6GXJ7BGJ",
-    ianaTimeZone: "Asia/Jakarta",
-    city: "Jakarta",
-    country: "Indonesia",
-  },
-  {
-    key: "01JQBVK368H82SWQMQ6GXJ7BGK",
-    ianaTimeZone: "Asia/Makassar",
-    city: "Makassar",
-    country: "Indonesia",
-  },
-  {
-    key: "01JQBVK368H82SWQMQ6GXJ7BGM",
-    ianaTimeZone: "Asia/Jayapura",
-    city: "Ternate",
-    country: "Indonesia",
-  },
-  {
-    key: "01JQBVK368H82SWQMQ6GXJ7BGN",
-    ianaTimeZone: "Asia/Jayapura",
-    city: "Jayapura",
-    country: "Indonesia",
-  },
-];
 
 function getLocalTimeZone(): string {
   return Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -89,32 +58,31 @@ export default function TimeConverter(): JSX.Element {
     return format(end(), "HH:mm");
   }
 
-  const [selectedTZDropDown, setSelectedTZDropDown] = createSignal<
-    TimeZoneData | undefined
-  >(undefined);
-  const [chosenTimeZones, setChosenTimeZones] = createSignal<TimeZoneData[]>([
+  const [selectedTZDropDown, setSelectedTZDropDown] = createSignal<string>("");
+  const [chosenTimeZones, setChosenTimeZones] = createSignal<City[]>([
     {
       key: "00000000000000000000000000",
-      ianaTimeZone: getLocalTimeZone(),
-      city: "(User's Location)",
+      timeZone: getLocalTimeZone(),
+      name: "(User's Location)",
       country: "",
     },
   ]);
 
   function handleTimeZoneSelectChange(ev: SelectChangeEvent) {
     const key = ev.target.value;
-    const foundTimeZone = timeZoneList.find((tz) => {
-      return tz.key === key;
-    });
-    if (foundTimeZone) {
-      setSelectedTZDropDown(foundTimeZone);
-    }
+    setSelectedTZDropDown(key);
   }
 
   function addChosenTimeZone() {
-    const selected = selectedTZDropDown();
-    if (selected) {
-      setChosenTimeZones([...chosenTimeZones(), selected]);
+    const selectedKey = selectedTZDropDown();
+    if (selectedKey) {
+      const found = cityList.find((city) => city.key === selectedKey);
+      if (!found) {
+        return;
+      }
+
+      setChosenTimeZones([...chosenTimeZones(), found]);
+      setSelectedTZDropDown("");
     }
   }
 
@@ -143,22 +111,42 @@ export default function TimeConverter(): JSX.Element {
         Time Converter
       </Typography>
 
-      <Typography>Select time zone</Typography>
-      <Select onChange={handleTimeZoneSelectChange}>
-        <For each={timeZoneList}>
-          {(timeZone) => (
-            <MenuItem
-              value={timeZone.key}
-              selected={timeZone.ianaTimeZone === getLocalTimeZone()}
-            >
-              {timeZone.city}, {timeZone.country}
-            </MenuItem>
-          )}
-        </For>
-      </Select>
-      <Fab onClick={addChosenTimeZone}>
-        <AddIcon />
-      </Fab>
+      <Box
+        sx={{
+          display: "flex",
+          minWidth: "clamp(50vw, 90vw, 90vw)",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "1rem",
+          marginTop: "2rem",
+        }}
+      >
+        <Typography component="div">Select city: </Typography>
+        <FormControl
+          sx={{
+            minWidth: "clamp(50px, 200px, 250px)",
+          }}
+        >
+          <InputLabel id="select-city">City</InputLabel>
+          <Select
+            labelId="select-city"
+            id="select-city"
+            value={selectedTZDropDown()}
+            onChange={handleTimeZoneSelectChange}
+          >
+            <For each={cityList}>
+              {(city) => (
+                <MenuItem value={city.key}>
+                  {city.name}, {city.country}
+                </MenuItem>
+              )}
+            </For>
+          </Select>
+        </FormControl>
+        <Fab onClick={addChosenTimeZone}>
+          <AddIcon />
+        </Fab>
+      </Box>
 
       <Box
         sx={{
@@ -199,19 +187,13 @@ export default function TimeConverter(): JSX.Element {
           <For each={chosenTimeZones()}>
             {(timeZoneData) => (
               <TableRow>
-                <TableCell>{timeZoneData.city}</TableCell>
-                <TableCell>{timeZoneData.ianaTimeZone}</TableCell>
+                <TableCell>{timeZoneData.name}</TableCell>
+                <TableCell>{timeZoneData.timeZone}</TableCell>
                 <TableCell>
-                  {convertToTimeZone(
-                    start(),
-                    timeZoneData.ianaTimeZone,
-                  ).toString()}
+                  {convertToTimeZone(start(), timeZoneData.timeZone).toString()}
                 </TableCell>
                 <TableCell>
-                  {convertToTimeZone(
-                    end(),
-                    timeZoneData.ianaTimeZone,
-                  ).toString()}
+                  {convertToTimeZone(end(), timeZoneData.timeZone).toString()}
                 </TableCell>
               </TableRow>
             )}
