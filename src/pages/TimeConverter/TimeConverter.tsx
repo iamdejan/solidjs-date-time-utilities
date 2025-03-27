@@ -32,9 +32,8 @@ export default function TimeConverter(): JSX.Element {
       setEndValue(target.valueEnd);
     }
 
-    console.log(startValueLabel(), endValueLabel());
-    console.log(target.valueLabelStart, target.valueLabelEnd);
-    console.log(target.labeled);
+    target.valueLabelStart = startValueLabel();
+    target.valueLabelEnd = endValueLabel();
   }
 
   return (
@@ -54,6 +53,8 @@ export default function TimeConverter(): JSX.Element {
           range={true}
           min={0}
           max={96}
+          labeled={true}
+          ticks={true}
           valueLabelStart={startValueLabel()}
           ariaLabelStart={startValueLabel()}
           valueLabelEnd={endValueLabel()}
@@ -62,7 +63,7 @@ export default function TimeConverter(): JSX.Element {
           valueEnd={endValue()}
           style={style}
           onChange={handleChange}
-          ticks
+          onPointerMove={handleChange}
         />
       </Box>
 
