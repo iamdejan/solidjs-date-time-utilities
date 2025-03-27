@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@date-fns/tz": "^1.2.0",
+    "@material/web": "^2.3.0",
     "@suid/icons-material": "^0.8.1",
     "@suid/material": "^0.18.0",
     "@suid/vite-plugin": "^0.3.1",
