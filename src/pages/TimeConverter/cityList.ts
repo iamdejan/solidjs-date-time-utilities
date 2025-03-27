@@ -1,7 +1,6 @@
 import City from "./City";
 
 const cityList: City[] = [
-  // Australia
   {
     key: "01JQBZHTMB9E07WRPX7TQVBE2E",
     name: "Sydney",
@@ -38,7 +37,12 @@ const cityList: City[] = [
     timeZone: "Australia/Brisbane",
     country: "Australia",
   },
-  // China
+  {
+    key: "01JQCZFV9XBFV464FQ0Y15DFCR",
+    name: "Canberra",
+    timeZone: "Australia/Sydney",
+    country: "Australia",
+  },
   {
     key: "01JQBZHTMB9E07WRPX7TQVBE2K",
     name: "Beijing",
@@ -75,11 +79,52 @@ const cityList: City[] = [
     timeZone: "Asia/Urumqi",
     country: "China",
   },
-  // Indonesia
   {
     key: "01JQBVK368H82SWQMQ6GXJ7BGJ",
     timeZone: "Asia/Jakarta",
     name: "Jakarta",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQCYTEP5E1STDCW9EPVZPJTN",
+    timeZone: "Asia/Jakarta",
+    name: "Medan",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQCZ4FSXXWPXQ52YMWRXV6MX",
+    timeZone: "Asia/Makassar",
+    name: "Balikpapan",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQCYTEP5E1STDCW9EPVZPJTP",
+    timeZone: "Asia/Jakarta",
+    name: "Bandung",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQCYYBH4G1CCDYTMZ2XMMC3Z",
+    timeZone: "Asia/Jakarta",
+    name: "Yogyakarta",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQCYYBH4G1CCDYTMZ2XMMC41",
+    timeZone: "Asia/Jakarta",
+    name: "Surabaya",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQCYYBH4G1CCDYTMZ2XMMC42",
+    timeZone: "Asia/Makassar",
+    name: "Denpasar",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQCYYBH4G1CCDYTMZ2XMMC42",
+    timeZone: "Asia/Makassar",
+    name: "Manado",
     country: "Indonesia",
   },
   {
@@ -92,6 +137,42 @@ const cityList: City[] = [
     key: "01JQBVK368H82SWQMQ6GXJ7BGM",
     timeZone: "Asia/Jayapura",
     name: "Ternate",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQCZHXPEYDC5KPSMZZ3NTQAF",
+    timeZone: "Asia/Pontianak",
+    name: "Pontianak",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQCZHXPEYDC5KPSMZZ3NTQAG",
+    timeZone: "Asia/Pontianak",
+    name: "Singkawang",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQCZTXEHCXWQH8AE4527QBFH",
+    timeZone: "Asia/Makassar",
+    name: "Samarinda",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQCZ6KVP7KMY3NCD6EQWF1Z0",
+    timeZone: "Asia/Jayapura",
+    name: "Ambon",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQCZ6KVP7KMY3NCD6EQWF1Z1",
+    timeZone: "Asia/Jayapura",
+    name: "Sorong",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQCZ6KVP7KMY3NCD6EQWF1Z2",
+    timeZone: "Asia/Jayapura",
+    name: "Timika",
     country: "Indonesia",
   },
   {
@@ -124,7 +205,6 @@ const cityList: City[] = [
     timeZone: "Asia/Kuching",
     country: "Malaysia",
   },
-  // New Zealand
   {
     key: "01JQBZC2RM5K9RF5JV253KA8W0",
     name: "Auckland",
@@ -149,21 +229,18 @@ const cityList: City[] = [
     timeZone: "Pacific/Auckland",
     country: "New Zealand",
   },
-  // Singapore
   {
     key: "01JQBZQ023B2ZD09T8RJJMA4NK",
     name: "Singapore",
     timeZone: "Asia/Singapore",
     country: "Singapore",
   },
-  // South Korea
   {
     key: "01JQBZQJN9AJRPT52D566RX14K",
     name: "Seoul",
     timeZone: "Asia/Seoul",
     country: "South Korea",
   },
-  // Thailand
   {
     key: "01JQBZQJN9AJRPT52D566RX14N",
     name: "Bangkok",
@@ -171,7 +248,7 @@ const cityList: City[] = [
     country: "Thailand",
   },
   {
-    key: "01JQBZQJN9AJRPT52D566RX14O",
+    key: "01JQCYTEP5E1STDCW9EPVZPJTQ",
     name: "Chiang Mai",
     timeZone: "Asia/Bangkok",
     country: "Thailand",
@@ -182,7 +259,6 @@ const cityList: City[] = [
     timeZone: "Asia/Bangkok",
     country: "Thailand",
   },
-  // United Kingdom
   {
     key: "01JQC03NTHZJRY16QBMPJ39XRK",
     name: "London",
@@ -196,13 +272,19 @@ const cityList: City[] = [
     country: "United Kingdom",
   },
   {
+    key: "01JQCZBB241VXKZQ1YX209RSAX",
+    name: "Glasgow",
+    timeZone: "Europe/London",
+    country: "United Kingdom",
+  },
+  {
     key: "01JQC03NTHZJRY16QBMPJ39XRM",
     name: "Belfast",
     timeZone: "Europe/London",
     country: "United Kingdom",
   },
   {
-    key: "01JQC03NTHZJRY16QBMPJ39XRO",
+    key: "01JQCYTEP5E1STDCW9EPVZPJTR",
     name: "Manchester",
     timeZone: "Europe/London",
     country: "United Kingdom",
@@ -218,6 +300,145 @@ const cityList: City[] = [
     name: "Birmingham",
     timeZone: "Europe/London",
     country: "United Kingdom",
+  },
+  {
+    key: "01JQCZCXRX52WC5Y0GWRQ3JVD3",
+    name: "Oxford",
+    timeZone: "Europe/London",
+    country: "United Kingdom",
+  },
+  {
+    key: "01JQCZCXRX52WC5Y0GWRQ3JVD4",
+    name: "Cambridge",
+    timeZone: "Europe/London",
+    country: "United Kingdom",
+  },
+  {
+    key: "01JQCZDW31TNMEVBHDFSWQK3FC",
+    name: "Paris",
+    timeZone: "Europe/Paris",
+    country: "France",
+  },
+  {
+    key: "01JQCZGPGJKH23357M58MG9J2H",
+    name: "Marseille",
+    timeZone: "Europe/Paris",
+    country: "France",
+  },
+  {
+    key: "01JQCZGPGJKH23357M58MG9J2J",
+    name: "Lyon",
+    timeZone: "Europe/Paris",
+    country: "France",
+  },
+  {
+    key: "01JQCZGPGJKH23357M58MG9J2K",
+    name: "Nice",
+    timeZone: "Europe/Paris",
+    country: "France",
+  },
+  {
+    key: "01JQCZGPGJKH23357M58MG9J2M",
+    name: "Bordeaux",
+    timeZone: "Europe/Paris",
+    country: "France",
+  },
+  {
+    key: "01JQCZGPGJKH23357M58MG9J2N",
+    name: "Lille",
+    timeZone: "Europe/Paris",
+    country: "France",
+  },
+  {
+    key: "01JQCZHXPEYDC5KPSMZZ3NTQAC",
+    name: "Montpellier",
+    timeZone: "Europe/Paris",
+    country: "France",
+  },
+  {
+    key: "01JQCZHXPEYDC5KPSMZZ3NTQAD",
+    name: "Rennes",
+    timeZone: "Europe/Paris",
+    country: "France",
+  },
+  {
+    key: "01JQCZHXPEYDC5KPSMZZ3NTQAE",
+    name: "Toulouse",
+    timeZone: "Europe/Paris",
+    country: "France",
+  },
+
+  {
+    key: "01JQCZYMFWT14T740C2B4SPG8S",
+    name: "Berlin",
+    timeZone: "Europe/Berlin",
+    country: "Germany",
+  },
+  {
+    key: "01JQCZYMFWT14T740C2B4SPG8T",
+    name: "Munich",
+    timeZone: "Europe/Berlin",
+    country: "Germany",
+  },
+  {
+    key: "01JQCZYMFWT14T740C2B4SPG8V",
+    name: "Hamburg",
+    timeZone: "Europe/Berlin",
+    country: "Germany",
+  },
+  {
+    key: "01JQCZYMFWT14T740C2B4SPG8W",
+    name: "Cologne",
+    timeZone: "Europe/Berlin",
+    country: "Germany",
+  },
+  {
+    key: "01JQCZYMFWT14T740C2B4SPG8X",
+    name: "Dortmund",
+    timeZone: "Europe/Berlin",
+    country: "Germany",
+  },
+  {
+    key: "01JQD05SYWXA35084GY0X00FJ8",
+    name: "Aachen",
+    timeZone: "Europe/Berlin",
+    country: "Germany",
+  },
+  {
+    key: "01JQCZYMFWT14T740C2B4SPG8Y",
+    name: "Antwerp",
+    timeZone: "Europe/Brussels",
+    country: "Belgium",
+  },
+  {
+    key: "01JQCZYMFWT14T740C2B4SPG8Z",
+    name: "Brussels",
+    timeZone: "Europe/Brussels",
+    country: "Belgium",
+  },
+  {
+    key: "01JQCZYMFWT14T740C2B4SPG90",
+    name: "Zurich",
+    timeZone: "Europe/Zurich",
+    country: "Switzerland",
+  },
+  {
+    key: "01JQCZYMFWT14T740C2B4SPG91",
+    name: "Geneva",
+    timeZone: "Europe/Zurich",
+    country: "Switzerland",
+  },
+  {
+    key: "01JQCZYMFWT14T740C2B4SPG92",
+    name: "Lausanne",
+    timeZone: "Europe/Zurich",
+    country: "Switzerland",
+  },
+  {
+    key: "01JQD07X3GBKYQZTQ91FQJJ7QN",
+    name: "Basel",
+    timeZone: "Europe/Zurich",
+    country: "Switzerland",
   },
 ];
 

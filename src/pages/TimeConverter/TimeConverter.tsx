@@ -5,7 +5,6 @@ import {
   Fab,
   FormControl,
   IconButton,
-  InputLabel,
   ListSubheader,
   MenuItem,
   Paper,
@@ -20,9 +19,9 @@ import {
 } from "@suid/material";
 import { TZDate } from "@date-fns/tz";
 import AddIcon from "@suid/icons-material/Add";
-import useDateTimeRange, { max, min } from "./useDateTimeRange";
-import useExtraColumn from "./useExtraColumn";
-import useCityDropDown, { zeroULID } from "./useCityDropDown";
+import useDateTimeRange, { max, min } from "./hooks/useDateTimeRange";
+import useExtraColumn from "./hooks/useExtraColumn";
+import useCityDropDown, { zeroULID } from "./hooks/useCityDropDown";
 import DeleteIcon from "@suid/icons-material/Delete";
 
 const style = {
@@ -74,16 +73,13 @@ export default function TimeConverter(): JSX.Element {
           marginTop: "2rem",
         }}
       >
-        <Typography component="div">Select city: </Typography>
+        <Typography component="div">Search city:</Typography>
         <FormControl
           sx={{
             minWidth: "clamp(50px, 200px, 250px)",
           }}
         >
-          <InputLabel id="select-city">City</InputLabel>
           <Select
-            labelId="select-city"
-            id="select-city"
             value={selectedTZDropDown()}
             MenuProps={{ autoFocus: false }}
             onChange={handleTimeZoneSelectChange}
@@ -91,7 +87,7 @@ export default function TimeConverter(): JSX.Element {
             {/* ref: https://stackoverflow.com/a/70918883 */}
             <ListSubheader>
               <TextField
-                label="Search"
+                label="Keyword"
                 value={searchText()}
                 autoFocus
                 onChange={(e) => setSearchText(e.target.value)}
@@ -112,7 +108,7 @@ export default function TimeConverter(): JSX.Element {
             </For>
           </Select>
         </FormControl>
-        <Fab onClick={addChosenTimeZone}>
+        <Fab onClick={addChosenTimeZone} disabled={selectedTZDropDown() === ""}>
           <AddIcon />
         </Fab>
       </Box>

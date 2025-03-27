@@ -1,6 +1,6 @@
 import { createSignal, Setter } from "solid-js";
-import City from "./City";
-import sortedCityList from "./cityList";
+import City from "../City";
+import sortedCityList from "../cityList";
 import { SelectChangeEvent } from "@suid/material/Select";
 import { Accessor } from "solid-js";
 
