@@ -4,6 +4,7 @@ import {
   Box,
   Fab,
   FormControl,
+  Grid,
   IconButton,
   ListSubheader,
   MenuItem,
@@ -118,21 +119,32 @@ export default function TimeConverter(): JSX.Element {
           marginTop: "2rem",
           marginX: "2rem",
           justifyContent: "center",
-          width: "clamp(50vw, 90vw, 90vw)",
         }}
       >
+        <Grid
+          container
+          sx={{
+            justifyContent: "space-between",
+          }}
+        >
+          <Grid item>00:00</Grid>
+          <Grid item>06:00</Grid>
+          <Grid item>12:00</Grid>
+          <Grid item>18:00</Grid>
+          <Grid item>24:00</Grid>
+        </Grid>
         <md-slider
           range={true}
           min={min}
           max={max}
           labeled={true}
           ticks={true}
-          valueLabelStart={startValueLabel()}
-          ariaLabelStart={startValueLabel()}
-          valueLabelEnd={endValueLabel()}
-          ariaLabelEnd={endValueLabel()}
-          valueStart={startValue()}
-          valueEnd={endValue()}
+          value-label-start={startValueLabel()}
+          aria-label-start={startValueLabel()}
+          value-label-end={endValueLabel()}
+          aria-label-end={endValueLabel()}
+          value-start={startValue()}
+          value-end={endValue()}
           style={style}
           onChange={handleSliderChange}
           onPointerMove={handleSliderChange}
@@ -148,6 +160,7 @@ export default function TimeConverter(): JSX.Element {
             </Show>
             <TableCell>Start</TableCell>
             <TableCell>End</TableCell>
+            <TableCell />
           </TableRow>
         </TableHead>
         <TableBody>

@@ -1,9 +1,20 @@
 import { MdSlider } from "@material/web/all";
-import { addMinutes, format, startOfToday } from "date-fns";
+import { addMinutes, differenceInHours, format, startOfToday } from "date-fns";
 import { Accessor, createSignal, Setter } from "solid-js";
 
 export const min = 0;
 export const max = 96;
+
+function calculateInitialStartValue(): number {
+  const now = new Date();
+  const startOfDay = startOfToday();
+  const hoursSinceStartOfDay = differenceInHours(now, startOfDay);
+  return Math.floor((hoursSinceStartOfDay * 60) / 15);
+}
+
+function calculateInitialEndValue(): number {
+  return calculateInitialStartValue() + 4;
+}
 
 export type HookOutput = {
   start: Accessor<Date>;
@@ -22,8 +33,12 @@ export type HookOutput = {
 };
 
 export default function useDateTimeRange(): HookOutput {
-  const [startValue, setStartValue] = createSignal<number>(32);
-  const [endValue, setEndValue] = createSignal<number>(64);
+  const [startValue, setStartValue] = createSignal<number>(
+    calculateInitialStartValue(),
+  );
+  const [endValue, setEndValue] = createSignal<number>(
+    calculateInitialEndValue(),
+  );
 
   function start(): Date {
     return addMinutes(startOfToday(), startValue() * 15);

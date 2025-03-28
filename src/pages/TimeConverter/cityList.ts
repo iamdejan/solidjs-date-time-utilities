@@ -440,6 +440,18 @@ const cityList: City[] = [
     timeZone: "Europe/Zurich",
     country: "Switzerland",
   },
+  {
+    key: "01JQD1AS2PANV1ZZ30YRYQGJZ8",
+    name: "Dublin",
+    timeZone: "Europe/Dublin",
+    country: "Ireland",
+  },
+  {
+    key: "01JQD1BAV7E1AQHTJ8GA063V9Y",
+    name: "Amsterdam",
+    timeZone: "Europe/Amsterdam",
+    country: "Netherlands",
+  },
 ];
 
 export default function sortedCityList() {
