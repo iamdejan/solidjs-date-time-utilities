@@ -7,19 +7,53 @@ import {
   TableRow,
   TableCell,
   Grid,
+  Select,
+  MenuItem,
+  InputLabel,
+  FormControl,
+  Box,
 } from "@suid/material";
 import { For, JSX } from "solid-js";
 import CopyToClipboardButton from "../../components/CopyToClipboardButton";
 import { useDisplayTimeFormats } from "./hooks/useDisplayTimeFormat";
 
 export default function Home(): JSX.Element {
-  const { displays } = useDisplayTimeFormats();
+  const { selectedTimeZone, setSelectedTimeZone, displays } =
+    useDisplayTimeFormats();
 
   return (
     <>
       <Typography variant="h2" sx={{ textAlign: "center" }}>
         Home
       </Typography>
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "right",
+          alignItems: "center",
+          marginBottom: "2rem",
+          marginRight: "2rem",
+        }}
+      >
+        <FormControl>
+          <InputLabel id="time-zone-select">Time Zone</InputLabel>
+          <Select
+            value={selectedTimeZone()}
+            onChange={(e) => setSelectedTimeZone(e.target.value)}
+            labelId="time-zone-select"
+            label="Time Zone"
+            sx={{
+              width: "clamp(120px, 200px, 200px)",
+            }}
+          >
+            <MenuItem value={""}>(User's Location)</MenuItem>
+            <For each={Intl.supportedValuesOf("timeZone")}>
+              {(timezone) => <MenuItem value={timezone}>{timezone}</MenuItem>}
+            </For>
+          </Select>
+        </FormControl>
+      </Box>
 
       <Table component={Paper}>
         <TableHead>

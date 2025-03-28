@@ -7,16 +7,20 @@ import {
   getTime,
   getUnixTime,
 } from "date-fns";
-import { createSignal } from "solid-js";
-
-type HookOutput = {
-  displays: DateTimeDisplay[];
-};
+import { Accessor, createSignal, Setter } from "solid-js";
 
 type DateTimeDisplay = {
   format: string;
   function: () => string;
 };
+
+function convertToTZDate(date: Date, timeZone?: string): TZDate {
+  if (timeZone === "") {
+    timeZone = undefined;
+  }
+  const tzDate = new TZDate(date, timeZone);
+  return tzDate;
+}
 
 function getDateString(date: Date): string {
   return format(date, "yyyy-MM-dd");
@@ -40,9 +44,19 @@ function toExcelDate(date: TZDate): string {
   return result.toFixed(6);
 }
 
+type HookOutput = {
+  selectedTimeZone: Accessor<string>;
+  setSelectedTimeZone: Setter<string>;
+  displays: DateTimeDisplay[];
+};
+
 export function useDisplayTimeFormats(): HookOutput {
+  const [selectedTimeZone, setSelectedTimeZone] = createSignal<string>("");
   const [now, setNow] = createSignal<TZDate>(new TZDateMini());
-  setInterval(() => setNow(new TZDateMini()), 1);
+  setInterval(
+    () => setNow(convertToTZDate(new TZDateMini(), selectedTimeZone())),
+    1,
+  );
 
   const displays: DateTimeDisplay[] = [
     {
@@ -91,6 +105,8 @@ export function useDisplayTimeFormats(): HookOutput {
   ];
 
   return {
+    selectedTimeZone,
+    setSelectedTimeZone,
     displays,
   };
 }
