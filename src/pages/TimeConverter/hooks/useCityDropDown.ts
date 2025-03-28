@@ -77,6 +77,10 @@ export default function useCityDropDown(): HookOutput {
   }
 
   function displayedCityList(): City[] {
+    if (searchText() === "") {
+      return [];
+    }
+
     return sortedCityList().filter((city) => {
       return (
         city.timeZone.toLowerCase().includes(searchText().toLowerCase()) ||
