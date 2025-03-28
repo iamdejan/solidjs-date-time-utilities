@@ -18,6 +18,7 @@ import MenuIcon from "@suid/icons-material/Menu";
 import DrawerLink from "../DrawerLink/DrawerLink";
 import { useThemeWithMode } from "./hooks/useThemeWithMode";
 import ThemeSwitch from "../ThemeSwitch";
+import CreatedLinkComponent from "../DrawerLink/CreatedLinkComponent";
 
 export default function RootMenu(): JSX.Element {
   const { theme } = useThemeWithMode();
@@ -41,7 +42,12 @@ export default function RootMenu(): JSX.Element {
                   marginRight: "0",
                 }}
               >
-                SolidJS Date Time Utilities
+                <CreatedLinkComponent
+                  to="/"
+                  style={{ "text-decoration": "none", color: "inherit" }}
+                >
+                  SolidJS Date Time Utilities
+                </CreatedLinkComponent>
               </Typography>
             </Toolbar>
           </Container>

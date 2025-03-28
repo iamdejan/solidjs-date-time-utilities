@@ -13,5 +13,6 @@
     "noEmit": true,
     "isolatedModules": true,
     "strictNullChecks": true,
+    "skipLibCheck": true
   }
 }
