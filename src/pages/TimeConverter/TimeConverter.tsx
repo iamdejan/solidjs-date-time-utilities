@@ -76,7 +76,7 @@ export default function TimeConverter(): JSX.Element {
           marginTop: "2rem",
         }}
       >
-        <Typography component="div">Search city:</Typography>
+        <Typography component="div">Search city or country:</Typography>
         <FormControl
           sx={{
             minWidth: "clamp(50px, 200px, 250px)",

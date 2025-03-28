@@ -2,6 +2,18 @@ import City from "./City";
 
 const cityList: City[] = [
   {
+    key: "01JQD4P5HE8QZDE2Q5V6YBKJAY",
+    name: "Eucla",
+    timeZone: "Australia/Eucla",
+    country: "Australia",
+  },
+  {
+    key: "01JQD4P5HE8QZDE2Q5V6YBKJAZ",
+    name: "Christmas Island",
+    timeZone: "Indian/Christmas",
+    country: "Australia",
+  },
+  {
     key: "01JQBZHTMB9E07WRPX7TQVBE2E",
     name: "Sydney",
     timeZone: "Australia/Sydney",
@@ -104,6 +116,12 @@ const cityList: City[] = [
     country: "Indonesia",
   },
   {
+    key: "01JQD7J17WABM0RMZ5AVJFHQBG",
+    name: "Semarang",
+    timeZone: "Asia/Jakarta",
+    country: "Indonesia",
+  },
+  {
     key: "01JQCYYBH4G1CCDYTMZ2XMMC3Z",
     timeZone: "Asia/Jakarta",
     name: "Yogyakarta",
@@ -116,9 +134,39 @@ const cityList: City[] = [
     country: "Indonesia",
   },
   {
+    key: "01JQD7K5G5NRBV10W2V35C2H78",
+    timeZone: "Asia/Jakarta",
+    name: "Malang",
+    country: "Indonesia",
+  },
+  {
     key: "01JQCYYBH4G1CCDYTMZ2XMMC42",
     timeZone: "Asia/Makassar",
     name: "Denpasar",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQD7MFJ5D2T43FZ05TAN5AY2",
+    timeZone: "Asia/Makassar",
+    name: "Banjarbaru",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQD7MFJ5D2T43FZ05TAN5AXS",
+    timeZone: "Asia/Makassar",
+    name: "Mataram, Nusa Tenggara Barat",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQD7MFJ5D2T43FZ05TAN5AXS",
+    timeZone: "Asia/Makassar",
+    name: "Kupang, Nusa Tenggara Timur",
+    country: "Indonesia",
+  },
+  {
+    key: "01JQD7MFJ5D2T43FZ05TAN5AXS",
+    timeZone: "Asia/Makassar",
+    name: "Pulau Komodo, Nusa Tenggara Timur",
     country: "Indonesia",
   },
   {
@@ -477,16 +525,106 @@ const cityList: City[] = [
     country: "Nepal",
   },
   {
-    key: "01JQD4P5HE8QZDE2Q5V6YBKJAY",
-    name: "Eucla",
-    timeZone: "Australia/Eucla",
-    country: "Australia",
+    key: "01JQD6XNKT2YD5VP53VM1KH4S6",
+    name: "New York",
+    timeZone: "America/New_York",
+    country: "United States",
   },
   {
-    key: "01JQD4P5HE8QZDE2Q5V6YBKJAZ",
-    name: "Christmas Island",
-    timeZone: "Indian/Christmas",
-    country: "Australia",
+    key: "01JQD6XNKT2YD5VP53VM1KH4S7",
+    name: "Los Angeles",
+    timeZone: "America/Los_Angeles",
+    country: "United States",
+  },
+  {
+    key: "01JQD6XNKT2YD5VP53VM1KH4S8",
+    name: "Boston",
+    timeZone: "America/New_York",
+    country: "United States",
+  },
+  {
+    key: "01JQD6XNKT2YD5VP53VM1KH4S9",
+    name: "San Francisco",
+    timeZone: "America/Los_Angeles",
+    country: "United States",
+  },
+  {
+    key: "01JQD78QKCE36BSH38W7C56XB9",
+    name: "Chicago",
+    timeZone: "America/Chicago",
+    country: "United States",
+  },
+  {
+    key: "01JQD78QKCE36BSH38W7C56XB8",
+    name: "Houston",
+    timeZone: "America/Chicago",
+    country: "United States",
+  },
+  {
+    key: "01JQD78QKCE36BSH38W7C56XBA",
+    name: "Dallas, Texas",
+    timeZone: "America/Chicago",
+    country: "United States",
+  },
+  {
+    key: "01JQD78QKCE36BSH38W7C56XBB",
+    name: "Austin, Texas",
+    timeZone: "America/Chicago",
+    country: "United States",
+  },
+  {
+    key: "01JQD78QKCE36BSH38W7C56XBC",
+    name: "Seattle",
+    timeZone: "America/Los_Angeles",
+    country: "United States",
+  },
+  {
+    key: "01JQD78QKCE36BSH38W7C56XBD",
+    name: "Denver, Colorado",
+    timeZone: "America/Denver",
+    country: "United States",
+  },
+  {
+    key: "01JQD78QKCE36BSH38W7C56XBE",
+    name: "Phoenix, Arizona",
+    timeZone: "America/Phoenix",
+    country: "United States",
+  },
+  {
+    key: "01JQD6XNKT2YD5VP53VM1KH4SA",
+    name: "Toronto",
+    timeZone: "America/Toronto",
+    country: "Canada",
+  },
+  {
+    key: "01JQD6XNKT2YD5VP53VM1KH4SB",
+    name: "Waterloo",
+    timeZone: "America/Toronto",
+    country: "Canada",
+  },
+  {
+    key: "01JQD6XNKT2YD5VP53VM1KH4SC",
+    name: "Victoria, British Columbia",
+    timeZone: "America/Vancouver",
+    country: "Canada",
+  },
+  {
+    key: "01JQD6XNKT2YD5VP53VM1KH4SD",
+    name: "Vancouver, British Columbia",
+    timeZone: "America/Vancouver",
+    country: "Canada",
+  },
+  {
+    key: "01JQD76JYCDP1TPXHTF94DMW4K",
+    name: "Montreal",
+    timeZone: "America/Toronto",
+    country: "Canada",
+  },
+  {
+    key: "01JQD76JYCDP1TPXHTF94DMW4K",
+    name: "Ottawa",
+    timeZone: "America/Toronto",
+    country: "Canada",
   },
 ];
 
