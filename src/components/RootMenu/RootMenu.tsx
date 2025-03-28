@@ -46,7 +46,7 @@ export default function RootMenu(): JSX.Element {
                   to="/"
                   style={{ "text-decoration": "none", color: "inherit" }}
                 >
-                  SolidJS Date Time Utilities
+                  Date Time Utilities
                 </CreatedLinkComponent>
               </Typography>
             </Toolbar>
