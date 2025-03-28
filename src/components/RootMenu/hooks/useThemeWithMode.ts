@@ -7,7 +7,7 @@ type HookOutput = {
 };
 
 export function useThemeWithMode(): HookOutput {
-  const mode = useMode((state) => state.mode);
+  const { mode } = useMode();
   const palette = () => {
     return createPalette({
       mode: mode(),

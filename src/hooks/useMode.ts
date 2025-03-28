@@ -1,19 +1,36 @@
-import { createWithSignal } from "solid-zustand";
+import { atom, useAtom } from "solid-jotai";
+import { Accessor } from "solid-js";
 
 export type Mode = "light" | "dark";
-
-type ModeState = {
-  mode: Mode;
-  switch: () => void;
-};
 
 function nextMode(mode: Mode): Mode {
   return mode === "light" ? "dark" : "light";
 }
 
-const useMode = createWithSignal<ModeState>((set) => ({
-  mode: "dark",
-  switch: () => set((state) => ({ mode: nextMode(state.mode) })),
-}));
+const modeAtom = atom((localStorage.getItem("mode") as Mode) || "dark");
 
-export default useMode;
+const modeAtomWithPersistence = atom(
+  (get) => get(modeAtom),
+  (_, set, newMode: Mode) => {
+    localStorage.setItem("mode", newMode);
+    set(modeAtom, newMode);
+  },
+);
+
+type HookOutput = {
+  mode: Accessor<Mode>;
+  switchMode: () => void;
+};
+
+export default function useMode(): HookOutput {
+  const [mode, setMode] = useAtom(modeAtomWithPersistence);
+
+  function switchMode() {
+    setMode(nextMode(mode()));
+  }
+
+  return {
+    mode,
+    switchMode,
+  };
+}

@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function DrawerLink(props: Props): JSX.Element {
-  const mode = useMode((state) => state.mode);
+  const { mode } = useMode();
   function hoverColor(): string {
     return mode() === "light" ? grey[200] : grey[800];
   }

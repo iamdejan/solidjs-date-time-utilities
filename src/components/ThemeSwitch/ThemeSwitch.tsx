@@ -4,7 +4,7 @@ import useMode from "../../hooks/useMode";
 
 export default function ThemeSwitch(): JSX.Element {
   const theme = useTheme();
-  const switchMode = useMode((state) => state.switch);
+  const { switchMode } = useMode();
 
   return (
     <>
