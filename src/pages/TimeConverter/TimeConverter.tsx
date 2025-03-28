@@ -24,14 +24,16 @@ import useDateTimeRange, { max, min } from "./hooks/useDateTimeRange";
 import useExtraColumn from "./hooks/useExtraColumn";
 import useCityDropDown, { zeroULID } from "./hooks/useCityDropDown";
 import DeleteIcon from "@suid/icons-material/Delete";
+import { format } from "date-fns";
 
 const style = {
   display: "flex",
   flexGrow: "1",
 } as CSSStyleDeclaration;
 
-function changeTimeZone(date: Date, timeZone: string): TZDate {
-  return new TZDate(date, timeZone);
+function formatForDisplay(date: Date, timeZone: string): string {
+  const tzDate = new TZDate(date, timeZone);
+  return format(tzDate, "iii, MMM d HH:mm");
 }
 
 export default function TimeConverter(): JSX.Element {
@@ -160,7 +162,7 @@ export default function TimeConverter(): JSX.Element {
             </Show>
             <TableCell>Start</TableCell>
             <TableCell>End</TableCell>
-            <TableCell />
+            <TableCell>Remove</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -172,10 +174,10 @@ export default function TimeConverter(): JSX.Element {
                   <TableCell>{timeZoneData.timeZone}</TableCell>
                 </Show>
                 <TableCell>
-                  {changeTimeZone(start(), timeZoneData.timeZone).toString()}
+                  {formatForDisplay(start(), timeZoneData.timeZone)}
                 </TableCell>
                 <TableCell>
-                  {changeTimeZone(end(), timeZoneData.timeZone).toString()}
+                  {formatForDisplay(end(), timeZoneData.timeZone)}
                 </TableCell>
                 <TableCell>
                   <Show when={timeZoneData.key !== zeroULID}>
