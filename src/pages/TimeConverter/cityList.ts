@@ -452,6 +452,42 @@ const cityList: City[] = [
     timeZone: "Europe/Amsterdam",
     country: "Netherlands",
   },
+  {
+    key: "01JQD4JGDWH0DZCHERBWJBJYMT",
+    name: "Rotterdam",
+    timeZone: "Europe/Amsterdam",
+    country: "Netherlands",
+  },
+  {
+    key: "01JQD4JGDWH0DZCHERBWJBJYMV",
+    name: "Kathmandu",
+    timeZone: "Asia/Kathmandu",
+    country: "Nepal",
+  },
+  {
+    key: "01JQD4JGDWH0DZCHERBWJBJYMW",
+    name: "Pokhara",
+    timeZone: "Asia/Kathmandu",
+    country: "Nepal",
+  },
+  {
+    key: "01JQD4JGDWH0DZCHERBWJBJYMX",
+    name: "Lumbini",
+    timeZone: "Asia/Kathmandu",
+    country: "Nepal",
+  },
+  {
+    key: "01JQD4P5HE8QZDE2Q5V6YBKJAY",
+    name: "Eucla",
+    timeZone: "Australia/Eucla",
+    country: "Australia",
+  },
+  {
+    key: "01JQD4P5HE8QZDE2Q5V6YBKJAZ",
+    name: "Christmas Island",
+    timeZone: "Indian/Christmas",
+    country: "Australia",
+  },
 ];
 
 export default function sortedCityList() {
