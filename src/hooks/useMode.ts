@@ -12,8 +12,13 @@ function nextMode(mode: Mode): Mode {
 }
 
 const useMode = createWithSignal<ModeState>((set) => ({
-  mode: "dark",
-  switch: () => set((state) => ({ mode: nextMode(state.mode) })),
+  mode: (localStorage.getItem("mode") as Mode) || "dark",
+  switch: () =>
+    set((state) => {
+      const next = nextMode(state.mode);
+      localStorage.setItem("mode", next);
+      return { mode: next };
+    }),
 }));
 
 export default useMode;
