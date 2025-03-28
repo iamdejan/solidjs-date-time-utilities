@@ -591,6 +591,12 @@ const cityList: City[] = [
     country: "Switzerland",
   },
   {
+    key: "01JQEJ4AM4TVE6EDKMYZYMNXX9",
+    name: "Bern",
+    timeZone: "Europe/Zurich",
+    country: "Switzerland",
+  },
+  {
     key: "01JQD1AS2PANV1ZZ30YRYQGJZ8",
     name: "Dublin",
     timeZone: "Europe/Dublin",
@@ -607,6 +613,54 @@ const cityList: City[] = [
     name: "Rotterdam",
     timeZone: "Europe/Amsterdam",
     country: "Netherlands",
+  },
+  {
+    key: "01JQEJ4AM4TVE6EDKMYZYMNXWZ",
+    name: "Madrid",
+    timeZone: "Europe/Madrid",
+    country: "Spain",
+  },
+  {
+    key: "01JQEJ4AM4TVE6EDKMYZYMNXX0",
+    name: "Barcelona",
+    timeZone: "Europe/Madrid",
+    country: "Spain",
+  },
+  {
+    key: "01JQEJ4AM4TVE6EDKMYZYMNXX1",
+    name: "Lisbon",
+    timeZone: "Europe/Lisbon",
+    country: "Portugal",
+  },
+  {
+    key: "01JQEJ4AM4TVE6EDKMYZYMNXX2",
+    name: "Porto",
+    timeZone: "Europe/Lisbon",
+    country: "Portugal",
+  },
+  {
+    key: "01JQEJ4AM4TVE6EDKMYZYMNXX3",
+    name: "Rome",
+    timeZone: "Europe/Rome",
+    country: "Italy",
+  },
+  {
+    key: "01JQEJ4AM4TVE6EDKMYZYMNXX4",
+    name: "Milan",
+    timeZone: "Europe/Rome",
+    country: "Italy",
+  },
+  {
+    key: "01JQEJ4AM4TVE6EDKMYZYMNXX5",
+    name: "Turin",
+    timeZone: "Europe/Rome",
+    country: "Italy",
+  },
+  {
+    key: "01JQEJ4AM4TVE6EDKMYZYMNXX6",
+    name: "Sicily",
+    timeZone: "Europe/Rome",
+    country: "Italy",
   },
   {
     key: "01JQD4JGDWH0DZCHERBWJBJYMV",
@@ -727,6 +781,36 @@ const cityList: City[] = [
     name: "Ottawa",
     timeZone: "America/Toronto",
     country: "Canada",
+  },
+  {
+    key: "01JQEHWRKKV2B634FXB7V14A0E",
+    name: "Mexico City",
+    timeZone: "America/Mexico_City",
+    country: "Mexico",
+  },
+  {
+    key: "01JQEHWRKKV2B634FXB7V14A0F",
+    name: "Guadalajara",
+    timeZone: "America/Mexico_City",
+    country: "Mexico",
+  },
+  {
+    key: "01JQEHWRKKV2B634FXB7V14A0G",
+    name: "Tijuana",
+    timeZone: "America/Tijuana",
+    country: "Mexico",
+  },
+  {
+    key: "01JQEHWRKKV2B634FXB7V14A0H",
+    name: "Mérida",
+    timeZone: "America/Merida",
+    country: "Mexico",
+  },
+  {
+    key: "01JQEHWRKKV2B634FXB7V14A0L",
+    name: "Monterrey",
+    timeZone: "America/Monterrey",
+    country: "Mexico",
   },
 ];
 
