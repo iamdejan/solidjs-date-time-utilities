@@ -154,23 +154,23 @@ const cityList: City[] = [
   {
     key: "01JQD7MFJ5D2T43FZ05TAN5AXS",
     timeZone: "Asia/Makassar",
-    name: "Mataram, Nusa Tenggara Barat",
+    name: "Mataram",
     country: "Indonesia",
   },
   {
-    key: "01JQD7MFJ5D2T43FZ05TAN5AXS",
+    key: "01JQD7YA1CXEX0FNHRNYERKX87",
     timeZone: "Asia/Makassar",
-    name: "Kupang, Nusa Tenggara Timur",
+    name: "Kupang",
     country: "Indonesia",
   },
   {
-    key: "01JQD7MFJ5D2T43FZ05TAN5AXS",
+    key: "01JQD7YA1CXEX0FNHRNYERKX88",
     timeZone: "Asia/Makassar",
-    name: "Pulau Komodo, Nusa Tenggara Timur",
+    name: "Pulau Komodo",
     country: "Indonesia",
   },
   {
-    key: "01JQCYYBH4G1CCDYTMZ2XMMC42",
+    key: "01JQD7YA1CXEX0FNHRNYERKX89",
     timeZone: "Asia/Makassar",
     name: "Manado",
     country: "Indonesia",
@@ -621,7 +621,7 @@ const cityList: City[] = [
     country: "Canada",
   },
   {
-    key: "01JQD76JYCDP1TPXHTF94DMW4K",
+    key: "01JQD803N9T3476T70ASAHVCCV",
     name: "Ottawa",
     timeZone: "America/Toronto",
     country: "Canada",
