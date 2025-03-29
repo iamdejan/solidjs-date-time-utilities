@@ -13,3 +13,4 @@ List of implemented features:
 
 ![Home](./screenshots/home.png)
 ![Age Calculator](./screenshots/age-calculator.png)
+![Time Converter](./screenshots/time-converter.png)
