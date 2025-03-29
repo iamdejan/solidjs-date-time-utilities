@@ -8,7 +8,8 @@ import {
 import { JSX, For } from "solid-js";
 import useCityDropDown from "./hooks/useCityDropDown";
 import Props from "./Props";
-import { formatCity } from "./cityList";
+import { formatCity } from "../../types/City";
+import { accessorDebounced } from "solidjs-use";
 
 export default function CitySelect(props: Props): JSX.Element {
   const {
@@ -17,6 +18,8 @@ export default function CitySelect(props: Props): JSX.Element {
     setSearchText,
     displayedCityList,
   } = useCityDropDown(props);
+
+  const cityListDebounced = accessorDebounced(displayedCityList, 500);
 
   return (
     <FormControl
@@ -44,7 +47,7 @@ export default function CitySelect(props: Props): JSX.Element {
             }}
           />
         </ListSubheader>
-        <For each={displayedCityList()}>
+        <For each={cityListDebounced()}>
           {(city) => <MenuItem value={city.key}>{formatCity(city)}</MenuItem>}
         </For>
       </Select>

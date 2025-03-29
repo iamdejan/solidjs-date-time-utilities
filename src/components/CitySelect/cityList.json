@@ -1,0 +1,1214 @@
+[
+  {
+    "key": "01JQGEDEWXRB3VJ0F5HBPVYVPE",
+    "name": "Hong Kong",
+    "timeZone": "Asia/Hong_Kong",
+    "country": ""
+  },
+  {
+    "key": "01JQGEDEWX8MD1NP50A458MPG1",
+    "name": "Singapore",
+    "timeZone": "Asia/Singapore",
+    "country": ""
+  },
+  {
+    "key": "01JQGEDEWXV39GB5CQA734J1BE",
+    "name": "Vatican City",
+    "timeZone": "Europe/Vatican",
+    "country": ""
+  },
+  {
+    "key": "01JQGEDEWXCYBK0HDECTZ4C9QY",
+    "name": "Buenos Aires",
+    "timeZone": "America/Argentina/Buenos_Aires",
+    "country": "Argentina"
+  },
+  {
+    "key": "01JQGEDEWX8P4XA8ZX0GPRY9B6",
+    "name": "Cordoba",
+    "timeZone": "America/Argentina/Cordoba",
+    "country": "Argentina"
+  },
+  {
+    "key": "01JQGEDEWWHAYG0JAM0T5QJ5VD",
+    "name": "Adelaide",
+    "timeZone": "Australia/Adelaide",
+    "country": "Australia"
+  },
+  {
+    "key": "01JQGEDEWWEDP28VMFP0WQG8H9",
+    "name": "Brisbane",
+    "timeZone": "Australia/Brisbane",
+    "country": "Australia"
+  },
+  {
+    "key": "01JQGEDEWWXDQQFKB7GDQ93RDX",
+    "name": "Canberra",
+    "timeZone": "Australia/Sydney",
+    "country": "Australia"
+  },
+  {
+    "key": "01JQGEDEWW5145FN1Z4BZ9BNG5",
+    "name": "Christmas Island",
+    "timeZone": "Indian/Christmas",
+    "country": "Australia"
+  },
+  {
+    "key": "01JQGEDEWW8W8GWHXQFT5SBS5E",
+    "name": "Eucla",
+    "timeZone": "Australia/Eucla",
+    "country": "Australia"
+  },
+  {
+    "key": "01JQGEDEWWWB83DDG4N4JPN4TZ",
+    "name": "Gold Coast",
+    "timeZone": "Australia/Brisbane",
+    "country": "Australia"
+  },
+  {
+    "key": "01JQGEDEWWH706M8YGKWS960MH",
+    "name": "Melbourne",
+    "timeZone": "Australia/Melbourne",
+    "country": "Australia"
+  },
+  {
+    "key": "01JQGEDEWWYX463A3XVYJA3FZ6",
+    "name": "Perth",
+    "timeZone": "Australia/Perth",
+    "country": "Australia"
+  },
+  {
+    "key": "01JQGEDEWWCHSXFBTX4DVA76AR",
+    "name": "Sydney",
+    "timeZone": "Australia/Sydney",
+    "country": "Australia"
+  },
+  {
+    "key": "01JQGEDEWXKZT9AG79M8F1BJSD",
+    "name": "Innsbruck",
+    "timeZone": "Europe/Vienna",
+    "country": "Austria"
+  },
+  {
+    "key": "01JQGEDEWXBH1PYYHH52YQSQ8Q",
+    "name": "Vienna",
+    "timeZone": "Europe/Vienna",
+    "country": "Austria"
+  },
+  {
+    "key": "01JQGEDEWXJASGSB2H5RRM2FYQ",
+    "name": "Antwerp",
+    "timeZone": "Europe/Brussels",
+    "country": "Belgium"
+  },
+  {
+    "key": "01JQGEDEWX20GE5RA11HF2FSCD",
+    "name": "Brussels",
+    "timeZone": "Europe/Brussels",
+    "country": "Belgium"
+  },
+  {
+    "key": "01JQGEDEWX2WF8WBKHK65DRJWQ",
+    "name": "Brasilia",
+    "timeZone": "America/Sao_Paulo",
+    "country": "Brazil"
+  },
+  {
+    "key": "01JQGEDEWX5XY3EQH31CVPBJGZ",
+    "name": "Fortaleza",
+    "timeZone": "America/Fortaleza",
+    "country": "Brazil"
+  },
+  {
+    "key": "01JQGEDEWXHSW74E2ZB35K16QY",
+    "name": "Manaus",
+    "timeZone": "America/Manaus",
+    "country": "Brazil"
+  },
+  {
+    "key": "01JQGEDEWXN0EDD3TPTW82WHZQ",
+    "name": "Recife",
+    "timeZone": "America/Recife",
+    "country": "Brazil"
+  },
+  {
+    "key": "01JQGEDEWX51EH423RC2HTX0YN",
+    "name": "Rio de Janeiro",
+    "timeZone": "America/Sao_Paulo",
+    "country": "Brazil"
+  },
+  {
+    "key": "01JQGEDEWXJEQAH7ZW1JVHV8C2",
+    "name": "Salvador",
+    "timeZone": "America/Bahia",
+    "country": "Brazil"
+  },
+  {
+    "key": "01JQGEDEWXQQ7FTEWW66SAVAJ7",
+    "name": "Sao Paulo",
+    "timeZone": "America/Sao_Paulo",
+    "country": "Brazil"
+  },
+  {
+    "key": "01JQGEDEWXM2VKP7Z3ZKTJ244J",
+    "name": "Bandar Sri Begawan",
+    "timeZone": "Asia/Brunei",
+    "country": "Brunei"
+  },
+  {
+    "key": "01JQGEDEWX7DH2XQ4HRE7QCCMK",
+    "name": "Montreal",
+    "timeZone": "America/Toronto",
+    "country": "Canada"
+  },
+  {
+    "key": "01JQGEDEWXZXCGPEPWH4GCFWJZ",
+    "name": "Ottawa",
+    "timeZone": "America/Toronto",
+    "country": "Canada"
+  },
+  {
+    "key": "01JQGEDEWX8D4V41GC5DSPZ3SZ",
+    "name": "Toronto",
+    "timeZone": "America/Toronto",
+    "country": "Canada"
+  },
+  {
+    "key": "01JQGEDEWX2YC5JRZ901GRGT4X",
+    "name": "Vancouver, British Columbia",
+    "timeZone": "America/Vancouver",
+    "country": "Canada"
+  },
+  {
+    "key": "01JQGEDEWXGNEBDZ4F5WGG76HA",
+    "name": "Victoria, British Columbia",
+    "timeZone": "America/Vancouver",
+    "country": "Canada"
+  },
+  {
+    "key": "01JQGEDEWX3X5BKT00AD79F0BV",
+    "name": "Waterloo",
+    "timeZone": "America/Toronto",
+    "country": "Canada"
+  },
+  {
+    "key": "01JQGEDEWXP76MWQ5RSA0MW344",
+    "name": "Santiago",
+    "timeZone": "America/Santiago",
+    "country": "Chile"
+  },
+  {
+    "key": "01JQGEDEWW35604N4GASJ4XTVA",
+    "name": "Beijing",
+    "timeZone": "Asia/Shanghai",
+    "country": "China"
+  },
+  {
+    "key": "01JQGEDEWWAS4DY58BZVQJ4Y8V",
+    "name": "Chengdu",
+    "timeZone": "Asia/Shanghai",
+    "country": "China"
+  },
+  {
+    "key": "01JQGEDEWW07J32MW62JWC3D43",
+    "name": "Chongqing",
+    "timeZone": "Asia/Shanghai",
+    "country": "China"
+  },
+  {
+    "key": "01JQGEDEWWZ30QZVB3FVXE4P28",
+    "name": "Guangzhou",
+    "timeZone": "Asia/Shanghai",
+    "country": "China"
+  },
+  {
+    "key": "01JQGEDEWWG99Z7ZYT1JVMF2MD",
+    "name": "Kashgar",
+    "timeZone": "Asia/Urumqi",
+    "country": "China"
+  },
+  {
+    "key": "01JQGEDEWWRKPPN1RW7KY7NYNH",
+    "name": "Shanghai",
+    "timeZone": "Asia/Shanghai",
+    "country": "China"
+  },
+  {
+    "key": "01JQGEDEWWMYTWZFBJFKMKF8BP",
+    "name": "Shenzhen",
+    "timeZone": "Asia/Shanghai",
+    "country": "China"
+  },
+  {
+    "key": "01JQGEDEWW2T027QFR9RFWD5NW",
+    "name": "Urumqi",
+    "timeZone": "Asia/Urumqi",
+    "country": "China"
+  },
+  {
+    "key": "01JQGEDEWWRAV08VG60KW2RW0V",
+    "name": "Xi'an",
+    "timeZone": "Asia/Shanghai",
+    "country": "China"
+  },
+  {
+    "key": "01JQGEDEWW15VA190K9Q22AN11",
+    "name": "Xiamen",
+    "timeZone": "Asia/Shanghai",
+    "country": "China"
+  },
+  {
+    "key": "01JQGEDEWXCDYTTHXEMD42BFMN",
+    "name": "Bogota",
+    "timeZone": "America/Bogota",
+    "country": "Colombia"
+  },
+  {
+    "key": "01JQGEDEWXV5JV4PT3PGMGGRE5",
+    "name": "Zagreb",
+    "timeZone": "Europe/Zagreb",
+    "country": "Croatia"
+  },
+  {
+    "key": "01JQGEDEWXRW3EDTH5EDY7N0QT",
+    "name": "Brno",
+    "timeZone": "Europe/Prague",
+    "country": "Czech Republic"
+  },
+  {
+    "key": "01JQGEDEWX80CEM4299S9GRTAH",
+    "name": "Prague",
+    "timeZone": "Europe/Prague",
+    "country": "Czech Republic"
+  },
+  {
+    "key": "01JQGEDEWXWVZDVNQQK3DDBJ9V",
+    "name": "Copenhagen",
+    "timeZone": "Europe/Copenhagen",
+    "country": "Denmark"
+  },
+  {
+    "key": "01JQGEDEWXTXWXFSKN2ZEHAY03",
+    "name": "Helsinki",
+    "timeZone": "Europe/Helsinki",
+    "country": "Finland"
+  },
+  {
+    "key": "01JQGEDEWX75MK8H7B5CFJ0E0D",
+    "name": "Oulu",
+    "timeZone": "Europe/Helsinki",
+    "country": "Finland"
+  },
+  {
+    "key": "01JQGEDEWXFA1H7S1GYREDCN96",
+    "name": "Bordeaux",
+    "timeZone": "Europe/Paris",
+    "country": "France"
+  },
+  {
+    "key": "01JQGEDEWX3H39W959Y57B3J7E",
+    "name": "Lille",
+    "timeZone": "Europe/Paris",
+    "country": "France"
+  },
+  {
+    "key": "01JQGEDEWX60QZ2TCKD720FN26",
+    "name": "Lyon",
+    "timeZone": "Europe/Paris",
+    "country": "France"
+  },
+  {
+    "key": "01JQGEDEWXMMPKRXPEQ0W13C76",
+    "name": "Marseille",
+    "timeZone": "Europe/Paris",
+    "country": "France"
+  },
+  {
+    "key": "01JQGEDEWXRHSXP6ER8F5E5JJ5",
+    "name": "Montpellier",
+    "timeZone": "Europe/Paris",
+    "country": "France"
+  },
+  {
+    "key": "01JQGEDEWXF6KQJ8RG16K6ZMZ2",
+    "name": "Nice",
+    "timeZone": "Europe/Paris",
+    "country": "France"
+  },
+  {
+    "key": "01JQGEDEWXT6Q2R310S0R5JW5D",
+    "name": "Paris",
+    "timeZone": "Europe/Paris",
+    "country": "France"
+  },
+  {
+    "key": "01JQGEDEWX3ZRDP2P975J4PA2F",
+    "name": "Rennes",
+    "timeZone": "Europe/Paris",
+    "country": "France"
+  },
+  {
+    "key": "01JQGEDEWXDP4FAGF8NBDGNEQV",
+    "name": "Toulouse",
+    "timeZone": "Europe/Paris",
+    "country": "France"
+  },
+  {
+    "key": "01JQGEDEWXGDKDQ0AWYA0G3MEJ",
+    "name": "Aachen",
+    "timeZone": "Europe/Berlin",
+    "country": "Germany"
+  },
+  {
+    "key": "01JQGEDEWXH9TAH9EESWB1Z6C1",
+    "name": "Berlin",
+    "timeZone": "Europe/Berlin",
+    "country": "Germany"
+  },
+  {
+    "key": "01JQGEDEWX0YRB61HREJVJWFV7",
+    "name": "Cologne",
+    "timeZone": "Europe/Berlin",
+    "country": "Germany"
+  },
+  {
+    "key": "01JQGEDEWX93X6X0KR7VN9JHWF",
+    "name": "Dortmund",
+    "timeZone": "Europe/Berlin",
+    "country": "Germany"
+  },
+  {
+    "key": "01JQGEDEWXY6327GA6MMAZMK2D",
+    "name": "Hamburg",
+    "timeZone": "Europe/Berlin",
+    "country": "Germany"
+  },
+  {
+    "key": "01JQGEDEWX8PMSK1ANMP6MRC2Y",
+    "name": "Munich",
+    "timeZone": "Europe/Berlin",
+    "country": "Germany"
+  },
+  {
+    "key": "01JQGEDEWX9ZMXT5HGTBAAT1EY",
+    "name": "Budapest",
+    "timeZone": "Europe/Budapest",
+    "country": "Hungary"
+  },
+  {
+    "key": "01JQGEDEWXQWB5EESMG2TA7WF4",
+    "name": "Bangalore",
+    "timeZone": "Asia/Kolkata",
+    "country": "India"
+  },
+  {
+    "key": "01JQGEDEWXRSGJMBCAJZ0RJH1T",
+    "name": "Delhi",
+    "timeZone": "Asia/Kolkata",
+    "country": "India"
+  },
+  {
+    "key": "01JQGEDEWXMRFWVPR9H7NSCA8H",
+    "name": "Hyderabad",
+    "timeZone": "Asia/Kolkata",
+    "country": "India"
+  },
+  {
+    "key": "01JQGEDEWXRTCT51VD646V7F9V",
+    "name": "Kolkata",
+    "timeZone": "Asia/Kolkata",
+    "country": "India"
+  },
+  {
+    "key": "01JQGEDEWXA6T5ZNR9ZK2NZZWJ",
+    "name": "Mumbai",
+    "timeZone": "Asia/Kolkata",
+    "country": "India"
+  },
+  {
+    "key": "01JQGEDEWWXM599NRXKPMXRXA2",
+    "name": "Ambon",
+    "timeZone": "Asia/Jayapura",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWHYMZE7H3CPTDV57X",
+    "name": "Balige",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWCNPRKZDP848YJWFZ",
+    "name": "Balikpapan",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWH9T0N6BPA78858E5",
+    "name": "Banda Aceh",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWNFR8A42JSG3VZYAZ",
+    "name": "Bandar Lampung",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWW37FJM8Y9K4SZZT4",
+    "name": "Bandung",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW3355D7X0QBHK0ABC",
+    "name": "Banjarbaru",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWWW46BRK5K2Q6WSZ4",
+    "name": "Banyuwangi",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWNY3SN117ZWZ6ABG8",
+    "name": "Denpasar, Bali",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWK7RVJHP87NZJM2CQ",
+    "name": "Jakarta",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWPPK58XD93MHD41B8",
+    "name": "Jayapura",
+    "timeZone": "Asia/Jayapura",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWNRKKTKJ3FGX0V7B4",
+    "name": "Jember",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW6AN06FHG62E3RMDH",
+    "name": "Kendari",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW4ZN4GWN1A2BP80GR",
+    "name": "Kupang",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW3DMT1EJTZYF99DAN",
+    "name": "Lhokseumawe",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW1B77B2J36HMYBSJY",
+    "name": "Lovina, Bali",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWBRH6Z6YVH3WTWWVR",
+    "name": "Lumajang",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW14Q7Z23S8J3CJPD6",
+    "name": "Madiun",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWVM2AGJWK4TRA764K",
+    "name": "Makassar",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWVYEZCG7W098W4N6Y",
+    "name": "Malang",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW8DZSQ22KSSCYB0NZ",
+    "name": "Manado",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWVRKH3PH0TAXPJCWJ",
+    "name": "Mataram",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWQVY81YHQ148B47BQ",
+    "name": "Medan",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWME3S9HJW1JVEHNE8",
+    "name": "Meulaboh",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW3528ZPRVXGQHJKP9",
+    "name": "Padang",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWZFAYGY7733MXDE3T",
+    "name": "Palembang",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW5X4CA21Q3Y52665Z",
+    "name": "Palu",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW983T52BEDXB9770R",
+    "name": "Pontianak",
+    "timeZone": "Asia/Pontianak",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW37236X6Q87FFM94V",
+    "name": "Pulau Komodo",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWWDVH8GHF9YYSS8XT",
+    "name": "Pulau Mentawai",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWNT5TRJ1RDD178XCR",
+    "name": "Pulau Nias",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW0HTBK9RX6GZY5BT9",
+    "name": "Samarinda",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWBHYXP2V6V7NMPJZ4",
+    "name": "Semarang",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW6P5JFFXVQ43EKYYS",
+    "name": "Sibolga",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWTZ2GEY849WXBHSW0",
+    "name": "Sidoarjo",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW6MHSMFZ41H439R41",
+    "name": "Singkawang",
+    "timeZone": "Asia/Pontianak",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW23BGKE2B65XKDGW4",
+    "name": "Sorong",
+    "timeZone": "Asia/Jayapura",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWVX9YVMXEZNF5S5W8",
+    "name": "Sumba",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW78W08VC4QNP2ZDCV",
+    "name": "Surabaya",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWCHXFVWKESMHGNSQC",
+    "name": "Surakarta",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWECD5188BCNE6YS1F",
+    "name": "Tarakan",
+    "timeZone": "Asia/Makassar",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWCEM9FQCZN99D523X",
+    "name": "Tarutung",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW5R19STFAJ7EXA1F1",
+    "name": "Ternate",
+    "timeZone": "Asia/Jayapura",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWW4X78TYV9NSKKQH42",
+    "name": "Timika",
+    "timeZone": "Asia/Jayapura",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWWY13F9SQEANE5XPGG",
+    "name": "Yogyakarta",
+    "timeZone": "Asia/Jakarta",
+    "country": "Indonesia"
+  },
+  {
+    "key": "01JQGEDEWXMQSXHDD8QGKPEFE0",
+    "name": "Dublin",
+    "timeZone": "Europe/Dublin",
+    "country": "Ireland"
+  },
+  {
+    "key": "01JQGEDEWXFP20WYJVMR890R13",
+    "name": "Milan",
+    "timeZone": "Europe/Rome",
+    "country": "Italy"
+  },
+  {
+    "key": "01JQGEDEWXCWT58GX9GK0A85CP",
+    "name": "Rome",
+    "timeZone": "Europe/Rome",
+    "country": "Italy"
+  },
+  {
+    "key": "01JQGEDEWXSM7SEMGV3P5896PT",
+    "name": "Sicily",
+    "timeZone": "Europe/Rome",
+    "country": "Italy"
+  },
+  {
+    "key": "01JQGEDEWX5S40EQQ7S83B0P0E",
+    "name": "Turin",
+    "timeZone": "Europe/Rome",
+    "country": "Italy"
+  },
+  {
+    "key": "01JQGEDEWXR16ZTVWZS9E5A0ET",
+    "name": "Fukuoka",
+    "timeZone": "Asia/Tokyo",
+    "country": "Japan"
+  },
+  {
+    "key": "01JQGEDEWXGAQ3WF4MH179TVS7",
+    "name": "Osaka",
+    "timeZone": "Asia/Tokyo",
+    "country": "Japan"
+  },
+  {
+    "key": "01JQGEDEWXK2CXDCDGG33F6RYQ",
+    "name": "Tokyo",
+    "timeZone": "Asia/Tokyo",
+    "country": "Japan"
+  },
+  {
+    "key": "01JQGEDEWX35BW3GY0P22D98MD",
+    "name": "Yokohama",
+    "timeZone": "Asia/Tokyo",
+    "country": "Japan"
+  },
+  {
+    "key": "01JQGEDEWWT4D028HVEG4MRE8V",
+    "name": "George Town",
+    "timeZone": "Asia/Kuala_Lumpur",
+    "country": "Malaysia"
+  },
+  {
+    "key": "01JQGEDEWW089XRBZFB8TZBXY7",
+    "name": "Johor Bahru",
+    "timeZone": "Asia/Kuala_Lumpur",
+    "country": "Malaysia"
+  },
+  {
+    "key": "01JQGEDEWWGKERPMY9BK9ZSHNQ",
+    "name": "Kota Bharu",
+    "timeZone": "Asia/Kuala_Lumpur",
+    "country": "Malaysia"
+  },
+  {
+    "key": "01JQGEDEWW2BS9E6YWHR4HJ6SS",
+    "name": "Kota Kinabalu",
+    "timeZone": "Asia/Kuching",
+    "country": "Malaysia"
+  },
+  {
+    "key": "01JQGEDEWWN92Y9YHF29QVNPJC",
+    "name": "Kuala Lumpur",
+    "timeZone": "Asia/Kuala_Lumpur",
+    "country": "Malaysia"
+  },
+  {
+    "key": "01JQGEDEWWSCEAGCXZ2RD65R7J",
+    "name": "Kuala Terengganu",
+    "timeZone": "Asia/Kuala_Lumpur",
+    "country": "Malaysia"
+  },
+  {
+    "key": "01JQGEDEWWXEK40DXR7H51CH2E",
+    "name": "Kuching",
+    "timeZone": "Asia/Kuching",
+    "country": "Malaysia"
+  },
+  {
+    "key": "01JQGEDEWW0D2Z632E3FPAR54P",
+    "name": "Malacca",
+    "timeZone": "Asia/Kuala_Lumpur",
+    "country": "Malaysia"
+  },
+  {
+    "key": "01JQGEDEWX7JTEXD2RQC561YKS",
+    "name": "Guadalajara",
+    "timeZone": "America/Mexico_City",
+    "country": "Mexico"
+  },
+  {
+    "key": "01JQGEDEWXEPZ7XD5HEMHQKKKX",
+    "name": "Merida",
+    "timeZone": "America/Merida",
+    "country": "Mexico"
+  },
+  {
+    "key": "01JQGEDEWXSSQ55GVGQKHYVHZG",
+    "name": "Mexico City",
+    "timeZone": "America/Mexico_City",
+    "country": "Mexico"
+  },
+  {
+    "key": "01JQGEDEWX72PY64GYM48BZTQ3",
+    "name": "Monterrey",
+    "timeZone": "America/Monterrey",
+    "country": "Mexico"
+  },
+  {
+    "key": "01JQGEDEWXEBYPXSEJ02KRSYDH",
+    "name": "Tijuana",
+    "timeZone": "America/Tijuana",
+    "country": "Mexico"
+  },
+  {
+    "key": "01JQGEDEWXEWXZCRRPMTED92M8",
+    "name": "Kathmandu",
+    "timeZone": "Asia/Kathmandu",
+    "country": "Nepal"
+  },
+  {
+    "key": "01JQGEDEWXZ07HVW2E5Q9G1NH8",
+    "name": "Lumbini",
+    "timeZone": "Asia/Kathmandu",
+    "country": "Nepal"
+  },
+  {
+    "key": "01JQGEDEWXRQCB2NQXWCCQ465P",
+    "name": "Pokhara",
+    "timeZone": "Asia/Kathmandu",
+    "country": "Nepal"
+  },
+  {
+    "key": "01JQGEDEWXXY4JE7QZFMH00ZG9",
+    "name": "Amsterdam",
+    "timeZone": "Europe/Amsterdam",
+    "country": "Netherlands"
+  },
+  {
+    "key": "01JQGEDEWXF2WGJX79BPGC22TK",
+    "name": "Rotterdam",
+    "timeZone": "Europe/Amsterdam",
+    "country": "Netherlands"
+  },
+  {
+    "key": "01JQGEDEWXAH6CJ1BM81XYTN6D",
+    "name": "Auckland",
+    "timeZone": "Pacific/Auckland",
+    "country": "New Zealand"
+  },
+  {
+    "key": "01JQGEDEWXF2WSVREDWVMW7GZB",
+    "name": "Christchurch",
+    "timeZone": "Pacific/Auckland",
+    "country": "New Zealand"
+  },
+  {
+    "key": "01JQGEDEWXX82G983ZQW4HGHVD",
+    "name": "Dunedin",
+    "timeZone": "Pacific/Auckland",
+    "country": "New Zealand"
+  },
+  {
+    "key": "01JQGEDEWXD67PY0PV0C9G5PKN",
+    "name": "Wellington",
+    "timeZone": "Pacific/Auckland",
+    "country": "New Zealand"
+  },
+  {
+    "key": "01JQGEDEWX51WM9HR52NVKTBTP",
+    "name": "Bergen",
+    "timeZone": "Europe/Oslo",
+    "country": "Norway"
+  },
+  {
+    "key": "01JQGEDEWXJVVANV4X39SGC7R6",
+    "name": "Oslo",
+    "timeZone": "Europe/Oslo",
+    "country": "Norway"
+  },
+  {
+    "key": "01JQGEDEWX01NBPC1WXE8PPFKQ",
+    "name": "Asuncion",
+    "timeZone": "America/Asuncion",
+    "country": "Paraguay"
+  },
+  {
+    "key": "01JQGEDEWXFCJQRF8NVCQHA7G9",
+    "name": "Lima",
+    "timeZone": "America/Lima",
+    "country": "Peru"
+  },
+  {
+    "key": "01JQGEDEWX378AR8YB126XDSZV",
+    "name": "Cebu City",
+    "timeZone": "Asia/Manila",
+    "country": "Philippines"
+  },
+  {
+    "key": "01JQGEDEWXVQPYFB6TFHD9E80G",
+    "name": "Davao City",
+    "timeZone": "Asia/Manila",
+    "country": "Philippines"
+  },
+  {
+    "key": "01JQGEDEWX0QRDM93Q320Q41YM",
+    "name": "Makati",
+    "timeZone": "Asia/Manila",
+    "country": "Philippines"
+  },
+  {
+    "key": "01JQGEDEWXWGJC2RW83J8QSYD6",
+    "name": "Manila",
+    "timeZone": "Asia/Manila",
+    "country": "Philippines"
+  },
+  {
+    "key": "01JQGEDEWXW148AG31Q6RB4E9A",
+    "name": "Quezon City",
+    "timeZone": "Asia/Manila",
+    "country": "Philippines"
+  },
+  {
+    "key": "01JQGEDEWXX780Q6KBQP2RSGW8",
+    "name": "Krakow",
+    "timeZone": "Europe/Warsaw",
+    "country": "Poland"
+  },
+  {
+    "key": "01JQGEDEWXA5K29V045E7RV52K",
+    "name": "Szczecin",
+    "timeZone": "Europe/Warsaw",
+    "country": "Poland"
+  },
+  {
+    "key": "01JQGEDEWXE6YC7XGMA633SR43",
+    "name": "Warsaw",
+    "timeZone": "Europe/Warsaw",
+    "country": "Poland"
+  },
+  {
+    "key": "01JQGEDEWX4HT01FSJZFF4FB5R",
+    "name": "Wroclaw",
+    "timeZone": "Europe/Warsaw",
+    "country": "Poland"
+  },
+  {
+    "key": "01JQGEDEWXWPPV5JSW0SDYSJWP",
+    "name": "Lisbon",
+    "timeZone": "Europe/Lisbon",
+    "country": "Portugal"
+  },
+  {
+    "key": "01JQGEDEWXEKHCH2T7J367DVCQ",
+    "name": "Porto",
+    "timeZone": "Europe/Lisbon",
+    "country": "Portugal"
+  },
+  {
+    "key": "01JQGEDEWXMADQESAZ9B4XYPNK",
+    "name": "Busan",
+    "timeZone": "Asia/Seoul",
+    "country": "South Korea"
+  },
+  {
+    "key": "01JQGEDEWXCVDZ9WJAAEX3QR2X",
+    "name": "Incheon",
+    "timeZone": "Asia/Seoul",
+    "country": "South Korea"
+  },
+  {
+    "key": "01JQGEDEWXE9R2VVJ3CB1RACV2",
+    "name": "Seoul",
+    "timeZone": "Asia/Seoul",
+    "country": "South Korea"
+  },
+  {
+    "key": "01JQGEDEWXQ9MSX16NJJ5GBWPY",
+    "name": "Barcelona",
+    "timeZone": "Europe/Madrid",
+    "country": "Spain"
+  },
+  {
+    "key": "01JQGEDEWX6CRTPYD0CK1YSKS2",
+    "name": "Madrid",
+    "timeZone": "Europe/Madrid",
+    "country": "Spain"
+  },
+  {
+    "key": "01JQGEDEWXP2PJ2YPZ9H0CH67D",
+    "name": "Gothenburg",
+    "timeZone": "Europe/Stockholm",
+    "country": "Sweden"
+  },
+  {
+    "key": "01JQGEDEWXQZHNA5GNXZPJ637J",
+    "name": "Stockholm",
+    "timeZone": "Europe/Stockholm",
+    "country": "Sweden"
+  },
+  {
+    "key": "01JQGEDEWX1351RJ72HP7KGB6B",
+    "name": "Basel",
+    "timeZone": "Europe/Zurich",
+    "country": "Switzerland"
+  },
+  {
+    "key": "01JQGEDEWXQ90G16V5SX820D2X",
+    "name": "Bern",
+    "timeZone": "Europe/Zurich",
+    "country": "Switzerland"
+  },
+  {
+    "key": "01JQGEDEWX47GSZFHK3XAA5J4M",
+    "name": "Geneva",
+    "timeZone": "Europe/Zurich",
+    "country": "Switzerland"
+  },
+  {
+    "key": "01JQGEDEWX470C33K7E29BCXRS",
+    "name": "Lausanne",
+    "timeZone": "Europe/Zurich",
+    "country": "Switzerland"
+  },
+  {
+    "key": "01JQGEDEWX88VH1XWEVKGEEJ4K",
+    "name": "Zurich",
+    "timeZone": "Europe/Zurich",
+    "country": "Switzerland"
+  },
+  {
+    "key": "01JQGEDEWXEEDRJ70BJYXSN9RX",
+    "name": "Taipei",
+    "timeZone": "Asia/Taipei",
+    "country": "Taiwan"
+  },
+  {
+    "key": "01JQGEDEWXA8BYNCT9JMAW9149",
+    "name": "Bangkok",
+    "timeZone": "Asia/Bangkok",
+    "country": "Thailand"
+  },
+  {
+    "key": "01JQGEDEWXH8CS2A2F78BHZVS1",
+    "name": "Chiang Mai",
+    "timeZone": "Asia/Bangkok",
+    "country": "Thailand"
+  },
+  {
+    "key": "01JQGEDEWX8YEFSPDKGT792NDY",
+    "name": "Phuket",
+    "timeZone": "Asia/Bangkok",
+    "country": "Thailand"
+  },
+  {
+    "key": "01JQGEDEWX0YXTCJ5856QMJ2RF",
+    "name": "Belfast",
+    "timeZone": "Europe/London",
+    "country": "United Kingdom"
+  },
+  {
+    "key": "01JQGEDEWXGD9C7DDG64R77KMX",
+    "name": "Birmingham",
+    "timeZone": "Europe/London",
+    "country": "United Kingdom"
+  },
+  {
+    "key": "01JQGEDEWX9N2WMWBZ59P13Y52",
+    "name": "Cambridge",
+    "timeZone": "Europe/London",
+    "country": "United Kingdom"
+  },
+  {
+    "key": "01JQGEDEWX111CEJ0SBX1MEMJ6",
+    "name": "Edinburgh",
+    "timeZone": "Europe/London",
+    "country": "United Kingdom"
+  },
+  {
+    "key": "01JQGEDEWX3ZCM687D27PFTNH4",
+    "name": "Glasgow",
+    "timeZone": "Europe/London",
+    "country": "United Kingdom"
+  },
+  {
+    "key": "01JQGEDEWXM7Z9G7GXWJCEYX91",
+    "name": "Liverpool",
+    "timeZone": "Europe/London",
+    "country": "United Kingdom"
+  },
+  {
+    "key": "01JQGEDEWXNSEKNZQKP0HP9VRK",
+    "name": "London",
+    "timeZone": "Europe/London",
+    "country": "United Kingdom"
+  },
+  {
+    "key": "01JQGEDEWXTRZ2A7C3B23WRKCC",
+    "name": "Manchester",
+    "timeZone": "Europe/London",
+    "country": "United Kingdom"
+  },
+  {
+    "key": "01JQGEDEWX6F5BPZ5FB10THDF2",
+    "name": "Oxford",
+    "timeZone": "Europe/London",
+    "country": "United Kingdom"
+  },
+  {
+    "key": "01JQGEDEWX0XXR882ZCDX2SX97",
+    "name": "Austin, Texas",
+    "timeZone": "America/Chicago",
+    "country": "United States"
+  },
+  {
+    "key": "01JQGEDEWX18G4D9MPCMFJRNN6",
+    "name": "Boston",
+    "timeZone": "America/New_York",
+    "country": "United States"
+  },
+  {
+    "key": "01JQGEDEWXS2WMBGNNKF6EY57Y",
+    "name": "Chicago",
+    "timeZone": "America/Chicago",
+    "country": "United States"
+  },
+  {
+    "key": "01JQGEDEWXC6GEY4P6DFH6C8CN",
+    "name": "Dallas, Texas",
+    "timeZone": "America/Chicago",
+    "country": "United States"
+  },
+  {
+    "key": "01JQGEDEWX23JW02QWXMA3QJS3",
+    "name": "Denver, Colorado",
+    "timeZone": "America/Denver",
+    "country": "United States"
+  },
+  {
+    "key": "01JQGEDEWXM7TCFQ3SWKPS423A",
+    "name": "Houston",
+    "timeZone": "America/Chicago",
+    "country": "United States"
+  },
+  {
+    "key": "01JQGEDEWXAAKGV0P2BRWK5J4X",
+    "name": "Los Angeles",
+    "timeZone": "America/Los_Angeles",
+    "country": "United States"
+  },
+  {
+    "key": "01JQGEDEWX8WSEYRX2AFYK50DA",
+    "name": "New York",
+    "timeZone": "America/New_York",
+    "country": "United States"
+  },
+  {
+    "key": "01JQGEDEWX1YQASQQBTRGY0V21",
+    "name": "Phoenix, Arizona",
+    "timeZone": "America/Phoenix",
+    "country": "United States"
+  },
+  {
+    "key": "01JQGEDEWXCDDD3YW1K3C8BHS7",
+    "name": "San Francisco",
+    "timeZone": "America/Los_Angeles",
+    "country": "United States"
+  },
+  {
+    "key": "01JQGEDEWX8JKW951KB02S2SC5",
+    "name": "Seattle",
+    "timeZone": "America/Los_Angeles",
+    "country": "United States"
+  },
+  {
+    "key": "01JQGEDEWXE0BPFBYBW4GYTEKE",
+    "name": "Montevideo",
+    "timeZone": "America/Montevideo",
+    "country": "Uruguay"
+  },
+  {
+    "key": "01JQGEDEWXT4DZ1Q92BYR6KR2D",
+    "name": "Da Lat",
+    "timeZone": "Asia/Ho_Chi_Minh",
+    "country": "Vietnam"
+  },
+  {
+    "key": "01JQGEDEWXVJ5AHXMNBXF0GHZ6",
+    "name": "Hanoi",
+    "timeZone": "Asia/Bangkok",
+    "country": "Vietnam"
+  },
+  {
+    "key": "01JQGEDEWX19C9EZYA7VE693JW",
+    "name": "Ho Chi Minh",
+    "timeZone": "Asia/Ho_Chi_Minh",
+    "country": "Vietnam"
+  }
+]
