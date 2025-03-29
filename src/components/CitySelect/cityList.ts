@@ -1,4 +1,4 @@
-import City from "./City";
+import City from "../../types/City";
 
 const cityList: City[] = [
   {
