@@ -8,6 +8,7 @@ import {
 import { JSX, For } from "solid-js";
 import useCityDropDown from "./hooks/useCityDropDown";
 import Props from "./Props";
+import { formatCity } from "./cityList";
 
 export default function CitySelect(props: Props): JSX.Element {
   const {
@@ -24,7 +25,7 @@ export default function CitySelect(props: Props): JSX.Element {
       }}
     >
       <Select
-        value={props.selectedTZDropDown()}
+        value={props.selectedCityKey()}
         MenuProps={{ autoFocus: false }}
         onChange={handleTimeZoneSelectChange}
       >
@@ -44,11 +45,7 @@ export default function CitySelect(props: Props): JSX.Element {
           />
         </ListSubheader>
         <For each={displayedCityList()}>
-          {(city) => (
-            <MenuItem value={city.key}>
-              {city.name}, {city.country}
-            </MenuItem>
-          )}
+          {(city) => <MenuItem value={city.key}>{formatCity(city)}</MenuItem>}
         </For>
       </Select>
     </FormControl>

@@ -45,7 +45,7 @@ export default function TimeConverter(): JSX.Element {
 
   const { canShowExtraColumn } = useExtraColumn();
 
-  const [selectedTZDropDown, setSelectedTZDropDown] = createSignal<string>("");
+  const [selectedCityKey, setSelectedCityKey] = createSignal<string>("");
   const { chosenTimeZones, addChosenTimeZone, removeChosenTimeZone } =
     useChosenTimeZones();
 
@@ -67,12 +67,15 @@ export default function TimeConverter(): JSX.Element {
       >
         <Typography component="div">Search by city or country:</Typography>
         <CitySelect
-          selectedTZDropDown={selectedTZDropDown}
-          setSelectedTZDropDown={setSelectedTZDropDown}
+          selectedCityKey={selectedCityKey}
+          setSelectedCityKey={setSelectedCityKey}
         />
         <Fab
-          onClick={() => addChosenTimeZone(selectedTZDropDown())}
-          disabled={selectedTZDropDown() === ""}
+          onClick={() => {
+            addChosenTimeZone(selectedCityKey());
+            setSelectedCityKey("");
+          }}
+          disabled={selectedCityKey() === ""}
         >
           <AddIcon />
         </Fab>

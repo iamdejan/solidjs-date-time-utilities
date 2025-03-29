@@ -19,17 +19,17 @@ export default function useCityDropDown(props: Props): HookOutput {
 
   function handleTimeZoneSelectChange(ev: SelectChangeEvent) {
     const key = ev.target.value;
-    props.setSelectedTZDropDown(key);
+    props.setSelectedCityKey(key);
   }
 
   function displayedCityList(): City[] {
+    const cityList = sortedCityList();
     if (searchText() === "") {
-      return [];
+      return [cityList[0]];
     }
 
-    return sortedCityList().filter((city) => {
+    return cityList.filter((city) => {
       return (
-        city.timeZone.toLowerCase().includes(searchText().toLowerCase()) ||
         city.name.toLowerCase().includes(searchText().toLowerCase()) ||
         city.country.toLowerCase().includes(searchText().toLowerCase())
       );

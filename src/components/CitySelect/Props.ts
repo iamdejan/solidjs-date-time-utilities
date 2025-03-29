@@ -1,8 +1,8 @@
 import { Accessor, Setter } from "solid-js";
 
 type Props = {
-  selectedTZDropDown: Accessor<string>;
-  setSelectedTZDropDown: Setter<string>;
+  selectedCityKey: Accessor<string>;
+  setSelectedCityKey: Setter<string>;
 };
 
 export default Props;

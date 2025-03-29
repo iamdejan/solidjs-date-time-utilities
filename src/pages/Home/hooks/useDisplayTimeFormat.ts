@@ -8,6 +8,7 @@ import {
   getUnixTime,
 } from "date-fns";
 import { Accessor, createSignal, Setter } from "solid-js";
+import sortedCityList from "../../../components/CitySelect/cityList";
 
 type DateTimeDisplay = {
   format: string;
@@ -45,16 +46,21 @@ function toExcelDate(date: TZDate): string {
 }
 
 type HookOutput = {
-  selectedTimeZone: Accessor<string>;
-  setSelectedTimeZone: Setter<string>;
+  selectedCityKey: Accessor<string>;
+  setSelectedCityKey: Setter<string>;
   displays: DateTimeDisplay[];
 };
 
 export function useDisplayTimeFormats(): HookOutput {
-  const [selectedTimeZone, setSelectedTimeZone] = createSignal<string>("");
   const [now, setNow] = createSignal<TZDate>(new TZDateMini());
+
+  const [selectedCityKey, setSelectedCityKey] = createSignal<string>("");
+  function cityKeyToTimeZone(): string | undefined {
+    return sortedCityList().find((city) => city.key === selectedCityKey())
+      ?.timeZone;
+  }
   setInterval(
-    () => setNow(convertToTZDate(new TZDateMini(), selectedTimeZone())),
+    () => setNow(convertToTZDate(new TZDateMini(), cityKeyToTimeZone())),
     1,
   );
 
@@ -105,8 +111,8 @@ export function useDisplayTimeFormats(): HookOutput {
   ];
 
   return {
-    selectedTimeZone,
-    setSelectedTimeZone,
+    selectedCityKey,
+    setSelectedCityKey,
     displays,
   };
 }
