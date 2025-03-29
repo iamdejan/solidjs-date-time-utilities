@@ -976,7 +976,7 @@ const cityList: City[] = [
   },
   {
     key: "01JQENF5VTBM2KET2ZVVB7NKWM",
-    name: "Hyderabad",
+    name: "Mumbai",
     timeZone: "Asia/Kolkata",
     country: "India",
   },

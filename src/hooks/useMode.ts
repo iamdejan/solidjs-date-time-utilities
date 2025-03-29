@@ -11,12 +11,14 @@ function nextMode(mode: Mode): Mode {
   return mode === "light" ? "dark" : "light";
 }
 
+const localStorageKey = "mui-mode";
+
 const useMode = createWithSignal<ModeState>((set) => ({
-  mode: (localStorage.getItem("mode") as Mode) || "dark",
+  mode: (localStorage.getItem(localStorageKey) as Mode) || "dark",
   switch: () =>
     set((state) => {
       const next = nextMode(state.mode);
-      localStorage.setItem("mode", next);
+      localStorage.setItem(localStorageKey, next);
       return { mode: next };
     }),
 }));
