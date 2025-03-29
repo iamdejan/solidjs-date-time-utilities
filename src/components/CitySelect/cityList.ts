@@ -1,4 +1,4 @@
-import City from "./City";
+import City from "../../types/City";
 
 const cityList: City[] = [
   {
@@ -467,7 +467,7 @@ const cityList: City[] = [
     key: "01JQBZQ023B2ZD09T8RJJMA4NK",
     name: "Singapore",
     timeZone: "Asia/Singapore",
-    country: "Singapore",
+    country: "",
   },
   {
     key: "01JQDA7YQP6JS0QFDZNCVY04XC",
@@ -521,7 +521,7 @@ const cityList: City[] = [
     key: "01JQDADZBH0GWHEK8T01W02Z7S",
     name: "Hong Kong",
     timeZone: "Asia/Hong_Kong",
-    country: "Hong Kong",
+    country: "",
   },
   {
     key: "01JQBZQJN9AJRPT52D566RX14N",
@@ -846,7 +846,7 @@ const cityList: City[] = [
     key: "01JQEKXCN77BS1FVBKFS7EAC33",
     name: "Vatican City",
     timeZone: "Europe/Vatican",
-    country: "Vatican City",
+    country: "",
   },
   {
     key: "01JQEKXCN77BS1FVBKFS7EAC77",
@@ -1216,9 +1216,25 @@ const cityList: City[] = [
   },
 ];
 
-export default function sortedCityList() {
-  return cityList.sort(
+export function formatCity(city: City): string {
+  if (city.country === "") {
+    return city.name;
+  }
+
+  return city.name + ", " + city.country;
+}
+
+const sortedCityList: City[] = [
+  {
+    key: "",
+    name: "(User's Location)",
+    timeZone: "",
+    country: "",
+  },
+  ...cityList.sort(
     (a, b) =>
       a.country.localeCompare(b.country) || a.name.localeCompare(b.name),
-  );
-}
+  ),
+];
+
+export default sortedCityList;

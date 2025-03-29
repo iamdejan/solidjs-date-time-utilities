@@ -1,30 +1,26 @@
-import { For, JSX, Show } from "solid-js";
+import { createSignal, For, JSX, Show } from "solid-js";
 import "@material/web/slider/slider.js";
 import {
   Box,
   Fab,
-  FormControl,
   Grid,
   IconButton,
-  ListSubheader,
-  MenuItem,
   Paper,
-  Select,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
-  TextField,
   Typography,
 } from "@suid/material";
 import { TZDate } from "@date-fns/tz";
 import AddIcon from "@suid/icons-material/Add";
 import useDateTimeRange, { max, min } from "./hooks/useDateTimeRange";
 import useExtraColumn from "./hooks/useExtraColumn";
-import useCityDropDown, { zeroULID } from "./hooks/useCityDropDown";
 import DeleteIcon from "@suid/icons-material/Delete";
 import { format } from "date-fns";
+import useChosenTimeZones, { zeroULID } from "./hooks/useChosenTimeZones";
+import CitySelect from "../../components/CitySelect";
 
 const style = {
   display: "flex",
@@ -47,18 +43,11 @@ export default function TimeConverter(): JSX.Element {
     handleSliderChange,
   } = useDateTimeRange();
 
-  const {
-    selectedTZDropDown,
-    handleTimeZoneSelectChange,
-    chosenTimeZones,
-    addChosenTimeZone,
-    removeChosenTimeZone,
-    searchText,
-    setSearchText,
-    displayedCityList,
-  } = useCityDropDown();
-
   const { canShowExtraColumn } = useExtraColumn();
+
+  const [selectedCityKey, setSelectedCityKey] = createSignal<string>("");
+  const { chosenTimeZones, addChosenTimeZone, removeChosenTimeZone } =
+    useChosenTimeZones();
 
   return (
     <>
@@ -77,41 +66,17 @@ export default function TimeConverter(): JSX.Element {
         }}
       >
         <Typography component="div">Search by city or country:</Typography>
-        <FormControl
-          sx={{
-            minWidth: "clamp(50px, 200px, 250px)",
+        <CitySelect
+          selectedCityKey={selectedCityKey}
+          setSelectedCityKey={setSelectedCityKey}
+        />
+        <Fab
+          onClick={() => {
+            addChosenTimeZone(selectedCityKey());
+            setSelectedCityKey("");
           }}
+          disabled={selectedCityKey() === ""}
         >
-          <Select
-            value={selectedTZDropDown()}
-            MenuProps={{ autoFocus: false }}
-            onChange={handleTimeZoneSelectChange}
-          >
-            {/* ref: https://stackoverflow.com/a/70918883 */}
-            <ListSubheader>
-              <TextField
-                label="Keyword"
-                value={searchText()}
-                autoFocus
-                onChange={(e) => setSearchText(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key !== "Escape") {
-                    // Prevents autoselecting item while typing (default Select behaviour)
-                    e.stopPropagation();
-                  }
-                }}
-              />
-            </ListSubheader>
-            <For each={displayedCityList()}>
-              {(city) => (
-                <MenuItem value={city.key}>
-                  {city.name}, {city.country}
-                </MenuItem>
-              )}
-            </For>
-          </Select>
-        </FormControl>
-        <Fab onClick={addChosenTimeZone} disabled={selectedTZDropDown() === ""}>
           <AddIcon />
         </Fab>
       </Box>
