@@ -1224,17 +1224,17 @@ export function formatCity(city: City): string {
   return city.name + ", " + city.country;
 }
 
-export default function sortedCityList(): City[] {
-  return [
-    {
-      key: "",
-      name: "(User's Location)",
-      timeZone: "",
-      country: "",
-    },
-    ...cityList.sort(
-      (a, b) =>
-        a.country.localeCompare(b.country) || a.name.localeCompare(b.name),
-    ),
-  ];
-}
+const sortedCityList: City[] = [
+  {
+    key: "",
+    name: "(User's Location)",
+    timeZone: "",
+    country: "",
+  },
+  ...cityList.sort(
+    (a, b) =>
+      a.country.localeCompare(b.country) || a.name.localeCompare(b.name),
+  ),
+];
+
+export default sortedCityList;

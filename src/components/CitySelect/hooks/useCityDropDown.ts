@@ -23,12 +23,11 @@ export default function useCityDropDown(props: Props): HookOutput {
   }
 
   function displayedCityList(): City[] {
-    const cityList = sortedCityList();
     if (searchText() === "") {
-      return [cityList[0]];
+      return [sortedCityList[0]];
     }
 
-    return cityList.filter((city) => {
+    return sortedCityList.filter((city) => {
       return (
         city.name.toLowerCase().includes(searchText().toLowerCase()) ||
         city.country.toLowerCase().includes(searchText().toLowerCase())

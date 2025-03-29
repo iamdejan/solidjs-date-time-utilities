@@ -31,7 +31,7 @@ export default function useChosenTimeZones(): HookOutput {
       return;
     }
 
-    const found = sortedCityList().find((city) => city.key === key);
+    const found = sortedCityList.find((city) => city.key === key);
     if (!found) {
       return;
     }

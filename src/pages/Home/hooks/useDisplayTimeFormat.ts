@@ -56,7 +56,7 @@ export function useDisplayTimeFormats(): HookOutput {
 
   const [selectedCityKey, setSelectedCityKey] = createSignal<string>("");
   function cityKeyToTimeZone(): string | undefined {
-    return sortedCityList().find((city) => city.key === selectedCityKey())
+    return sortedCityList.find((city) => city.key === selectedCityKey())
       ?.timeZone;
   }
   setInterval(
