@@ -467,7 +467,7 @@ const cityList: City[] = [
     key: "01JQBZQ023B2ZD09T8RJJMA4NK",
     name: "Singapore",
     timeZone: "Asia/Singapore",
-    country: "Singapore",
+    country: "",
   },
   {
     key: "01JQDA7YQP6JS0QFDZNCVY04XC",
@@ -521,7 +521,7 @@ const cityList: City[] = [
     key: "01JQDADZBH0GWHEK8T01W02Z7S",
     name: "Hong Kong",
     timeZone: "Asia/Hong_Kong",
-    country: "Hong Kong",
+    country: "",
   },
   {
     key: "01JQBZQJN9AJRPT52D566RX14N",
@@ -846,7 +846,7 @@ const cityList: City[] = [
     key: "01JQEKXCN77BS1FVBKFS7EAC33",
     name: "Vatican City",
     timeZone: "Europe/Vatican",
-    country: "Vatican City",
+    country: "",
   },
   {
     key: "01JQEKXCN77BS1FVBKFS7EAC77",
