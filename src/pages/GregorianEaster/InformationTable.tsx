@@ -6,6 +6,7 @@ import {
   getGoodFridayDate,
   getHolySaturdayDate,
   getMaundyThursdayDate,
+  getPalmSundayDate,
   getPentecostDate,
 } from "./getEasterDates";
 import useChosenYear from "./hooks/useChosenYear";
@@ -29,6 +30,7 @@ function formatForDisplay(date: TZDate): string {
 type Event = {
   name: string;
   date: TZDate;
+  needExtraNotice: boolean;
 };
 
 type Props = {
@@ -50,34 +52,42 @@ export default function InformationTable(props: Props): JSX.Element {
     {
       name: "Ash Wednesday",
       date: getAshWednesdayDate(props.year),
+      needExtraNotice: false,
     },
     {
       name: "Palm Sunday",
-      date: getMaundyThursdayDate(props.year),
+      date: getPalmSundayDate(props.year),
+      needExtraNotice: false,
     },
     {
       name: "Maundy Thursday",
       date: getMaundyThursdayDate(props.year),
+      needExtraNotice: true,
     },
     {
       name: "Good Friday",
       date: getGoodFridayDate(props.year),
+      needExtraNotice: true,
     },
     {
       name: "Holy Saturday",
       date: getHolySaturdayDate(props.year),
+      needExtraNotice: true,
     },
     {
       name: "Easter Sunday",
       date: getEasterDate(props.year),
+      needExtraNotice: true,
     },
     {
       name: "Jesus' Ascension",
       date: getAscensionDate(props.year),
+      needExtraNotice: false,
     },
     {
       name: "Pentecost",
       date: getPentecostDate(props.year),
+      needExtraNotice: false,
     },
   ];
 
