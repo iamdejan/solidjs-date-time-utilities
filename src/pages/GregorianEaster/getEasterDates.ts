@@ -15,16 +15,15 @@ export function getEasterDate(year: number): TZDate {
   const d = Math.floor(19 * a + m) % 30;
   const e = Math.floor(2 * b + 4 * c + 6 * d + n) % 7;
 
-  if (d === 29 && e === 6 && a > 10) {
-    return new TZDate(year, 4, 18);
+  if (d === 28 && e === 6 && Math.floor(11 * m + 11) % 30 < 19) {
+    return new TZDate(year, 3, 18);
   }
 
   if (d === 29 && e === 6) {
-    return new TZDate(year, 4, 19);
+    return new TZDate(year, 3, 19);
   }
 
-  const days = 22 + d + e;
-  return new TZDate(year, 2, days);
+  return new TZDate(year, 2, 22 + d + e);
 }
 
 export function getAshWednesdayDate(year: number): TZDate {
