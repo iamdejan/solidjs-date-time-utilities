@@ -31,10 +31,26 @@ export function getAshWednesdayDate(year: number): TZDate {
   return addDays(getEasterDate(year), -46);
 }
 
+export function getPalmSundayDate(year: number): TZDate {
+  return addDays(getEasterDate(year), -7);
+}
+
+export function getMaundyThursdayDate(year: number): TZDate {
+  return addDays(getEasterDate(year), -3);
+}
+
+export function getGoodFridayDate(year: number): TZDate {
+  return addDays(getEasterDate(year), -2);
+}
+
+export function getHolySaturdayDate(year: number): TZDate {
+  return addDays(getEasterDate(year), -1);
+}
+
 export function getAscensionDate(year: number): TZDate {
-  return addDays(getEasterDate(year), 40);
+  return addDays(getEasterDate(year), 39);
 }
 
 export function getPentecostDate(year: number): TZDate {
-  return addDays(getEasterDate(year), 50);
+  return addDays(getEasterDate(year), 49);
 }
