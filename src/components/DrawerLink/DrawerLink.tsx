@@ -2,7 +2,7 @@ import { ListItem } from "@suid/material";
 import { JSX } from "solid-js";
 import { grey } from "@suid/material/colors";
 import useMode from "../../hooks/useMode";
-import CreatedLinkComponent from "./CreatedLinkComponent";
+import CreatedLinkComponent from "../CreatedLinkComponent";
 import { FileRoutesByPath } from "@tanstack/solid-router";
 
 type Props = {

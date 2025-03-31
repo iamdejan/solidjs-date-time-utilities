@@ -18,7 +18,7 @@ import MenuIcon from "@suid/icons-material/Menu";
 import DrawerLink from "../DrawerLink/DrawerLink";
 import { useThemeWithMode } from "./hooks/useThemeWithMode";
 import ThemeSwitch from "../ThemeSwitch";
-import CreatedLinkComponent from "../DrawerLink/CreatedLinkComponent";
+import CreatedLinkComponent from "../CreatedLinkComponent";
 
 export default function RootMenu(): JSX.Element {
   const { theme } = useThemeWithMode();
@@ -56,6 +56,7 @@ export default function RootMenu(): JSX.Element {
           sx={{
             minHeight: "100vh",
             minWidth: "100%",
+            borderRadius: 0,
           }}
         >
           <Outlet />
@@ -65,6 +66,7 @@ export default function RootMenu(): JSX.Element {
             <DrawerLink to="/" text="Home" />
             <DrawerLink to="/age-calculator" text="Age Calculator" />
             <DrawerLink to="/time-converter" text="Time Converter" />
+            <DrawerLink to="/gregorian-easter" text="Gregorian Easter" />
           </List>
           <Divider />
           <List>

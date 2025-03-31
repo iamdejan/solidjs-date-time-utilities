@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as TimeConverterImport } from './routes/time-converter'
+import { Route as GregorianEasterImport } from './routes/gregorian-easter'
 import { Route as AgeCalculatorImport } from './routes/age-calculator'
 import { Route as IndexImport } from './routes/index'
 
@@ -20,6 +21,12 @@ import { Route as IndexImport } from './routes/index'
 const TimeConverterRoute = TimeConverterImport.update({
   id: '/time-converter',
   path: '/time-converter',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const GregorianEasterRoute = GregorianEasterImport.update({
+  id: '/gregorian-easter',
+  path: '/gregorian-easter',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -53,6 +60,13 @@ declare module '@tanstack/solid-router' {
       preLoaderRoute: typeof AgeCalculatorImport
       parentRoute: typeof rootRoute
     }
+    '/gregorian-easter': {
+      id: '/gregorian-easter'
+      path: '/gregorian-easter'
+      fullPath: '/gregorian-easter'
+      preLoaderRoute: typeof GregorianEasterImport
+      parentRoute: typeof rootRoute
+    }
     '/time-converter': {
       id: '/time-converter'
       path: '/time-converter'
@@ -68,12 +82,14 @@ declare module '@tanstack/solid-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/age-calculator': typeof AgeCalculatorRoute
+  '/gregorian-easter': typeof GregorianEasterRoute
   '/time-converter': typeof TimeConverterRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/age-calculator': typeof AgeCalculatorRoute
+  '/gregorian-easter': typeof GregorianEasterRoute
   '/time-converter': typeof TimeConverterRoute
 }
 
@@ -81,27 +97,35 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/age-calculator': typeof AgeCalculatorRoute
+  '/gregorian-easter': typeof GregorianEasterRoute
   '/time-converter': typeof TimeConverterRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/age-calculator' | '/time-converter'
+  fullPaths: '/' | '/age-calculator' | '/gregorian-easter' | '/time-converter'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/age-calculator' | '/time-converter'
-  id: '__root__' | '/' | '/age-calculator' | '/time-converter'
+  to: '/' | '/age-calculator' | '/gregorian-easter' | '/time-converter'
+  id:
+    | '__root__'
+    | '/'
+    | '/age-calculator'
+    | '/gregorian-easter'
+    | '/time-converter'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AgeCalculatorRoute: typeof AgeCalculatorRoute
+  GregorianEasterRoute: typeof GregorianEasterRoute
   TimeConverterRoute: typeof TimeConverterRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AgeCalculatorRoute: AgeCalculatorRoute,
+  GregorianEasterRoute: GregorianEasterRoute,
   TimeConverterRoute: TimeConverterRoute,
 }
 
@@ -117,6 +141,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/age-calculator",
+        "/gregorian-easter",
         "/time-converter"
       ]
     },
@@ -125,6 +150,9 @@ export const routeTree = rootRoute
     },
     "/age-calculator": {
       "filePath": "age-calculator.tsx"
+    },
+    "/gregorian-easter": {
+      "filePath": "gregorian-easter.tsx"
     },
     "/time-converter": {
       "filePath": "time-converter.tsx"
