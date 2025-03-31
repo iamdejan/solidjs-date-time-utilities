@@ -29,7 +29,7 @@ function formatForDisplay(date: TZDate): string {
 
 type Event = {
   name: string;
-  date: TZDate;
+  date: () => TZDate;
   needExtraNotice: boolean;
 };
 
@@ -51,42 +51,42 @@ export default function InformationTable(props: Props): JSX.Element {
   const events: Event[] = [
     {
       name: "Ash Wednesday",
-      date: getAshWednesdayDate(props.year),
+      date: () => getAshWednesdayDate(props.year),
       needExtraNotice: false,
     },
     {
       name: "Palm Sunday",
-      date: getPalmSundayDate(props.year),
+      date: () => getPalmSundayDate(props.year),
       needExtraNotice: false,
     },
     {
       name: "Maundy Thursday",
-      date: getMaundyThursdayDate(props.year),
+      date: () => getMaundyThursdayDate(props.year),
       needExtraNotice: true,
     },
     {
       name: "Good Friday",
-      date: getGoodFridayDate(props.year),
+      date: () => getGoodFridayDate(props.year),
       needExtraNotice: true,
     },
     {
       name: "Holy Saturday",
-      date: getHolySaturdayDate(props.year),
+      date: () => getHolySaturdayDate(props.year),
       needExtraNotice: true,
     },
     {
       name: "Easter Sunday",
-      date: getEasterDate(props.year),
+      date: () => getEasterDate(props.year),
       needExtraNotice: true,
     },
     {
       name: "Jesus' Ascension",
-      date: getAscensionDate(props.year),
+      date: () => getAscensionDate(props.year),
       needExtraNotice: false,
     },
     {
       name: "Pentecost",
-      date: getPentecostDate(props.year),
+      date: () => getPentecostDate(props.year),
       needExtraNotice: false,
     },
   ];
@@ -116,7 +116,7 @@ export default function InformationTable(props: Props): JSX.Element {
                       width: "70%",
                     }}
                   >
-                    {formatForDisplay(event.date)}
+                    {formatForDisplay(event.date())}
                   </TableCell>
                 </TableRow>
               )}
