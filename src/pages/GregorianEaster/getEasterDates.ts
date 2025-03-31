@@ -1,11 +1,6 @@
 import { TZDate } from "@date-fns/tz";
 import { addDays } from "date-fns";
 
-enum Month {
-  March = 2,
-  April,
-}
-
 export function getEasterDate(year: number): TZDate {
   const a = year % 19;
   const b = year % 4;
@@ -21,14 +16,14 @@ export function getEasterDate(year: number): TZDate {
   const e = Math.floor(2 * b + 4 * c + 6 * d + n) % 7;
 
   if (d === 28 && e === 6 && Math.floor(11 * m + 11) % 30 < 19) {
-    return new TZDate(year, Month.April, 18);
+    return new TZDate(year, 3, 18);
   }
 
   if (d === 29 && e === 6) {
-    return new TZDate(year, Month.April, 19);
+    return new TZDate(year, 3, 19);
   }
 
-  return addDays(new TZDate(year, Month.March, 22), d + e);
+  return addDays(new TZDate(year, 2, 22), d + e);
 }
 
 export function getAshWednesdayDate(year: number): TZDate {
