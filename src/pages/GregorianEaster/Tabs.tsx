@@ -10,9 +10,7 @@ export default function Tabs(props: Props): JSX.Element {
   const year = useChosenYear((state) => state.chosenYear);
   const setYear = useChosenYear((state) => state.setChosenYear);
 
-  function chooseVariant(
-    yearInButton: number,
-  ): "text" | "outlined" | "contained" {
+  function chooseVariant(yearInButton: number): "text" | "contained" {
     if (year() === yearInButton) {
       return "contained";
     }
