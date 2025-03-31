@@ -9,13 +9,13 @@ export function getEasterDate(year: number): TZDate {
 
   const p = Math.floor((13 + 8 * k) / 25.0);
   const q = Math.floor(k / 4.0);
-  const m = (15 - p + k - q) % 30;
-  const n = (4 + k - q) % 7;
+  const m = Math.floor(15 - p + k - q) % 30;
+  const n = Math.floor(4 + k - q) % 7;
 
   const d = Math.floor(19 * a + m) % 30;
   const e = Math.floor(2 * b + 4 * c + 6 * d + n) % 7;
 
-  if (d === 29 && e === 6 && (11 * m + 11) % 30 < 19) {
+  if (d === 29 && e === 6 && a > 10) {
     return new TZDate(year, 4, 18);
   }
 
@@ -23,10 +23,8 @@ export function getEasterDate(year: number): TZDate {
     return new TZDate(year, 4, 19);
   }
 
-  console.log(d);
-  console.log(e);
-
-  return addDays(new TZDate(year, 3, 22), d + e);
+  const days = 22 + d + e;
+  return new TZDate(year, 2, days);
 }
 
 export function getAshWednesdayDate(year: number): TZDate {
