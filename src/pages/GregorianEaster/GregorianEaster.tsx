@@ -1,21 +1,15 @@
-import { Box, Button, Grid, Typography } from "@suid/material";
-import { createSignal, JSX } from "solid-js";
+import { Box, Typography } from "@suid/material";
+import { JSX, For } from "solid-js";
+import Tabs from "./Tabs";
+import useChosenYear from "./hooks/useChosenYear";
 
 export default function GregorianEaster(): JSX.Element {
-  const [year, setYear] = createSignal<number>(0);
+  const years = [2024, 2025, 2026, 2027, 2028];
 
-  function chooseVariant(
-    yearInButton: number,
-  ): "text" | "outlined" | "contained" {
-    if (year() === yearInButton) {
-      return "contained";
-    }
-
-    return "text";
-  }
+  const chosenYear = useChosenYear((state) => state.chosenYear);
 
   function chooseDisplay(yearInButton: number): "block" | "none" {
-    if (year() === yearInButton) {
+    if (chosenYear() === yearInButton) {
       return "block";
     }
 
@@ -31,94 +25,11 @@ export default function GregorianEaster(): JSX.Element {
         Gregorian Easter
       </Typography>
 
-      <Grid
-        container
-        sx={{
-          display: "grid",
-          borderBottom: 2,
-          borderColor: "primary.light",
-        }}
-        gridTemplateColumns="repeat(4, 1fr)"
-      >
-        <Grid
-          item
-          sx={{
-            display: "grid",
-          }}
-        >
-          <Button
-            type="button"
-            disableElevation
-            sx={{
-              borderRadius: 0,
-            }}
-            variant={chooseVariant(2024)}
-            onClick={() => setYear(2024)}
-          >
-            2024
-          </Button>
-        </Grid>
+      <Tabs years={years} />
 
-        <Grid
-          item
-          sx={{
-            display: "grid",
-          }}
-        >
-          <Button
-            type="button"
-            disableElevation
-            sx={{
-              borderRadius: 0,
-            }}
-            variant={chooseVariant(2025)}
-            onClick={() => setYear(2025)}
-          >
-            2025
-          </Button>
-        </Grid>
-        <Grid
-          item
-          sx={{
-            display: "grid",
-          }}
-        >
-          <Button
-            type="button"
-            disableElevation
-            sx={{
-              borderRadius: 0,
-            }}
-            variant={chooseVariant(2026)}
-            onClick={() => setYear(2026)}
-          >
-            2026
-          </Button>
-        </Grid>
-        <Grid
-          item
-          sx={{
-            display: "grid",
-          }}
-        >
-          <Button
-            type="button"
-            disableElevation
-            sx={{
-              borderRadius: 0,
-            }}
-            variant={chooseVariant(2027)}
-            onClick={() => setYear(2027)}
-          >
-            2027
-          </Button>
-        </Grid>
-      </Grid>
-
-      <Box displayRaw={chooseDisplay(2024)}>Easter in 2024</Box>
-      <Box displayRaw={chooseDisplay(2025)}>Easter in 2025</Box>
-      <Box displayRaw={chooseDisplay(2026)}>Easter in 2026</Box>
-      <Box displayRaw={chooseDisplay(2027)}>Easter in 2027</Box>
+      <For each={years}>
+        {(year) => <Box displayRaw={chooseDisplay(year)}>Easter in {year}</Box>}
+      </For>
     </>
   );
 }
