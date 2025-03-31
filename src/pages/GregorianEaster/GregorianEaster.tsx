@@ -24,7 +24,10 @@ export default function GregorianEaster(): JSX.Element {
 
   return (
     <>
-      <Typography variant="h2" sx={{ textAlign: "center" }}>
+      <Typography
+        variant="h2"
+        sx={{ textAlign: "center", marginBottom: "2rem" }}
+      >
         Gregorian Easter
       </Typography>
 
@@ -32,10 +35,10 @@ export default function GregorianEaster(): JSX.Element {
         container
         sx={{
           display: "grid",
-          borderBottom: 1,
-          borderColor: "palette.primary.light",
+          borderBottom: 2,
+          borderColor: "primary.light",
         }}
-        gridTemplateColumns="repeat(3, 1fr)"
+        gridTemplateColumns="repeat(4, 1fr)"
       >
         <Grid
           item
@@ -92,11 +95,30 @@ export default function GregorianEaster(): JSX.Element {
             2026
           </Button>
         </Grid>
+        <Grid
+          item
+          sx={{
+            display: "grid",
+          }}
+        >
+          <Button
+            type="button"
+            disableElevation
+            sx={{
+              borderRadius: 0,
+            }}
+            variant={chooseVariant(2027)}
+            onClick={() => setYear(2027)}
+          >
+            2027
+          </Button>
+        </Grid>
       </Grid>
 
       <Box displayRaw={chooseDisplay(2024)}>Easter in 2024</Box>
       <Box displayRaw={chooseDisplay(2025)}>Easter in 2025</Box>
       <Box displayRaw={chooseDisplay(2026)}>Easter in 2026</Box>
+      <Box displayRaw={chooseDisplay(2027)}>Easter in 2027</Box>
     </>
   );
 }
