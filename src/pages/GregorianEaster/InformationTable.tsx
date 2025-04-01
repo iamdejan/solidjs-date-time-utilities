@@ -94,7 +94,7 @@ export default function InformationTable(props: Props): JSX.Element {
   return (
     <Box
       sx={{
-        margin: "1rem",
+        padding: "1rem",
       }}
       displayRaw={chooseDisplay(props.year)}
     >

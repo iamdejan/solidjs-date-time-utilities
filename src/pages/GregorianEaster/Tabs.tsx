@@ -24,7 +24,7 @@ export default function Tabs(props: Props): JSX.Element {
       sx={{
         display: "grid",
         borderBottom: 2,
-        borderColor: "primary.light",
+        borderColor: "primary.main",
       }}
       gridTemplateColumns={"repeat(" + props.years.length + ", 1fr)"}
     >
