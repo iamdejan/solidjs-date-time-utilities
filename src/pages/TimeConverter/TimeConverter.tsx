@@ -58,14 +58,15 @@ export default function TimeConverter(): JSX.Element {
       <Box
         sx={{
           display: "flex",
-          minWidth: "clamp(50vw, 90vw, 90vw)",
+          minWidth: "clamp(50%, 90%, 90%)",
           justifyContent: "center",
           alignItems: "center",
           gap: "1rem",
           marginTop: "2rem",
+          marginX: "1rem",
         }}
       >
-        <Typography component="div">Search by city or country:</Typography>
+        <Typography component="div">Input city/country:</Typography>
         <CitySelect
           selectedCityKey={selectedCityKey}
           setSelectedCityKey={setSelectedCityKey}

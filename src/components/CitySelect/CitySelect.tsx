@@ -5,7 +5,7 @@ import {
   Select,
   TextField,
 } from "@suid/material";
-import { JSX, For } from "solid-js";
+import { JSX, For, createSignal } from "solid-js";
 import useCityDropDown from "./hooks/useCityDropDown";
 import Props from "./Props";
 import { formatCity } from "../../types/City";
@@ -21,10 +21,20 @@ export default function CitySelect(props: Props): JSX.Element {
 
   const cityListDebounced = accessorDebounced(displayedCityList, 500);
 
+  const [windowWidth, setWindowWith] = createSignal<number>(window.innerWidth);
+  window.addEventListener("resize", () => {
+    setWindowWith(window.innerWidth);
+  });
+  function formWidth(): string {
+    return windowWidth() >= 1000 ? "300px" : "175px";
+  }
+
   return (
     <FormControl
       sx={{
-        minWidth: "clamp(50px, 200px, 250px)",
+        // minWidth: "50px",
+        // maxWidth: "300px",
+        width: formWidth(),
       }}
     >
       <Select
@@ -35,7 +45,8 @@ export default function CitySelect(props: Props): JSX.Element {
         {/* ref: https://stackoverflow.com/a/70918883 */}
         <ListSubheader>
           <TextField
-            label="Keyword"
+            fullWidth
+            label="Search by city or country"
             value={searchText()}
             autoFocus
             onChange={(e) => setSearchText(e.target.value)}
