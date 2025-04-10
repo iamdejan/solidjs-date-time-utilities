@@ -11,7 +11,10 @@ function nextMode(mode: Mode): Mode {
   return mode === "light" ? "dark" : "light";
 }
 
-const defaultMode: Mode = "dark";
+const defaultMode: Mode = window.matchMedia(`(prefers-color-scheme: dark)`)
+  .matches
+  ? "dark"
+  : "light";
 const localStorageKey = "mui-mode";
 
 const useMode = createWithSignal<ModeState>((set) => ({
