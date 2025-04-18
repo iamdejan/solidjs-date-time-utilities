@@ -33,10 +33,10 @@ export default function AgeCalculator(): JSX.Element {
   const [days, setDays] = createSignal<number>(0);
 
   const [startDate, setStartDate] = createSignal<string>(
-    routeSearch().start ? routeSearch().start! : getDateString(new Date(0)),
+    routeSearch().start ?? getDateString(new Date(0)),
   );
   const [endDate, setEndDate] = createSignal<string>(
-    routeSearch().end ? routeSearch().end! : getDateString(new Date(0)),
+    routeSearch().end ?? getDateString(new Date(0)),
   );
 
   /**
