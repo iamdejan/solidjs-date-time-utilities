@@ -10,6 +10,7 @@ import {
   min,
 } from "date-fns";
 import { getRouteApi } from "@tanstack/solid-router";
+import { useClipboard } from "solidjs-use";
 
 function getDateString(date: Date): string {
   return format(date, "yyyy-MM-dd");
@@ -25,6 +26,7 @@ function getLastDateOfMonth(date: Date): number {
 
 export default function AgeCalculator(): JSX.Element {
   const routeSearch = getRouteApi("/age-calculator").useSearch();
+  const { copy } = useClipboard();
 
   const [years, setYears] = createSignal<number>(0);
   const [months, setMonths] = createSignal<number>(0);
@@ -78,6 +80,19 @@ export default function AgeCalculator(): JSX.Element {
       calculate();
     }
   });
+
+  function generateLink() {
+    const link =
+      window.location.origin +
+      "/age-calculator?" +
+      new URLSearchParams({
+        start: startDate(),
+        end: endDate(),
+        calculate: "true",
+      });
+
+    copy(link);
+  }
 
   return (
     <>
@@ -142,10 +157,19 @@ export default function AgeCalculator(): JSX.Element {
           sx={{
             display: "flex",
             justifyContent: "center",
+            gap: "2rem",
           }}
         >
           <Button type="button" variant="contained" onClick={calculate}>
             Calculate
+          </Button>
+          <Button
+            type="button"
+            variant="contained"
+            color="success"
+            onClick={generateLink}
+          >
+            Save
           </Button>
         </Container>
 
