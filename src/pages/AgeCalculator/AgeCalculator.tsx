@@ -43,7 +43,6 @@ export default function AgeCalculator(): JSX.Element {
     setStartDate(getDateString(s));
     setEndDate(getDateString(e));
 
-    let years = e.getUTCFullYear() - s.getUTCFullYear();
     let months = getProlepticMonth(e) - getProlepticMonth(s);
     let days = e.getUTCDate() - s.getUTCDate();
     if (months > 0 && days < 0) {
@@ -58,6 +57,7 @@ export default function AgeCalculator(): JSX.Element {
       days -= getLastDateOfMonth(e);
     }
 
+    const years = Math.floor(months / 12);
     months %= 12;
     const result: Duration = {
       years: years,
