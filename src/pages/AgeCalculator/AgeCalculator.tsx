@@ -2,9 +2,9 @@ import { Button, Container, Grid, TextField, Typography } from "@suid/material";
 import { createSignal, JSX } from "solid-js";
 import {
   addMonths,
+  differenceInDays,
   Duration,
   format,
-  getUnixTime,
   lastDayOfMonth,
   max,
   min,
@@ -49,10 +49,9 @@ export default function AgeCalculator(): JSX.Element {
     if (months > 0 && days < 0) {
       months -= 1;
       const calcDate = addMonths(s, months);
-
-      const endUnixTimestamp = getUnixTime(e);
-      const calcUnixTimestamp = getUnixTime(calcDate);
-      days = Math.round((endUnixTimestamp - calcUnixTimestamp) / 86400);
+      days =
+        differenceInDays(e, new Date(0)) -
+        differenceInDays(calcDate, new Date(0));
     }
     if (months < 0 && days > 0) {
       months++;
