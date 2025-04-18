@@ -11,7 +11,6 @@ import {
 } from "./getEasterDates";
 import useChosenYear from "./hooks/useChosenYear";
 import {
-  Box,
   Paper,
   Table,
   TableBody,
@@ -85,38 +84,32 @@ export default function InformationTable(props: Props): JSX.Element {
 
   return (
     <Show when={chosenYear() === props.year}>
-      <Box
-        sx={{
-          padding: "1rem",
-        }}
-      >
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Event</TableCell>
-                <TableCell>Date</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <For each={events}>
-                {(event) => (
-                  <TableRow>
-                    <TableCell>{event.name}</TableCell>
-                    <TableCell
-                      sx={{
-                        width: "70%",
-                      }}
-                    >
-                      {formatForDisplay(event.date())}
-                    </TableCell>
-                  </TableRow>
-                )}
-              </For>
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Box>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Event</TableCell>
+              <TableCell>Date</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <For each={events}>
+              {(event) => (
+                <TableRow>
+                  <TableCell>{event.name}</TableCell>
+                  <TableCell
+                    sx={{
+                      width: "70%",
+                    }}
+                  >
+                    {formatForDisplay(event.date())}
+                  </TableCell>
+                </TableRow>
+              )}
+            </For>
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Show>
   );
 }

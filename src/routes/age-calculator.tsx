@@ -3,7 +3,7 @@ import AgeCalculator from "../pages/AgeCalculator";
 import { z } from "zod";
 import { zodValidator } from "@tanstack/zod-adapter";
 
-const intervalSearchSchema = z.object({
+const searchSchema = z.object({
   start: z.string().date().optional(),
   end: z.string().date().optional(),
   calculate: z.boolean().optional(),
@@ -11,5 +11,5 @@ const intervalSearchSchema = z.object({
 
 export const Route = createFileRoute("/age-calculator")({
   component: AgeCalculator,
-  validateSearch: zodValidator(intervalSearchSchema),
+  validateSearch: zodValidator(searchSchema),
 });
