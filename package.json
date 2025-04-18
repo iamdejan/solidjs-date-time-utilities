@@ -40,10 +40,12 @@
     "@tanstack/router-vite-plugin": "^1.114.29",
     "@tanstack/solid-router": "^1.114.29",
     "@tanstack/solid-router-devtools": "^1.114.29",
+    "@tanstack/zod-adapter": "^1.116.0",
     "date-fns": "^4.1.0",
     "solid-js": "^1.9.5",
     "solid-zustand": "^1.8.1",
     "solidjs-use": "^2.3.0",
+    "zod": "^3.24.3",
     "zustand": "^5.0.3"
   }
 }

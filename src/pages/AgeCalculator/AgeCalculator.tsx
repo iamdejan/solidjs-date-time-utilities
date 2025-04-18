@@ -1,5 +1,5 @@
 import { Button, Container, Grid, TextField, Typography } from "@suid/material";
-import { createSignal, JSX } from "solid-js";
+import { createEffect, createSignal, JSX } from "solid-js";
 import {
   addMonths,
   differenceInDays,
@@ -9,6 +9,7 @@ import {
   max,
   min,
 } from "date-fns";
+import { getRouteApi } from "@tanstack/solid-router";
 
 function getDateString(date: Date): string {
   return format(date, "yyyy-MM-dd");
@@ -23,15 +24,17 @@ function getLastDateOfMonth(date: Date): number {
 }
 
 export default function AgeCalculator(): JSX.Element {
+  const routeSearch = getRouteApi("/age-calculator").useSearch();
+
   const [years, setYears] = createSignal<number>(0);
   const [months, setMonths] = createSignal<number>(0);
   const [days, setDays] = createSignal<number>(0);
 
   const [startDate, setStartDate] = createSignal<string>(
-    getDateString(new Date(0)),
+    routeSearch().start ? routeSearch().start! : getDateString(new Date(0)),
   );
   const [endDate, setEndDate] = createSignal<string>(
-    getDateString(new Date(0)),
+    routeSearch().end ? routeSearch().end! : getDateString(new Date(0)),
   );
 
   /**
@@ -69,6 +72,12 @@ export default function AgeCalculator(): JSX.Element {
     setMonths(result.months ?? 0);
     setDays(result.days ?? 0);
   }
+
+  createEffect(() => {
+    if (routeSearch().calculate) {
+      calculate();
+    }
+  });
 
   return (
     <>
