@@ -1,9 +1,25 @@
 import { Button, Container, Grid, TextField, Typography } from "@suid/material";
 import { createSignal, JSX } from "solid-js";
-import { format, intervalToDuration, max, min } from "date-fns";
+import {
+  addMonths,
+  Duration,
+  format,
+  getUnixTime,
+  lastDayOfMonth,
+  max,
+  min,
+} from "date-fns";
 
 function getDateString(date: Date): string {
   return format(date, "yyyy-MM-dd");
+}
+
+function getProlepticMonth(date: Date): number {
+  return date.getUTCFullYear() * 12 + date.getUTCMonth() - 1;
+}
+
+function getLastDateOfMonth(date: Date): number {
+  return lastDayOfMonth(date).getUTCDate();
 }
 
 export default function AgeCalculator(): JSX.Element {
@@ -18,16 +34,38 @@ export default function AgeCalculator(): JSX.Element {
     getDateString(new Date(0)),
   );
 
+  /**
+   * Calculate age. This logic is taken from Period.between method in Java.
+   */
   function calculate() {
     const s = min([startDate(), endDate()]);
     const e = max([startDate(), endDate()]);
     setStartDate(getDateString(s));
     setEndDate(getDateString(e));
 
-    const result = intervalToDuration({
-      start: startDate(),
-      end: endDate(),
-    });
+    let years = e.getUTCFullYear() - s.getUTCFullYear();
+    let months = getProlepticMonth(e) - getProlepticMonth(s);
+    let days = e.getUTCDate() - s.getUTCDate();
+    if (months > 0 && days < 0) {
+      months -= 1;
+      const calcDate = addMonths(s, months);
+
+      const endUnixTimestamp = getUnixTime(e);
+      const calcUnixTimestamp = getUnixTime(calcDate);
+      days = Math.round((endUnixTimestamp - calcUnixTimestamp) / 86400);
+    }
+    if (months < 0 && days > 0) {
+      months++;
+      days -= getLastDateOfMonth(e);
+    }
+
+    months %= 12;
+    const result: Duration = {
+      years: years,
+      months: months,
+      days: days,
+    };
+    console.log(result);
     setYears(result.years ?? 0);
     setMonths(result.months ?? 0);
     setDays(result.days ?? 0);
