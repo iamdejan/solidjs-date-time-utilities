@@ -7,15 +7,25 @@ type Props = {
 };
 
 export default function Tabs(props: Props): JSX.Element {
-  const year = useChosenYear((state) => state.chosenYear);
-  const setYear = useChosenYear((state) => state.setChosenYear);
+  const chosenYear = useChosenYear((state) => state.chosenYear);
+  const setChosenYear = useChosenYear((state) => state.setChosenYear);
 
-  function chooseVariant(yearInButton: number): "text" | "contained" {
-    if (year() === yearInButton) {
+  function pickVariant(yearInButton: number): "text" | "contained" {
+    if (chosenYear() === yearInButton) {
       return "contained";
     }
 
     return "text";
+  }
+
+  function handleClickTab(clickedYear: number): void {
+    setChosenYear(clickedYear);
+    history.pushState(
+      {},
+      "",
+      "/gregorian-easter?" +
+        new URLSearchParams({ year: clickedYear.toString() }),
+    );
   }
 
   return (
@@ -29,7 +39,7 @@ export default function Tabs(props: Props): JSX.Element {
       gridTemplateColumns={"repeat(" + props.years.length + ", 1fr)"}
     >
       <For each={props.years}>
-        {(year) => (
+        {(displayedYear) => (
           <Grid
             item
             sx={{
@@ -42,10 +52,10 @@ export default function Tabs(props: Props): JSX.Element {
               sx={{
                 borderRadius: 0,
               }}
-              variant={chooseVariant(year)}
-              onClick={() => setYear(year)}
+              variant={pickVariant(displayedYear)}
+              onClick={() => handleClickTab(displayedYear)}
             >
-              {year}
+              {displayedYear}
             </Button>
           </Grid>
         )}
