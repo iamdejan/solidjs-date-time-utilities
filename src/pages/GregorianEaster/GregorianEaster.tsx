@@ -32,7 +32,7 @@ export default function GregorianEaster(): JSX.Element {
     setYear(foundYear);
   });
 
-  function copyYear(): void {
+  function saveURL(): void {
     const link =
       window.location.origin +
       "/gregorian-easter?" +
@@ -65,9 +65,9 @@ export default function GregorianEaster(): JSX.Element {
             sx={{
               marginTop: "2rem",
             }}
-            onClick={copyYear}
+            onClick={saveURL}
           >
-            Copy Year
+            Save URL
           </Button>
         </Show>
       </Box>

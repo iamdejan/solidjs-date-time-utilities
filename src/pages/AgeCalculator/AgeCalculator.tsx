@@ -69,7 +69,6 @@ export default function AgeCalculator(): JSX.Element {
       months: months,
       days: days,
     };
-    console.log(result);
     setYears(result.years ?? 0);
     setMonths(result.months ?? 0);
     setDays(result.days ?? 0);
@@ -81,7 +80,7 @@ export default function AgeCalculator(): JSX.Element {
     }
   });
 
-  function generateLink() {
+  function generateLink(): string {
     const link =
       window.location.origin +
       "/age-calculator?" +
@@ -90,8 +89,19 @@ export default function AgeCalculator(): JSX.Element {
         end: endDate(),
         calculate: "true",
       });
+    return link;
+  }
 
+  function generateAndCopyURL() {
+    const link = generateLink();
     copy(link);
+  }
+
+  function calculateAndUpdateURL() {
+    calculate();
+
+    const link = generateLink();
+    history.pushState({}, "", link);
   }
 
   return (
@@ -150,6 +160,15 @@ export default function AgeCalculator(): JSX.Element {
               value={endDate()}
               onChange={(e) => setEndDate(e.target.value)}
             />
+            <br />
+            <Button
+              type="button"
+              variant="text"
+              color="secondary"
+              onClick={() => setEndDate(getDateString(new Date()))}
+            >
+              Today
+            </Button>
           </Grid>
         </Grid>
 
@@ -160,16 +179,20 @@ export default function AgeCalculator(): JSX.Element {
             gap: "2rem",
           }}
         >
-          <Button type="button" variant="contained" onClick={calculate}>
+          <Button
+            type="button"
+            variant="contained"
+            onClick={calculateAndUpdateURL}
+          >
             Calculate
           </Button>
           <Button
             type="button"
             variant="contained"
             color="success"
-            onClick={generateLink}
+            onClick={generateAndCopyURL}
           >
-            Save
+            Save URL
           </Button>
         </Container>
 
