@@ -42,7 +42,7 @@ export default function TimeConverter(): JSX.Element {
     removeChosenTimeZone,
     referenceTimeZone,
   } = useChosenTimeZones();
-  const dateTimeRange = () => useDateTimeRange(referenceTimeZone());
+  const dateTimeRange = () => useDateTimeRange(referenceTimeZone);
 
   return (
     <>
@@ -84,6 +84,9 @@ export default function TimeConverter(): JSX.Element {
           justifyContent: "center",
         }}
       >
+        <Typography displayRaw="flex" justifyContent="center" marginY="0.5rem">
+          Slider Time Zone: {referenceTimeZone()}
+        </Typography>
         <Grid
           container
           sx={{
@@ -114,7 +117,12 @@ export default function TimeConverter(): JSX.Element {
         />
       </Box>
 
-      <Table component={Paper}>
+      <Table
+        component={Paper}
+        sx={{
+          marginTop: "2rem",
+        }}
+      >
         <TableHead>
           <TableRow>
             <TableCell>City</TableCell>

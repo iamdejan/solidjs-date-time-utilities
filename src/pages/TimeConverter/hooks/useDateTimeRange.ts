@@ -39,17 +39,17 @@ export type HookOutput = {
 };
 
 export default function useDateTimeRange(
-  referenceTimeZone: string,
+  referenceTimeZone: Accessor<string>,
 ): HookOutput {
   const [startValue, setStartValue] = createSignal<number>(
-    calculateInitialStartValue(referenceTimeZone),
+    calculateInitialStartValue(referenceTimeZone()),
   );
   const [endValue, setEndValue] = createSignal<number>(
-    calculateInitialEndValue(referenceTimeZone),
+    calculateInitialEndValue(referenceTimeZone()),
   );
 
   function start(): Date {
-    return addMinutes(startOfToday(referenceTimeZone), startValue() * 15);
+    return addMinutes(startOfToday(referenceTimeZone()), startValue() * 15);
   }
 
   function startValueLabel(): string {
@@ -57,7 +57,7 @@ export default function useDateTimeRange(
   }
 
   function end(): Date {
-    return addMinutes(startOfToday(referenceTimeZone), endValue() * 15);
+    return addMinutes(startOfToday(referenceTimeZone()), endValue() * 15);
   }
 
   function endValueLabel(): string {

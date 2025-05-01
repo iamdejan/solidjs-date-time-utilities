@@ -62,7 +62,7 @@ export default function useChosenTimeZones(): HookOutput {
   }
 
   const referenceTimeZone = createMemo(() => {
-    if (!chosenTimeZones) {
+    if (!chosenTimeZones() || chosenTimeZones().length < 1) {
       return Intl.DateTimeFormat().resolvedOptions().timeZone;
     }
 
