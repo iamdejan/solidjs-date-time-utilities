@@ -11,9 +11,9 @@ function getLocalTimeZone(): string {
 type HookOutput = {
   chosenTimeZones: Accessor<City[]>;
   // eslint-disable-next-line no-unused-vars
-  addChosenTimeZone: (_key: string) => void;
+  addChosenTimeZone: (key: string) => void;
   // eslint-disable-next-line no-unused-vars
-  removeChosenTimeZone: (_key: string) => void;
+  removeChosenTimeZone: (key: string) => void;
   referenceTimeZone: Accessor<string>;
 };
 
