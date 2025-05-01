@@ -1,4 +1,4 @@
-import { Accessor, createSignal } from "solid-js";
+import { Accessor, createMemo, createSignal } from "solid-js";
 import City from "../../../types/City";
 import sortedCityList from "../../../components/CitySelect/cityList";
 
@@ -11,9 +11,10 @@ function getLocalTimeZone(): string {
 type HookOutput = {
   chosenTimeZones: Accessor<City[]>;
   // eslint-disable-next-line no-unused-vars
-  addChosenTimeZone: (key: string) => void;
+  addChosenTimeZone: (_key: string) => void;
   // eslint-disable-next-line no-unused-vars
-  removeChosenTimeZone: (key: string) => void;
+  removeChosenTimeZone: (_key: string) => void;
+  referenceTimeZone: Accessor<string>;
 };
 
 export default function useChosenTimeZones(): HookOutput {
@@ -60,9 +61,21 @@ export default function useChosenTimeZones(): HookOutput {
     setChosenTimeZones(chosenTimeZones().filter((city) => city.key !== key));
   }
 
+  const referenceTimeZone = createMemo(() => {
+    if (!chosenTimeZones) {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone;
+    }
+
+    return (
+      chosenTimeZones()[0].timeZone ||
+      Intl.DateTimeFormat().resolvedOptions().timeZone
+    );
+  });
+
   return {
     chosenTimeZones,
     addChosenTimeZone,
     removeChosenTimeZone,
+    referenceTimeZone,
   };
 }
