@@ -19,7 +19,7 @@ import useDateTimeRange, { max, min } from "./hooks/useDateTimeRange";
 import useExtraColumn from "./hooks/useExtraColumn";
 import DeleteIcon from "@suid/icons-material/Delete";
 import { format } from "date-fns";
-import useChosenTimeZones, { zeroULID } from "./hooks/useChosenTimeZones";
+import useChosenTimeZones from "./hooks/useChosenTimeZones";
 import CitySelect from "../../components/CitySelect";
 
 const style = {
@@ -146,13 +146,11 @@ export default function TimeConverter(): JSX.Element {
                   {formatForDisplay(end(), timeZoneData.timeZone)}
                 </TableCell>
                 <TableCell>
-                  <Show when={timeZoneData.key !== zeroULID}>
-                    <IconButton
-                      onClick={() => removeChosenTimeZone(timeZoneData.key)}
-                    >
-                      <DeleteIcon />
-                    </IconButton>
-                  </Show>
+                  <IconButton
+                    onClick={() => removeChosenTimeZone(timeZoneData.key)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
                 </TableCell>
               </TableRow>
             )}
