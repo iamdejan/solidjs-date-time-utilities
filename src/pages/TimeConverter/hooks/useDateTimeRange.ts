@@ -1,19 +1,25 @@
+import { TZDate } from "@date-fns/tz";
 import { MdSlider } from "@material/web/all";
-import { addMinutes, differenceInHours, format, startOfToday } from "date-fns";
+import { addMinutes, differenceInHours, format, startOfDay } from "date-fns";
 import { Accessor, createSignal, Setter } from "solid-js";
 
 export const min = 0;
 export const max = 96;
 
-function calculateInitialStartValue(): number {
-  const now = new Date();
-  const startOfDay = startOfToday();
-  const hoursSinceStartOfDay = differenceInHours(now, startOfDay);
+function startOfToday(referenceTimeZone: string): TZDate {
+  const now = new TZDate(new Date(), referenceTimeZone);
+  return startOfDay(now);
+}
+
+function calculateInitialStartValue(referenceTimeZone: string): number {
+  const now = new TZDate(new Date(), referenceTimeZone);
+  const todayStart = startOfDay(now);
+  const hoursSinceStartOfDay = differenceInHours(now, todayStart);
   return Math.floor((hoursSinceStartOfDay * 60) / 15);
 }
 
-function calculateInitialEndValue(): number {
-  return calculateInitialStartValue() + 4;
+function calculateInitialEndValue(referenceTimeZone: string): number {
+  return calculateInitialStartValue(referenceTimeZone) + 4;
 }
 
 export type HookOutput = {
@@ -30,18 +36,26 @@ export type HookOutput = {
 
   // eslint-disable-next-line no-unused-vars
   handleSliderChange: (ev: Event) => void;
+  resetSlider: () => void;
 };
 
-export default function useDateTimeRange(): HookOutput {
+export default function useDateTimeRange(
+  referenceTimeZone: Accessor<string>,
+): HookOutput {
   const [startValue, setStartValue] = createSignal<number>(
-    calculateInitialStartValue(),
+    calculateInitialStartValue(referenceTimeZone()),
   );
   const [endValue, setEndValue] = createSignal<number>(
-    calculateInitialEndValue(),
+    calculateInitialEndValue(referenceTimeZone()),
   );
 
+  function resetSlider() {
+    setStartValue(calculateInitialStartValue(referenceTimeZone()));
+    setEndValue(calculateInitialEndValue(referenceTimeZone()));
+  }
+
   function start(): Date {
-    return addMinutes(startOfToday(), startValue() * 15);
+    return addMinutes(startOfToday(referenceTimeZone()), startValue() * 15);
   }
 
   function startValueLabel(): string {
@@ -49,7 +63,7 @@ export default function useDateTimeRange(): HookOutput {
   }
 
   function end(): Date {
-    return addMinutes(startOfToday(), endValue() * 15);
+    return addMinutes(startOfToday(referenceTimeZone()), endValue() * 15);
   }
 
   function endValueLabel(): string {
@@ -85,5 +99,6 @@ export default function useDateTimeRange(): HookOutput {
     startValueLabel,
     endValueLabel,
     handleSliderChange,
+    resetSlider,
   };
 }

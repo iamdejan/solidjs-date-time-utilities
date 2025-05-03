@@ -2,6 +2,7 @@ import { createSignal, For, JSX, Show } from "solid-js";
 import "@material/web/slider/slider.js";
 import {
   Box,
+  Button,
   Fab,
   Grid,
   IconButton,
@@ -19,7 +20,7 @@ import useDateTimeRange, { max, min } from "./hooks/useDateTimeRange";
 import useExtraColumn from "./hooks/useExtraColumn";
 import DeleteIcon from "@suid/icons-material/Delete";
 import { format } from "date-fns";
-import useChosenTimeZones, { zeroULID } from "./hooks/useChosenTimeZones";
+import useChosenTimeZones from "./hooks/useChosenTimeZones";
 import CitySelect from "../../components/CitySelect";
 
 const style = {
@@ -34,6 +35,13 @@ function formatForDisplay(date: Date, timeZone: string): string {
 
 export default function TimeConverter(): JSX.Element {
   const {
+    chosenTimeZones,
+    addChosenTimeZone,
+    removeChosenTimeZone,
+    referenceTimeZone,
+  } = useChosenTimeZones();
+
+  const {
     start,
     end,
     startValue,
@@ -41,13 +49,12 @@ export default function TimeConverter(): JSX.Element {
     startValueLabel,
     endValueLabel,
     handleSliderChange,
-  } = useDateTimeRange();
+    resetSlider,
+  } = useDateTimeRange(referenceTimeZone);
 
   const { canShowExtraColumn } = useExtraColumn();
 
   const [selectedCityKey, setSelectedCityKey] = createSignal<string>("");
-  const { chosenTimeZones, addChosenTimeZone, removeChosenTimeZone } =
-    useChosenTimeZones();
 
   return (
     <>
@@ -89,6 +96,9 @@ export default function TimeConverter(): JSX.Element {
           justifyContent: "center",
         }}
       >
+        <Typography displayRaw="flex" justifyContent="center" marginY="0.5rem">
+          Slider Time Zone: {referenceTimeZone()}
+        </Typography>
         <Grid
           container
           sx={{
@@ -117,9 +127,25 @@ export default function TimeConverter(): JSX.Element {
           onChange={handleSliderChange}
           onPointerMove={handleSliderChange}
         />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Button type="button" variant="text" onClick={resetSlider}>
+            Reset Slider
+          </Button>
+        </Box>
       </Box>
 
-      <Table component={Paper}>
+      <Table
+        component={Paper}
+        sx={{
+          marginTop: "2rem",
+          tableLayout: "fixed",
+        }}
+      >
         <TableHead>
           <TableRow>
             <TableCell>City</TableCell>
@@ -146,13 +172,11 @@ export default function TimeConverter(): JSX.Element {
                   {formatForDisplay(end(), timeZoneData.timeZone)}
                 </TableCell>
                 <TableCell>
-                  <Show when={timeZoneData.key !== zeroULID}>
-                    <IconButton
-                      onClick={() => removeChosenTimeZone(timeZoneData.key)}
-                    >
-                      <DeleteIcon />
-                    </IconButton>
-                  </Show>
+                  <IconButton
+                    onClick={() => removeChosenTimeZone(timeZoneData.key)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
                 </TableCell>
               </TableRow>
             )}
