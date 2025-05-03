@@ -1,4 +1,4 @@
-import { Accessor, createSignal } from "solid-js";
+import { Accessor, createMemo, createSignal } from "solid-js";
 import City from "../../../types/City";
 import sortedCityList from "../../../components/CitySelect/cityList";
 
@@ -14,6 +14,7 @@ type HookOutput = {
   addChosenTimeZone: (key: string) => void;
   // eslint-disable-next-line no-unused-vars
   removeChosenTimeZone: (key: string) => void;
+  referenceTimeZone: Accessor<string>;
 };
 
 export default function useChosenTimeZones(): HookOutput {
@@ -45,21 +46,36 @@ export default function useChosenTimeZones(): HookOutput {
   }
 
   function removeChosenTimeZone(key: string) {
-    const found = chosenTimeZones().filter((city) => city.key === key);
-    if (!found) {
+    if (key === zeroULID) {
+      setChosenTimeZones(
+        chosenTimeZones().filter((city) => city.key !== zeroULID),
+      );
       return;
     }
 
-    if (found[0].key === zeroULID) {
+    const found = chosenTimeZones().filter((city) => city.key === key);
+    if (!found) {
       return;
     }
 
     setChosenTimeZones(chosenTimeZones().filter((city) => city.key !== key));
   }
 
+  const referenceTimeZone = createMemo(() => {
+    if (!chosenTimeZones() || chosenTimeZones().length < 1) {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone;
+    }
+
+    return (
+      chosenTimeZones()[0].timeZone ||
+      Intl.DateTimeFormat().resolvedOptions().timeZone
+    );
+  });
+
   return {
     chosenTimeZones,
     addChosenTimeZone,
     removeChosenTimeZone,
+    referenceTimeZone,
   };
 }

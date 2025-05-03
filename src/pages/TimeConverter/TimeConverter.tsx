@@ -19,7 +19,7 @@ import useDateTimeRange, { max, min } from "./hooks/useDateTimeRange";
 import useExtraColumn from "./hooks/useExtraColumn";
 import DeleteIcon from "@suid/icons-material/Delete";
 import { format } from "date-fns";
-import useChosenTimeZones, { zeroULID } from "./hooks/useChosenTimeZones";
+import useChosenTimeZones from "./hooks/useChosenTimeZones";
 import CitySelect from "../../components/CitySelect";
 
 const style = {
@@ -34,20 +34,17 @@ function formatForDisplay(date: Date, timeZone: string): string {
 
 export default function TimeConverter(): JSX.Element {
   const {
-    start,
-    end,
-    startValue,
-    endValue,
-    startValueLabel,
-    endValueLabel,
-    handleSliderChange,
-  } = useDateTimeRange();
+    chosenTimeZones,
+    addChosenTimeZone,
+    removeChosenTimeZone,
+    referenceTimeZone,
+  } = useChosenTimeZones();
+
+  const dateTimeRange = useDateTimeRange(referenceTimeZone);
 
   const { canShowExtraColumn } = useExtraColumn();
 
   const [selectedCityKey, setSelectedCityKey] = createSignal<string>("");
-  const { chosenTimeZones, addChosenTimeZone, removeChosenTimeZone } =
-    useChosenTimeZones();
 
   return (
     <>
@@ -89,6 +86,9 @@ export default function TimeConverter(): JSX.Element {
           justifyContent: "center",
         }}
       >
+        <Typography displayRaw="flex" justifyContent="center" marginY="0.5rem">
+          Slider Time Zone: {referenceTimeZone()}
+        </Typography>
         <Grid
           container
           sx={{
@@ -107,19 +107,24 @@ export default function TimeConverter(): JSX.Element {
           max={max}
           labeled={true}
           ticks={true}
-          value-label-start={startValueLabel()}
-          aria-label-start={startValueLabel()}
-          value-label-end={endValueLabel()}
-          aria-label-end={endValueLabel()}
-          value-start={startValue()}
-          value-end={endValue()}
+          value-label-start={dateTimeRange.startValueLabel()}
+          aria-label-start={dateTimeRange.startValueLabel()}
+          value-label-end={dateTimeRange.endValueLabel()}
+          aria-label-end={dateTimeRange.endValueLabel()}
+          value-start={dateTimeRange.startValue()}
+          value-end={dateTimeRange.endValue()}
           style={style}
-          onChange={handleSliderChange}
-          onPointerMove={handleSliderChange}
+          onChange={(ev) => dateTimeRange.handleSliderChange(ev)}
+          onPointerMove={(ev) => dateTimeRange.handleSliderChange(ev)}
         />
       </Box>
 
-      <Table component={Paper}>
+      <Table
+        component={Paper}
+        sx={{
+          marginTop: "2rem",
+        }}
+      >
         <TableHead>
           <TableRow>
             <TableCell>City</TableCell>
@@ -140,19 +145,20 @@ export default function TimeConverter(): JSX.Element {
                   <TableCell>{timeZoneData.timeZone}</TableCell>
                 </Show>
                 <TableCell>
-                  {formatForDisplay(start(), timeZoneData.timeZone)}
+                  {formatForDisplay(
+                    dateTimeRange.start(),
+                    timeZoneData.timeZone,
+                  )}
                 </TableCell>
                 <TableCell>
-                  {formatForDisplay(end(), timeZoneData.timeZone)}
+                  {formatForDisplay(dateTimeRange.end(), timeZoneData.timeZone)}
                 </TableCell>
                 <TableCell>
-                  <Show when={timeZoneData.key !== zeroULID}>
-                    <IconButton
-                      onClick={() => removeChosenTimeZone(timeZoneData.key)}
-                    >
-                      <DeleteIcon />
-                    </IconButton>
-                  </Show>
+                  <IconButton
+                    onClick={() => removeChosenTimeZone(timeZoneData.key)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
                 </TableCell>
               </TableRow>
             )}
