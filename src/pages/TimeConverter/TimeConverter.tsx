@@ -40,7 +40,15 @@ export default function TimeConverter(): JSX.Element {
     referenceTimeZone,
   } = useChosenTimeZones();
 
-  const dateTimeRange = useDateTimeRange(referenceTimeZone);
+  const {
+    start,
+    end,
+    startValue,
+    endValue,
+    startValueLabel,
+    endValueLabel,
+    handleSliderChange,
+  } = useDateTimeRange(referenceTimeZone);
 
   const { canShowExtraColumn } = useExtraColumn();
 
@@ -107,15 +115,15 @@ export default function TimeConverter(): JSX.Element {
           max={max}
           labeled={true}
           ticks={true}
-          value-label-start={dateTimeRange.startValueLabel()}
-          aria-label-start={dateTimeRange.startValueLabel()}
-          value-label-end={dateTimeRange.endValueLabel()}
-          aria-label-end={dateTimeRange.endValueLabel()}
-          value-start={dateTimeRange.startValue()}
-          value-end={dateTimeRange.endValue()}
+          value-label-start={startValueLabel()}
+          aria-label-start={startValueLabel()}
+          value-label-end={endValueLabel()}
+          aria-label-end={endValueLabel()}
+          value-start={startValue()}
+          value-end={endValue()}
           style={style}
-          onChange={(ev) => dateTimeRange.handleSliderChange(ev)}
-          onPointerMove={(ev) => dateTimeRange.handleSliderChange(ev)}
+          onChange={(ev) => handleSliderChange(ev)}
+          onPointerMove={(ev) => handleSliderChange(ev)}
         />
       </Box>
 
@@ -145,13 +153,10 @@ export default function TimeConverter(): JSX.Element {
                   <TableCell>{timeZoneData.timeZone}</TableCell>
                 </Show>
                 <TableCell>
-                  {formatForDisplay(
-                    dateTimeRange.start(),
-                    timeZoneData.timeZone,
-                  )}
+                  {formatForDisplay(start(), timeZoneData.timeZone)}
                 </TableCell>
                 <TableCell>
-                  {formatForDisplay(dateTimeRange.end(), timeZoneData.timeZone)}
+                  {formatForDisplay(end(), timeZoneData.timeZone)}
                 </TableCell>
                 <TableCell>
                   <IconButton
