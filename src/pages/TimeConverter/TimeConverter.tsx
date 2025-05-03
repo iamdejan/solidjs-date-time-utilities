@@ -122,8 +122,8 @@ export default function TimeConverter(): JSX.Element {
           value-start={startValue()}
           value-end={endValue()}
           style={style}
-          onChange={(ev) => handleSliderChange(ev)}
-          onPointerMove={(ev) => handleSliderChange(ev)}
+          onChange={handleSliderChange}
+          onPointerMove={handleSliderChange}
         />
       </Box>
 
