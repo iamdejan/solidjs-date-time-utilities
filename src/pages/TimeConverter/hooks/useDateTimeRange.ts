@@ -36,6 +36,7 @@ export type HookOutput = {
 
   // eslint-disable-next-line no-unused-vars
   handleSliderChange: (ev: Event) => void;
+  resetSlider: () => void;
 };
 
 export default function useDateTimeRange(
@@ -47,6 +48,11 @@ export default function useDateTimeRange(
   const [endValue, setEndValue] = createSignal<number>(
     calculateInitialEndValue(referenceTimeZone()),
   );
+
+  function resetSlider() {
+    setStartValue(calculateInitialStartValue(referenceTimeZone()));
+    setEndValue(calculateInitialEndValue(referenceTimeZone()));
+  }
 
   function start(): Date {
     return addMinutes(startOfToday(referenceTimeZone()), startValue() * 15);
@@ -93,5 +99,6 @@ export default function useDateTimeRange(
     startValueLabel,
     endValueLabel,
     handleSliderChange,
+    resetSlider,
   };
 }

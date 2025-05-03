@@ -2,6 +2,7 @@ import { createSignal, For, JSX, Show } from "solid-js";
 import "@material/web/slider/slider.js";
 import {
   Box,
+  Button,
   Fab,
   Grid,
   IconButton,
@@ -48,6 +49,7 @@ export default function TimeConverter(): JSX.Element {
     startValueLabel,
     endValueLabel,
     handleSliderChange,
+    resetSlider,
   } = useDateTimeRange(referenceTimeZone);
 
   const { canShowExtraColumn } = useExtraColumn();
@@ -125,12 +127,23 @@ export default function TimeConverter(): JSX.Element {
           onChange={handleSliderChange}
           onPointerMove={handleSliderChange}
         />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Button type="button" variant="text" onClick={resetSlider}>
+            Reset Slider
+          </Button>
+        </Box>
       </Box>
 
       <Table
         component={Paper}
         sx={{
           marginTop: "2rem",
+          tableLayout: "fixed",
         }}
       >
         <TableHead>
