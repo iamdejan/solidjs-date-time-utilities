@@ -49,11 +49,7 @@ export default function useDateTimeRange(
   );
 
   function start(): Date {
-    const result = addMinutes(
-      startOfToday(referenceTimeZone()),
-      startValue() * 15,
-    );
-    return result;
+    return addMinutes(startOfToday(referenceTimeZone()), startValue() * 15);
   }
 
   function startValueLabel(): string {
@@ -61,11 +57,7 @@ export default function useDateTimeRange(
   }
 
   function end(): Date {
-    const result = addMinutes(
-      startOfToday(referenceTimeZone()),
-      endValue() * 15,
-    );
-    return result;
+    return addMinutes(startOfToday(referenceTimeZone()), endValue() * 15);
   }
 
   function endValueLabel(): string {
