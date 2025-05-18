@@ -7,7 +7,7 @@ import {
   getTime,
   getUnixTime,
 } from "date-fns";
-import { Accessor, createSignal, Setter } from "solid-js";
+import { Accessor, createSignal, onCleanup, Setter } from "solid-js";
 import sortedCityList from "../../../components/CitySelect/cityList";
 
 type DateTimeDisplay = {
@@ -59,10 +59,11 @@ export function useDisplayTimeFormats(): HookOutput {
     return sortedCityList.find((city) => city.key === selectedCityKey())
       ?.timeZone;
   }
-  setInterval(
+  const timer = setInterval(
     () => setNow(convertToTZDate(new TZDateMini(), cityKeyToTimeZone())),
     1,
   );
+  onCleanup(() => clearInterval(timer));
 
   const displays: DateTimeDisplay[] = [
     {
