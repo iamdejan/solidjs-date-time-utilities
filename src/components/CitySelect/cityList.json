@@ -1734,6 +1734,12 @@
     "country": "Liberia"
   },
   {
+    "key": "01JT67Q746F7YKQ2W3S4VSSGY7",
+    "name": "Benghazi",
+    "timeZone": "Africa/Tripoli",
+    "country": "Libya"
+  },
+  {
     "key": "01JT67Q746F7YKQ2W3S4VSSGY8",
     "name": "Tripoli",
     "timeZone": "Africa/Tripoli",
@@ -1992,8 +1998,26 @@
     "country": "Netherlands"
   },
   {
+    "key": "01JT67Q746SE6K4JMTGMKQM0FR",
+    "name": "Breda",
+    "timeZone": "Europe/Amsterdam",
+    "country": "Netherlands"
+  },
+  {
     "key": "01JT67Q746SE6K4JMTGMKQM0FP",
     "name": "Delft",
+    "timeZone": "Europe/Amsterdam",
+    "country": "Netherlands"
+  },
+  {
+    "key": "01JXD7K1EH6FGC8M193D0AJVNT",
+    "name": "Eindhoven",
+    "timeZone": "Europe/Amsterdam",
+    "country": "Netherlands"
+  },
+  {
+    "key": "01JT67Q746SE6K4JMTGMKQM0FQ",
+    "name": "Enschede",
     "timeZone": "Europe/Amsterdam",
     "country": "Netherlands"
   },
@@ -2012,6 +2036,18 @@
   {
     "key": "01JT67Q746D706B9STMY2RJGYS",
     "name": "Rotterdam",
+    "timeZone": "Europe/Amsterdam",
+    "country": "Netherlands"
+  },
+  {
+    "key": "01JT67Q746SE6K4JMTGMKQM0FS",
+    "name": "The Hague (Den Haag)",
+    "timeZone": "Europe/Amsterdam",
+    "country": "Netherlands"
+  },
+  {
+    "key": "01JT67Q746SE6K4JMTGMKQM0FT",
+    "name": "Utrech",
     "timeZone": "Europe/Amsterdam",
     "country": "Netherlands"
   },
@@ -2102,6 +2138,18 @@
   {
     "key": "01JT67Q74644E1Y1S1M5MK6YFP",
     "name": "Muscat",
+    "timeZone": "Asia/Muscat",
+    "country": "Oman"
+  },
+  {
+    "key": "01JXD7VS95FTDP72F55FX5GWW3",
+    "name": "Salalah",
+    "timeZone": "Asia/Muscat",
+    "country": "Oman"
+  },
+  {
+    "key": "01JXD7VS95FTDP72F55FX5GWW4",
+    "name": "Seeb",
     "timeZone": "Asia/Muscat",
     "country": "Oman"
   },
@@ -2468,6 +2516,18 @@
   {
     "key": "01JT67Q746D6DQ97XFQ06B68Z6",
     "name": "Johannesburg",
+    "timeZone": "Africa/Johannesburg",
+    "country": "South Africa"
+  },
+  {
+    "key": "01JT67Q746D6DQ97XFQ06B68Z7",
+    "name": "Pretoria",
+    "timeZone": "Africa/Johannesburg",
+    "country": "South Africa"
+  },
+  {
+    "key": "01JT67Q746D6DQ97XFQ06B68Z8",
+    "name": "Soweto",
     "timeZone": "Africa/Johannesburg",
     "country": "South Africa"
   },
@@ -3124,6 +3184,18 @@
     "name": "Ho Chi Minh",
     "timeZone": "Asia/Ho_Chi_Minh",
     "country": "Vietnam"
+  },
+  {
+    "key": "01JXD7MF8CAQMCNVK78SSVT5CQ",
+    "name": "Aden",
+    "timeZone": "Asia/Aden",
+    "country": "Yemen"
+  },
+  {
+    "key": "01JXD7MF8CAQMCNVK78SSVT5CR",
+    "name": "Sanaa",
+    "timeZone": "Asia/Aden",
+    "country": "Yemen"
   },
   {
     "key": "01JT67Q746RE75D9PA53D0P85Y",

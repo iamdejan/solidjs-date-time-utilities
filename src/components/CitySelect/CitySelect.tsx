@@ -5,7 +5,7 @@ import {
   Select,
   TextField,
 } from "@suid/material";
-import { JSX, For, createSignal } from "solid-js";
+import { JSX, For, createSignal, onMount, onCleanup } from "solid-js";
 import useCityDropDown from "./hooks/useCityDropDown";
 import Props from "./Props";
 import { formatCity } from "../../types/City";
@@ -22,9 +22,19 @@ export default function CitySelect(props: Props): JSX.Element {
   const cityListDebounced = accessorDebounced(displayedCityList, 500);
 
   const [windowWidth, setWindowWith] = createSignal<number>(window.innerWidth);
-  window.addEventListener("resize", () => {
+
+  function setWindowWithByValue() {
     setWindowWith(window.innerWidth);
+  }
+
+  onMount(() => {
+    window.addEventListener("resize", setWindowWithByValue);
   });
+
+  onCleanup(() => {
+    window.removeEventListener("resize", setWindowWithByValue);
+  });
+
   function formWidth(): string {
     return windowWidth() >= 1000 ? "300px" : "175px";
   }

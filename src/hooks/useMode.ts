@@ -27,15 +27,23 @@ const useMode = createWithSignal<ModeState>((set) => ({
     }),
 }));
 
+function changeTheme(ev: MediaQueryListEvent) {
+  const newColorScheme = ev.matches ? defaultMode : nextMode(defaultMode);
+  const currentMode = useMode.getState().mode;
+  if (currentMode !== newColorScheme) {
+    localStorage.setItem(localStorageKey, newColorScheme);
+    useMode.setState({ mode: newColorScheme });
+  }
+}
+
 window
   .matchMedia(`(prefers-color-scheme: ${defaultMode})`)
-  .addEventListener("change", (ev: MediaQueryListEvent) => {
-    const newColorScheme = ev.matches ? defaultMode : nextMode(defaultMode);
-    const currentMode = useMode.getState().mode;
-    if (currentMode !== newColorScheme) {
-      localStorage.setItem(localStorageKey, newColorScheme);
-      useMode.setState({ mode: newColorScheme });
-    }
-  });
+  .addEventListener("change", changeTheme);
+
+window.onbeforeunload = () => {
+  window
+    .matchMedia(`(prefers-color-scheme: ${defaultMode})`)
+    .removeEventListener("change", changeTheme);
+};
 
 export default useMode;
